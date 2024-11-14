@@ -15,7 +15,7 @@ const SmoothScrollingWrapper = () => {
   );
 };
 
-function App({ pageProps }: { pageProps: any }) {
+function App() {
   const { isLoading, setLoading } = useLoadingStore();
 
   const handleLoadingComplete = () => {
@@ -32,13 +32,6 @@ function App({ pageProps }: { pageProps: any }) {
     <div className="max-w-8xl mx-auto">
       <SideBar />
       {conditioanlRender}
-      {/* {isLoading ? (
-        <LoadingScreen onLoadingComplete={handleLoadingComplete} />
-      ) : (
-        <div className="max-w-8xl mx-auto">
-          <SmoothScrollingWrapper />
-        </div>
-      )} */}
     </div>
   );
 }
