@@ -24,7 +24,7 @@ const AgencyOverview: React.FC = () => {
 };
 
 const MainSection = () => (
-  <div className="flex flex-col lg:flex-row mx-3 lg:mx-0 lg:w-[65%] w-full rounded-xl overflow-hidden shadow-lg">
+  <div className="flex flex-col lg:flex-row mx-3 lg:mx-0 lg:w-[65%] w-full rounded-xl overflow-hidden shadow-lg ">
     <div className="relative w-full h-[90vh] backgroundGradient px-10">
       <h1 className="lg:text-9xl md:text-7xl text-5xl mt-20 font-bold mb-4 md:mt-10 text-white">
         Brand and Design

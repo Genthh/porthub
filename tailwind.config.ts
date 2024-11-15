@@ -15,6 +15,9 @@ export default {
       maxWidth: {
         "8xl": "92rem",
       },
+      zIndex: {
+        "1000": "1000",
+      },
     },
   },
   variants: {
