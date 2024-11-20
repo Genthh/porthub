@@ -1,7 +1,7 @@
 import { useLayoutEffect, useRef, MutableRefObject } from "react";
 import { gsap } from "gsap";
-import { startLoadingAnimation } from "./animations";
-import { useLoadingStore } from "../store/loadingStore";
+import { startLoadingAnimation } from "../animations";
+import { useLoadingStore } from "../../store/loadingStore";
 
 export default function LoadingScreen() {
   const textRef = useRef<HTMLDivElement | null>(

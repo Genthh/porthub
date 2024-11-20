@@ -1,9 +1,9 @@
 import Image from "next/image";
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import gsap from "gsap";
 import { slideInFromBottom } from "./animations";
 import { useGSAP } from "@gsap/react";
-import { useLoadingStore } from "../store/loadingStore";
+import { Button } from "./controlled/Buttons";
 
 const AgencyOverview: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -93,34 +93,9 @@ const ActionButtons = () => (
       color="bg-black text-white"
       rotation="-rotate-12"
       bottom="bottom-0"
-      // left="left-0"
       right="right-0"
     />
   </div>
-);
-
-const Button = ({
-  label,
-  color,
-  rotation,
-  bottom,
-  left,
-  right,
-  zIndex = "z-10",
-}: {
-  label: string;
-  color: string;
-  rotation: string;
-  bottom: string;
-  left?: string;
-  right?: string;
-  zIndex?: string;
-}) => (
-  <button
-    className={`${color} absolute px-4 py-1 text-lg rounded-full shadow-md ${rotation} ${bottom} ${left} ${right} ${zIndex}`}
-  >
-    {label}
-  </button>
 );
 
 export default AgencyOverview;

@@ -29,7 +29,7 @@ const SmoothScroll: React.FC<SmoothScrollProps> = ({
       if (scrollingContainer) {
         gsap.to(scrollingContainer, {
           y: -window.scrollY,
-          duration: 1.5,
+          duration: 1.8,
           ease: "power2.out",
         });
       }
@@ -54,7 +54,7 @@ const SmoothScroll: React.FC<SmoothScrollProps> = ({
     <div className="parent ">
       <div
         ref={scrollingContainerRef}
-        className="scrolling-container fixed inset-0 mx-auto top-0  "
+        className="scrolling-container fixed inset-0 mx-auto top-0  mb-20"
         style={{ maxWidth }}
       >
         {children}

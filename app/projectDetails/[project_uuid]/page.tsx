@@ -1,18 +1,17 @@
 "use client";
-import LoadingScreen from "@/app/components/LoadingScreen";
+import LoadingScreen from "@/app/components/controlled/LoadingScreen";
 import ProjectDetailsComponent from "@/app/components/ProjectDetailsComponent";
-import SmoothScroll from "@/app/components/smoothScroll/SmoothScroll";
-import { projects } from "@/app/utils/ProjectsData";
+import SmoothScroll from "@/app/components/controlled/SmoothScroll";
+import { Project, projects } from "@/app/utils/ProjectsData";
 import { useParams } from "next/navigation";
 import React, { use } from "react";
 
 const Page = () => {
   const { project_uuid } = useParams();
-  const project = projects.find((proj) => proj.uuid === project_uuid);
+  const project = projects.find(
+    (proj) => proj.uuid === project_uuid
+  ) as Project;
   console.log(project);
-  if (!project) {
-    return <LoadingScreen />;
-  }
 
   return (
     <div className="mx-auto flex flex-col items-center justify-center relative">
