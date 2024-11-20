@@ -173,7 +173,7 @@ const Footer = () => {
   return (
     <div className="flex flex-col justify-center items-center gap-y-5 mt-20 ">
       <div className="w-fit relative p-10 ">
-        <p className="flex flex-col text-center lg:text-8xl text-3xl font-bold">
+        <p className="flex flex-col text-center lg:text-8xl text-2xl font-bold">
           LET'S MAKE<span>SOMETHING GREAT!</span>
         </p>
         <span className="lg:w-44 lg:h-44 w-20 h-20 text-black lg:text-3xl text-sm font-bold p-4 rounded-full bg-[#d0ff71] absolute right-0 lg:top-0 top-3 z-1000 text-center flex justify-center items-center">

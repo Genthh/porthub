@@ -42,6 +42,11 @@ const generateUUIDs = (): Project[] => {
         height: "350px",
         position: "start",
         uuid: uuidv4(),
+        images: [
+          "https://uithemez.com/i/hubfolio_HTML/inner_pages/assets/imgs/services/img1.jpg",
+          "https://uithemez.com/i/hubfolio_HTML/inner_pages/assets/imgs/services/img2.jpg",
+          "https://uithemez.com/i/hubfolio_HTML/inner_pages/assets/imgs/portfolio/project/3.jpg",
+        ],
       },
       {
         image: "/img-2.jpg",
@@ -51,6 +56,11 @@ const generateUUIDs = (): Project[] => {
         height: "450px",
         position: "end",
         uuid: uuidv4(),
+        images: [
+          "https://uithemez.com/i/hubfolio_HTML/inner_pages/assets/imgs/services/img1.jpg",
+          "https://uithemez.com/i/hubfolio_HTML/inner_pages/assets/imgs/services/img2.jpg",
+          "https://uithemez.com/i/hubfolio_HTML/inner_pages/assets/imgs/portfolio/project/3.jpg",
+        ],
       },
       {
         image: "/img-5.jpg",
@@ -60,6 +70,11 @@ const generateUUIDs = (): Project[] => {
         height: "350px",
         position: "center",
         uuid: uuidv4(),
+        images: [
+          "https://uithemez.com/i/hubfolio_HTML/inner_pages/assets/imgs/services/img1.jpg",
+          "https://uithemez.com/i/hubfolio_HTML/inner_pages/assets/imgs/services/img2.jpg",
+          "https://uithemez.com/i/hubfolio_HTML/inner_pages/assets/imgs/portfolio/project/3.jpg",
+        ],
       },
       {
         image: "/img-6.jpg",
@@ -69,6 +84,11 @@ const generateUUIDs = (): Project[] => {
         height: "450px",
         position: "end",
         uuid: uuidv4(),
+        images: [
+          "https://uithemez.com/i/hubfolio_HTML/inner_pages/assets/imgs/services/img1.jpg",
+          "https://uithemez.com/i/hubfolio_HTML/inner_pages/assets/imgs/services/img2.jpg",
+          "https://uithemez.com/i/hubfolio_HTML/inner_pages/assets/imgs/portfolio/project/3.jpg",
+        ],
       },
       {
         image: "/img-2.jpg",
@@ -78,6 +98,11 @@ const generateUUIDs = (): Project[] => {
         height: "450px",
         position: "end",
         uuid: uuidv4(),
+        images: [
+          "https://uithemez.com/i/hubfolio_HTML/inner_pages/assets/imgs/services/img1.jpg",
+          "https://uithemez.com/i/hubfolio_HTML/inner_pages/assets/imgs/services/img2.jpg",
+          "https://uithemez.com/i/hubfolio_HTML/inner_pages/assets/imgs/portfolio/project/3.jpg",
+        ],
       },
       {
         image: "/img-4.jpg",
@@ -87,6 +112,11 @@ const generateUUIDs = (): Project[] => {
         height: "350px",
         position: "center",
         uuid: uuidv4(),
+        images: [
+          "https://uithemez.com/i/hubfolio_HTML/inner_pages/assets/imgs/services/img1.jpg",
+          "https://uithemez.com/i/hubfolio_HTML/inner_pages/assets/imgs/services/img2.jpg",
+          "https://uithemez.com/i/hubfolio_HTML/inner_pages/assets/imgs/portfolio/project/3.jpg",
+        ],
       },
     ];
     localStorage.setItem("projects", JSON.stringify(newProjects));
