@@ -4,9 +4,9 @@ import Image from "next/image";
 import InIcon from "../_svgs/inIcon.svg";
 import TwitterIcon from "../_svgs/xIcon.svg";
 import InstagramIcon from "../_svgs/instagramIcon.svg";
-import CloseIcon from "../_svgs/closeIcon.svg";
 import { gsap } from "gsap";
-
+import EnvelopeIcon from "../_svgs/envelope.svg";
+import { Menu } from "./Menu";
 export const SideBar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const sidebarRef = useRef(null);
@@ -15,18 +15,16 @@ export const SideBar = () => {
     setIsOpen((prev) => !prev);
 
     if (!isOpen) {
-      // Open animation
       gsap.to(sidebarRef.current, {
         x: 0,
-        duration: 0.5,
-        ease: "power3.out",
+        duration: 1.5,
+        ease: "power1.inOut",
       });
     } else {
-      // Close animation
       gsap.to(sidebarRef.current, {
         x: "-100%",
-        duration: 0.5,
-        ease: "power3.in",
+        duration: 1.5,
+        ease: "power1.inOut",
       });
     }
   };
@@ -34,7 +32,6 @@ export const SideBar = () => {
   return (
     <>
       <div className="fixed mx-auto h-full w-80 py-10 px-5 flex-col justify-between lg:flex hidden z-50">
-        {/* Desktop Sidebar */}
         <div className="flex flex-col gap-y-10">
           <div className="flex items-center justify-between">
             <button className="rounded-full bg-white px-10 font-bold py-2">
@@ -71,12 +68,12 @@ export const SideBar = () => {
             </div>
           </div>
         </div>
-        <button className="text-white border border-white rounded-xl py-3">
+        <button className="text-white border border-white rounded-full hover:bg-white hover:text-primary duration-150  ease-in py-3 flex justify-center items-center gap-x-2">
+          <EnvelopeIcon />
           Work With Us
         </button>
       </div>
 
-      {/* Mobile Header */}
       <div className="flex justify-between items-center px-5 w-full py-5 lg:hidden fixed z-40 top-0">
         <div className="rounded-full bg-white px-8 py-2">Hubfolio</div>
         <div onClick={toggleMenu} className="cursor-pointer">
@@ -84,19 +81,16 @@ export const SideBar = () => {
         </div>
       </div>
 
-      {/* Sidebar with Animation */}
-      <div
+      {/* <div
         ref={sidebarRef}
         className="fixed top-0 left-0 w-full h-full bg-primary z-1000 -translate-x-full"
+        style={{
+          // backgroundImage: "url('/bgimage.jpg')",
+          backgroundPosition: "center",
+        }}
       >
-        <div
-          onClick={toggleMenu}
-          className="absolute cursor-pointer z-50 top-0 right-0 flex justify-end items-center m-5"
-        >
-          <CloseIcon />
-        </div>
-        <div className="bg-gray-600 bg-opacity-25   h-full w-5/12 fixed right-0 top-0"></div>
-      </div>
+        <Menu isOpen={isOpen} toggleMenu={toggleMenu} />
+      </div> */}
     </>
   );
 };

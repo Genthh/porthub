@@ -1,13 +1,17 @@
 "use client";
 
-import React, { ReactNode, useEffect, useRef } from "react";
+import React, { ReactNode, useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 
 interface SmoothScrollProps {
   children: ReactNode;
+  maxWidth?: string;
 }
 
-const SmoothScroll: React.FC<SmoothScrollProps> = ({ children }) => {
+const SmoothScroll: React.FC<SmoothScrollProps> = ({
+  children,
+  maxWidth = "92rem",
+}) => {
   const scrollingContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -25,7 +29,7 @@ const SmoothScroll: React.FC<SmoothScrollProps> = ({ children }) => {
       if (scrollingContainer) {
         gsap.to(scrollingContainer, {
           y: -window.scrollY,
-          duration: 0.8,
+          duration: 1.5,
           ease: "power2.out",
         });
       }
@@ -50,7 +54,8 @@ const SmoothScroll: React.FC<SmoothScrollProps> = ({ children }) => {
     <div className="parent ">
       <div
         ref={scrollingContainerRef}
-        className="scrolling-container fixed lg:right-[8%] top-0"
+        className="scrolling-container fixed inset-0 mx-auto top-0  "
+        style={{ maxWidth }}
       >
         {children}
       </div>

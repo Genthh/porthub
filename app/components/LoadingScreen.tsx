@@ -1,25 +1,21 @@
-import { useEffect, useRef, MutableRefObject } from "react";
+import { useLayoutEffect, useRef, MutableRefObject } from "react";
 import { gsap } from "gsap";
 import { startLoadingAnimation } from "./animations";
 import { useLoadingStore } from "../store/loadingStore";
 
-export default function LoadingScreen({
-  onLoadingComplete,
-}: {
-  onLoadingComplete: () => void;
-}): JSX.Element {
+export default function LoadingScreen() {
   const textRef = useRef<HTMLDivElement | null>(
     null
   ) as MutableRefObject<HTMLDivElement | null>;
-  const { setLoadingCompleted } = useLoadingStore();
-  useEffect(() => {
+  const { setLoading } = useLoadingStore();
+
+  useLayoutEffect(() => {
     if (textRef.current) {
       startLoadingAnimation(textRef.current, () => {
-        setLoadingCompleted(true);
-        onLoadingComplete();
+        setLoading(false);
       });
     }
-  }, [onLoadingComplete, setLoadingCompleted]);
+  }, [setLoading]);
 
   const splitText = "Loading".split("").map((char, index) => (
     <span className="md:mr-10 " key={index}>
@@ -29,7 +25,7 @@ export default function LoadingScreen({
 
   return (
     <div className="fixed inset-0 z-50 bg-primary flex justify-center items-center screen">
-      <div className="text-4xl text-center font-bold text-white " ref={textRef}>
+      <div className="text-4xl text-center font-bold text-white" ref={textRef}>
         {splitText}
       </div>
     </div>

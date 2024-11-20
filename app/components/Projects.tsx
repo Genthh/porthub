@@ -2,7 +2,8 @@ import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-
+import { useRouter } from "next/navigation";
+import { projects } from "../utils/ProjectsData";
 gsap.registerPlugin(ScrollTrigger);
 
 const ProjectCard: React.FC<{
@@ -10,7 +11,8 @@ const ProjectCard: React.FC<{
   className?: string;
   onHover: (hoverState: boolean) => void;
   isHovered: boolean;
-}> = ({ image, className = "", onHover, isHovered }) => (
+  onClick?: () => void;
+}> = ({ image, className = "", onHover, isHovered, onClick }) => (
   <div
     className={`project-card relative bg-gray-200 rounded-xl overflow-hidden hover-effect ${className}`}
     style={{
@@ -21,6 +23,7 @@ const ProjectCard: React.FC<{
     }}
     onMouseEnter={() => onHover(true)}
     onMouseLeave={() => onHover(false)}
+    onClick={onClick}
   >
     <ProjectCategories isHovered={isHovered} />
   </div>
@@ -30,7 +33,7 @@ const ProjectCategories: React.FC<{ isHovered: boolean }> = ({ isHovered }) => {
   const categories = ["Branding", "UI/UX", "Motion"];
   return (
     <div
-      className={`absolute bottom-2 left-2 flex items-center justify-center duration-300 ${
+      className={`absolute bottom-2 left-2 flex flex-wrap items-center justify-center duration-300 ${
         isHovered ? "opacity-100 z-50" : "opacity-0"
       }`}
     >
@@ -47,18 +50,18 @@ const ProjectCategories: React.FC<{ isHovered: boolean }> = ({ isHovered }) => {
 };
 
 const Projects: React.FC = () => {
-  const [isHovered, setIsHovered] = useState(false);
+  const [hoverStates, setHoverStates] = useState<boolean[]>(
+    Array(projects.length).fill(false)
+  );
   const sectionRef = useRef<HTMLDivElement>(null);
-  const firstProjectRef = useRef<HTMLDivElement>(null);
-  const secondRowRef = useRef<HTMLDivElement>(null);
-  const thirdRowRef = useRef<HTMLDivElement>(null);
+  const rowsRefs = useRef<(HTMLElement | null)[]>([]);
 
-  const [hoverStates, setHoverStates] = useState<boolean[]>([
-    false,
-    false,
-    false,
-    false,
-  ]);
+  const router = useRouter();
+
+  const handleRedirect = (uuid: string) => {
+    router.push(`/projectDetails/${uuid}/`);
+  };
+
   const handleHover = (index: number, isHovered: boolean) => {
     const updatedHoverStates = [...hoverStates];
     updatedHoverStates[index] = isHovered;
@@ -67,37 +70,17 @@ const Projects: React.FC = () => {
 
   useGSAP(() => {
     const context = gsap.context(() => {
-      const animations = [
-        {
-          ref: firstProjectRef,
-          trigger: sectionRef.current,
-          start: "top 80%",
-        },
-        {
-          ref: secondRowRef.current?.children,
-          trigger: firstProjectRef.current,
-          start: "bottom 70%",
-          stagger: 0.2,
-        },
-        {
-          ref: thirdRowRef.current?.children,
-          trigger: secondRowRef.current,
-          start: "bottom 70%",
-          stagger: 0.2,
-        },
-      ];
-
-      animations.forEach(({ ref, trigger, start, stagger = 0 }) => {
+      rowsRefs.current.forEach((ref, index) => {
         if (ref) {
-          gsap.from(ref, {
+          gsap.from(ref.children, {
             opacity: 0,
             y: 50,
             duration: 2,
             ease: "power2.out",
-            stagger,
+            stagger: 0.2,
             scrollTrigger: {
-              trigger,
-              start,
+              trigger: ref,
+              start: "top 80%",
               toggleActions: "play none none reverse",
             },
           });
@@ -108,12 +91,18 @@ const Projects: React.FC = () => {
     return () => context.revert();
   }, []);
 
+  const groupedProjects = projects.reduce((acc, project) => {
+    if (!acc[project.row]) acc[project.row] = [];
+    acc[project.row].push(project);
+    return acc;
+  }, {} as Record<number, typeof projects>);
+
   return (
     <div
-      className="bg-white lg:ml-80 mx-3 lg:mx-10 rounded-xl flex flex-col px-10 mb-10 pb-10"
+      className="bg-white lg:ml-80 mx-3 lg:mx-10 rounded-xl flex flex-col lg:px-10 px-5 mb-10 md:pb-10  h-fit"
       ref={sectionRef}
     >
-      <header className="flex flex-wrap justify-between my-20 items-center">
+      <header className="flex flex-wrap justify-between md:my-20 my-5 items-center">
         <h2 className="text-3xl">Projects</h2>
         <p className="max-w-md">
           Business challenges are tough, but we have a proven record of
@@ -121,105 +110,45 @@ const Projects: React.FC = () => {
         </p>
       </header>
 
-      <section className="flex flex-col w-full h-[600px]  hover-effect">
-        <div
-          ref={firstProjectRef}
-          className="project-card relative bg-gray-500 h-full lg:w-3/4 rounded-xl"
-          style={{
-            backgroundImage: "url('/img1.jpg')",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
+      {Object.entries(groupedProjects).map(([row, rowProjects]) => (
+        <section
+          key={row}
+          className={`flex flex-wrap w-full mb-10 justify-between`}
+          ref={(el) => {
+            rowsRefs.current[+row] = el as HTMLDivElement | null; // Perform assignment as side effect
           }}
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
         >
-          <ProjectCategories isHovered={isHovered} />
-        </div>
-        <p className="text-xl font-bold my-5">Newz - Magazine Site</p>
-      </section>
-
-      <section
-        className="flex md:flex-row flex-col md:flex-wrap w-full justify-between items-start md:h-96 h-[500px] mb-10 "
-        // className="flex flex-wrap w-full justify-between items-start h-96 mt-10"
-        ref={secondRowRef}
-      >
-        <div className="md:h-[70%] h-[600px] md:w-72 w-full">
-          <div className="flex flex-col w-full h-full">
-            <ProjectCard
-              onHover={(isHovered) => handleHover(1, isHovered)}
-              isHovered={hoverStates[1]}
-              image="/img-4.jpg"
-              className="p-6 my-3 w-full h-full"
-            />
-            <p className="text-xl font-bold">LW Rebrand</p>
-          </div>
-        </div>
-        <div className="md:w-[55%] w-full h-full">
-          <div className="w-full flex flex-col h-full">
-            <ProjectCard
-              onHover={(isHovered) => handleHover(2, isHovered)}
-              isHovered={hoverStates[2]}
-              image="/img-2.jpg"
-              className="p-6 my-2 h-full"
-            />
-            <p className="text-xl font-bold">Dallas Ecolodge</p>
-          </div>
-        </div>
-      </section>
-
-      <section
-        className="my-10 flex flex-col justify-end items-start lg:self-end lg:w-[60%] gap-y-4 "
-        ref={thirdRowRef}
-      >
-        <div className="flex flex-col justify-center slef-center items-center h-72 lg:w-72 w-full">
-          <ProjectCard
-            onHover={(isHovered) => handleHover(3, isHovered)}
-            isHovered={hoverStates[3]}
-            image="/img-5.jpg"
-            className="p-6 my-3 w-full lg:w-full h-full"
-          />
-          <p className="text-xl font-bold ">LW Rebrand</p>
-        </div>
-        <div className="w-full h-[450px]">
-          <div className="w-full flex flex-col h-full">
-            <ProjectCard
-              onHover={(isHovered) => handleHover(4, isHovered)}
-              isHovered={hoverStates[4]}
-              image="/img-6.jpg"
-              className="p-6 my-2 h-full"
-            />
-            <p className="text-xl font-bold">Newz - Magazine Site</p>
-          </div>
-        </div>
-      </section>
-      <section
-        className="flex md:flex-row flex-col md:flex-wrap w-full justify-between items-start md:h-96 h-[500px] mb-10 "
-        // ref={secondRowRef}
-      >
-        <div className="md:w-[55%] w-full h-full">
-          <div className="w-full flex flex-col h-full">
-            <ProjectCard
-              onHover={(isHovered) => handleHover(5, isHovered)}
-              isHovered={hoverStates[5]}
-              image="/img-2.jpg"
-              className="p-6 my-2 h-full"
-            />
-            <p className="text-xl font-bold">Dallas Ecolodge</p>
-          </div>
-        </div>
-        <div className="md:h-[70%] h-[600px] md:w-72 w-full">
-          <div className="flex flex-col w-full h-full">
-            <ProjectCard
-              onHover={(isHovered) => handleHover(6, isHovered)}
-              isHovered={hoverStates[6]}
-              image="/img-4.jpg"
-              className="p-6 my-3 w-full h-full"
-            />
-            <p className="text-xl font-bold">LW Rebrand</p>
-          </div>
-        </div>
-      </section>
+          {rowProjects.map(({ image, title, width, height, uuid }, index) => (
+            <div
+              key={uuid}
+              className={`flex flex-col mx-2 ${
+                rowProjects[0]?.position === "start"
+                  ? "self-start"
+                  : rowProjects[0]?.position === "center"
+                  ? "self-center"
+                  : "self-end"
+              }`}
+              style={{
+                width: "100%",
+                height: "300px",
+                ...(window.innerWidth >= 1024 && {
+                  width: width,
+                  height: height,
+                }),
+              }}
+            >
+              <ProjectCard
+                onHover={(isHovered) => handleHover(index, isHovered)}
+                isHovered={hoverStates[index]}
+                image={image}
+                onClick={() => handleRedirect(uuid)}
+                className="p-6 my-3 w-full h-full"
+              />
+              <p className="text-xl font-bold my-2">{title}</p>
+            </div>
+          ))}{" "}
+        </section>
+      ))}
     </div>
   );
 };

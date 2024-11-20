@@ -27,7 +27,7 @@ body {
   top: 0;
   right: 8%; */
   /* width: 100%; */
-  max-width: 92rem;
+  /* max-width: 92rem; */
   will-change: transform;
 }
 .cursor {
@@ -52,4 +52,14 @@ body {
 button.hover-effect {
   display: inline-block;
   box-sizing: border-box; /* Ensures padding is part of the button's hover area */
+}
+.bg-fixed {
+  background-attachment: fixed;
+}
+
+.text-section {
+  z-index: 2;
+}
+.image-section {
+  background-color: #ccc;
 }

@@ -5,7 +5,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 type AnimationTarget = gsap.TweenTarget;
 
-// Slide-in animation from bottom
 export const slideInFromBottom = (
   target: AnimationTarget,
   startY: number = 100
@@ -22,10 +21,9 @@ export const slideInFromBottom = (
   );
 };
 
-// Slide-in animation Horizontally
 export const slideInHorizontally = (
   target: AnimationTarget,
-  startX: number = 100 // Default to 100, can pass -100 or other values as needed
+  startX: number = 100
 ) => {
   gsap.fromTo(
     target,

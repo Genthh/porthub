@@ -23,21 +23,17 @@ function App() {
   };
 
   const conditioanlRender = isLoading ? (
-    <LoadingScreen onLoadingComplete={handleLoadingComplete} />
+    <LoadingScreen />
   ) : (
     <SmoothScrollingWrapper />
   );
 
   return (
     <div className="max-w-8xl mx-auto">
-      {/* <CustomCursor /> */}
-
-      {/* <div className="hover-effect"> */}
+      <CustomCursor />
       <SideBar />
-      {/* </div> */}
-      {conditioanlRender}
 
-      {/* <div className="h-screen">hej</div> */}
+      <SmoothScrollingWrapper />
     </div>
   );
 }

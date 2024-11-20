@@ -7,13 +7,12 @@ import { useLoadingStore } from "../store/loadingStore";
 
 const AgencyOverview: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const { isLoadingCompleted } = useLoadingStore();
 
   useGSAP(() => {
     if (containerRef.current) {
       slideInFromBottom(containerRef.current);
     }
-  }, [isLoadingCompleted]);
+  }, []);
 
   return (
     <div ref={containerRef} className="py-5 flex flex-wrap gap-x-2 lg:ml-80">

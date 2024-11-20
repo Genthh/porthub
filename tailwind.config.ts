@@ -12,6 +12,9 @@ export default {
         primary: "#151515",
         customRed: "#E34738",
       },
+      height: {
+        "100": "700px",
+      },
       maxWidth: {
         "8xl": "92rem",
       },

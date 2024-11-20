@@ -46,14 +46,14 @@ const ExpandingCursor: React.FC = () => {
 
     const handleMouseEnter = (e: Event) => {
       const target = e.target as HTMLElement;
-      if (target.classList.contains("hover-effect")) {
+      if (target.classList?.contains("hover-effect")) {
         addHoverEffect();
       }
     };
 
     const handleMouseLeave = (e: Event) => {
       const target = e.target as HTMLElement;
-      if (target.classList.contains("hover-effect")) {
+      if (target.classList?.contains("hover-effect")) {
         removeHoverEffect();
       }
     };
