@@ -89,8 +89,8 @@ const SecondSection = () => {
 const ThirdSection = ({ project }: { project: Project }) => {
   const imageUrl = project?.images?.[0] || "/img-2.jpg";
   return (
-    <div className="red-div  w-screen px-3 lg:px-0 bg-primary  bottom-0 left-0 z-50 flex flex-col  text-white ">
-      <div className="max-w-7xl mx-auto py-10 ">
+    <div className="red-div  w-screen bg-primary  bottom-0 left-0 z-50 flex flex-col  text-white ">
+      <div className="lg:max-w-7xl w-full mx-auto py-10 px-3 lg:px-0">
         <div className="flex lg:flex-row flex-col justify-between lg:gap-x-40">
           <p className="text-4xl font-bold">Brand overview</p>
           <div className="flex flex-col gap-y-5">
@@ -119,14 +119,14 @@ const ThirdSection = ({ project }: { project: Project }) => {
           </div>
         </div>
         <div className="flex flex-col mt-20">
-          <div className="flex gap-x-4">
+          <div className="flex flex-col lg:flex-row gap-x-4 gap-y-4">
             <img
-              className="w-1/2 lg:h-100 h-56 object-cover"
+              className="lg:w-1/2 lg:h-100 h-56 object-cover"
               src={project?.images?.[0]}
               alt={`Project ${project?.title}`}
             />
             <img
-              className="w-1/2 lg:h-100 h-56 object-cover"
+              className="lg:w-1/2 lg:h-100 h-56 object-cover"
               src={project?.images?.[1]}
               alt={`Project ${project.title}`}
             />
@@ -173,10 +173,10 @@ const Footer = () => {
   return (
     <div className="flex flex-col justify-center items-center gap-y-5 mt-20 ">
       <div className="w-fit relative p-10 ">
-        <p className="flex flex-col text-center text-8xl font-bold">
+        <p className="flex flex-col text-center lg:text-8xl text-3xl font-bold">
           LET'S MAKE<span>SOMETHING GREAT!</span>
         </p>
-        <span className="w-44 h-44 text-black text-3xl font-bold p-4 rounded-full bg-[#d0ff71] absolute right-0 top-0 z-1000 text-center flex justify-center items-center">
+        <span className="lg:w-44 lg:h-44 w-20 h-20 text-black lg:text-3xl text-sm font-bold p-4 rounded-full bg-[#d0ff71] absolute right-0 lg:top-0 top-3 z-1000 text-center flex justify-center items-center">
           CONTACT US
         </span>
       </div>
