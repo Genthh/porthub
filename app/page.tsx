@@ -33,7 +33,7 @@ function App() {
       <CustomCursor />
       <SideBar />
 
-      <SmoothScrollingWrapper />
+      {conditioanlRender}
     </div>
   );
 }

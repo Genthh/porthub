@@ -67,6 +67,10 @@ const Projects: React.FC = () => {
     updatedHoverStates[index] = isHovered;
     setHoverStates(updatedHoverStates);
   };
+  useEffect(() => {
+    // Force a ScrollTrigger refresh after navigation
+    ScrollTrigger.refresh();
+  }, []);
 
   useGSAP(() => {
     const context = gsap.context(() => {
