@@ -2,21 +2,6 @@ import { useEffect, useState } from "react";
 import { Project } from "../utils/ProjectsData";
 
 const ProjectDetails: React.FC<{ project: Project }> = ({ project }) => {
-  const [pageHeight, setPageHeight] = useState(0);
-
-  useEffect(() => {
-    const updateHeight = () => {
-      setPageHeight(document.documentElement.scrollHeight);
-    };
-
-    updateHeight();
-    window.addEventListener("resize", updateHeight);
-
-    return () => {
-      window.removeEventListener("resize", updateHeight);
-    };
-  }, []);
-
   return (
     <div className="max-w-screen lg:h-[480vh]   relative">
       <FirstSection />
@@ -30,14 +15,14 @@ export default ProjectDetails;
 
 const FirstSection = () => {
   return (
-    <div className="absolute top-0 left-0 z-1000 w-screen text-white lg:py-20    py-10 bg-primary  ">
+    <div className="absolute top-0 left-0 z-1000 px-3 lg:px-0 w-screen text-white lg:py-20  py-10 bg-primary  ">
       <p className="md:text-xl text-center">
         Brand identity and web developmentBrand identity and web development
       </p>
       <p className="lg:text-7xl text-2xl py-3 flex flex-col font-bold  text-center">
         Unique visual identity to<span>bring in digital market</span>
       </p>
-      <ul className="flex justify-around lg:text-2xl lg:pt-20 mx-20 text-gray-400">
+      <ul className="flex justify-around lg:text-2xl lg:pt-20 lg:mx-20 text-gray-400">
         <li>Category</li>
         <li>Client</li>
         <li>Start Date</li>
