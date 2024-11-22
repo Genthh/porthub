@@ -37,17 +37,6 @@ export const slideInHorizontally = (
   );
 };
 // Fade-in animation with customizable duration
-export const fadeIn = (target: AnimationTarget, duration: number = 1) => {
-  gsap.fromTo(
-    target,
-    { opacity: 0 },
-    {
-      opacity: 1,
-      duration,
-      ease: "power2.out",
-    }
-  );
-};
 
 export const startLoadingAnimation = (
   textRef: HTMLDivElement | null,
@@ -97,5 +86,80 @@ export const animateProjects = () => {
       end: "bottom top",
       toggleActions: "play none none none", // Controls the animation play behavior
     },
+  });
+};
+export const openMenuAnimation = (
+  menuItems: HTMLElement[],
+  textElements: HTMLElement[]
+) => {
+  gsap.fromTo(
+    menuItems,
+    {
+      y: 50,
+      opacity: 0,
+    },
+    {
+      y: 0,
+      opacity: 1,
+      duration: 0.8,
+      ease: "power2.out",
+      stagger: 0.2,
+    }
+  );
+
+  gsap.fromTo(
+    textElements,
+    {
+      y: -100,
+      opacity: 0,
+    },
+    {
+      y: 0,
+      opacity: 1,
+      duration: 0.8,
+      ease: "power2.out",
+      stagger: 0.2,
+    }
+  );
+};
+
+// Animation for closing the menu
+export const closeMenuAnimation = (
+  menuItems: HTMLElement[],
+  textElements: HTMLElement[],
+  onComplete: () => void
+) => {
+  gsap.to(textElements, {
+    y: 30, // Move down
+    opacity: 0, // Fade out
+    duration: 0.8, // Animation duration
+    ease: "power2.out", // Smooth easing
+    stagger: 0.2, // Delay between each text element
+  });
+
+  gsap.to(menuItems, {
+    y: 50, // Move down
+    opacity: 0, // Fade out
+    duration: 0.8, // Animation duration
+    ease: "power2.out", // Smooth easing
+    stagger: 0.2, // Delay between each item
+    onComplete, // Callback to close the menu
+  });
+};
+
+// Hover animation for menu items
+export const hoverMenuItemAnimation = (
+  items: HTMLElement[],
+  index: number,
+  isHover: boolean
+) => {
+  items.forEach((item, idx) => {
+    if (idx !== index) {
+      gsap.to(item, {
+        opacity: isHover ? 0.4 : 1, // Fade out while moving
+        duration: 0.5, // Animation duration
+        ease: "power2.out", // Smooth easing
+      });
+    }
   });
 };

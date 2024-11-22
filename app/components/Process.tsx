@@ -1,12 +1,13 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import Accordion from "./controlled/Accordion";
 import Image from "next/image";
-import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger);
-const items = [
+
+export const items = [
   {
     title: "Research",
     content:
@@ -26,66 +27,97 @@ const items = [
     content: "Thoroughly testing the product to ensure quality and usability.",
   },
 ];
-const Process = () => {
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const bottomSection = document.querySelector(".bottom-section");
 
-      gsap.fromTo(
-        bottomSection,
-        { opacity: 0, y: 50 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1,
-          scrollTrigger: {
-            trigger: ".maincomp",
-            start: "top top%",
-            end: "bottom bottom",
-            scrub: true,
-          },
-        }
-      );
-    }
+const Process = () => {
+  const statsRef = useRef(null);
+  const imageRef = useRef(null);
+
+  useGSAP(() => {
+    gsap.fromTo(
+      statsRef.current,
+      {
+        opacity: 0,
+        y: 50,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 2.5,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: statsRef.current,
+          start: "top 80%", // Start animation when the section is 80% in view
+          end: "top 50%",
+          toggleActions: "play none none none", // Only play animation once
+        },
+      }
+    );
+    gsap.fromTo(
+      imageRef.current,
+      {
+        opacity: 0,
+        // y: 50,
+        scale: 0.5,
+      },
+      {
+        opacity: 1,
+        scale: 1,
+        // y: 0,
+        duration: 1,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: imageRef.current,
+          start: "top 80%", // Start animation when the section is 80% in view
+          end: "top 50%",
+          toggleActions: "play none none none", // Only play animation once
+        },
+      }
+    );
   }, []);
 
   return (
-    <div className="ml-80 mx-10 bg-red-600 relative  rounded-xl maincomp">
+    <div className="lg:ml-80 mx-3 lg:mx-10 bg-customRed relative rounded-xl">
       <div className="rounded-xl p-10 pb-20 bg-white h-fit w-full">
-        <header className="flex flex-wrap justify-between  items-center">
+        <header className="flex flex-wrap justify-between items-center">
           <h2 className="text-3xl">Process</h2>
-          <p className="max-w-xl pl-16">
+          <p className="max-w-xl lg:pl-16">
             Business challenges are tough, but we have a proven record of
             elevating our partners to their next and best selves.
           </p>
         </header>
-        <div className="mt-20 flex justify-between">
+        <div className="lg:mt-20 flex flex-wrap justify-between">
           <Image
             src="https://uithemez.com/i/hubfolio_HTML/creative_agency/assets/imgs/process.svg"
-            alt="empty"
+            alt="Process illustration"
             width={300}
             height={200}
+            ref={imageRef}
           />
           <div className="max-w-xl space-y-2">
-            <Accordion items={items} />
+            <Accordion textColor="#000000" items={items} />
           </div>
         </div>
       </div>
-      <div className="p-10 text-start bottom-section">
+      <div ref={statsRef} className="p-10 text-start">
         <div className="flex justify-between items-start my-3 text-white">
-          <p className="text-5xl max-w-56 w-full">95%</p>
-          <p className="text-5xl max-w-56 ml-5 w-full">125+</p>
-          <p className="text-5xl max-w-56 ml-7 w-full">24</p>
+          <p className="lg:text-5xl  text-2xl max-w-56 w-full">95%</p>
+          <p className="lg:text-5xl text-2xl max-w-56 ml-5 w-full">125+</p>
+          <p className="lg:text-5xl text-2xl max-w-56 ml-7 w-full">24</p>
         </div>
-        <div className="flex justify-between text-white">
-          <p className="text-lg max-w-56">Clients satisfied and repeating</p>
-          <p className="text-lg max-w-56">projects completed in 20 countries</p>
-          <p className="text-lg max-w-56">
-            award winning and honorable recognition
+        <div className="flex justify-between gap-x-5 lg:gap-x-0 text-white">
+          <p className="lg:text-lg lg:max-w-56">
+            Clients satisfied and repeating
+          </p>
+          <p className="lg:text-lg lg:max-w-56">
+            projects completed in 20 countries
+          </p>
+          <p className="lg:text-lg lg:max-w-56">
+            award-winning and honorable recognition
           </p>
         </div>
       </div>
     </div>
   );
 };
+
 export default Process;

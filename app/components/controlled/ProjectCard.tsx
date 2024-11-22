@@ -32,7 +32,7 @@ const ProjectCategories: React.FC<{ isHovered: boolean }> = ({ isHovered }) => {
       {categories.map((category, index) => (
         <p
           key={index}
-          className="text-black bg-white rounded-full text-lg px-3 mx-1 hover:bg-red-500 hover:cursor-pointer duration-150 hover:text-white"
+          className="text-black bg-white rounded-full text-lg px-3 mx-1 hover:bg-customRed hover:cursor-pointer duration-150 hover:text-white"
         >
           {category}
         </p>

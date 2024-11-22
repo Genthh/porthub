@@ -81,7 +81,7 @@ export const SideBar = () => {
         </div>
       </div>
 
-      {/* <div
+      <div
         ref={sidebarRef}
         className="fixed top-0 left-0 w-full h-full bg-primary z-1000 -translate-x-full"
         style={{
@@ -90,7 +90,7 @@ export const SideBar = () => {
         }}
       >
         <Menu isOpen={isOpen} toggleMenu={toggleMenu} />
-      </div> */}
+      </div>
     </>
   );
 };

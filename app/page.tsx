@@ -7,6 +7,8 @@ import Projects from "./components/Projects";
 import { useLoadingStore } from "./store/loadingStore";
 import CustomCursor from "./components/controlled/CustomCursor";
 import Process from "./components/Process";
+import InformativeSection from "./components/InformativeSection";
+import EmailForm from "./components/EmailForm";
 
 const SmoothScrollingWrapper = () => {
   return (
@@ -15,7 +17,9 @@ const SmoothScrollingWrapper = () => {
         <AgencyOverview />
         <Projects />
         <Process />
-        <div className="h-[10vh] ml-80 mx-10  w-full"></div>
+        <InformativeSection />
+        <EmailForm />
+        <div className="h-[3vh] ml-80 mx-10  w-full"></div>
       </div>
     </SmoothScroll>
   );
@@ -33,8 +37,7 @@ function App() {
     <div className="max-w-8xl mx-auto">
       <CustomCursor />
       <SideBar />
-
-      {conditioanlRender}
+      {conditioanlRender}?
     </div>
   );
 }

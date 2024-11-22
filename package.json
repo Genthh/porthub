@@ -11,12 +11,15 @@
   "dependencies": {
     "@gsap/react": "^2.1.1",
     "@svgr/webpack": "^8.1.0",
+    "axios": "^1.7.7",
+    "formik": "^2.4.6",
     "gsap": "^3.12.5",
     "gsap-trial": "^3.12.5",
     "next": "15.0.3",
     "react": "19.0.0-rc-66855b96-20241106",
     "react-dom": "19.0.0-rc-66855b96-20241106",
     "uuid": "^11.0.3",
+    "yup": "^1.4.0",
     "zustand": "^5.0.1"
   },
   "devDependencies": {

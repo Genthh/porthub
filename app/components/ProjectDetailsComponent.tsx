@@ -7,6 +7,8 @@ import { useGSAP } from "@gsap/react";
 import InIcon from "../_svgs/inIcon.svg";
 import TwitterIcon from "../_svgs/xIcon.svg";
 import InstagramIcon from "../_svgs/instagramIcon.svg";
+import Accordion from "./controlled/Accordion";
+import { items } from "./Process";
 
 const ProjectDetails: React.FC<{ project: Project }> = ({ project }) => {
   return (
@@ -198,18 +200,7 @@ const ThirdSection = ({ project }: { project: Project }) => {
             </span>
           </p>
           <div className="flex flex-col  lg:w-1/2 gap-y-4 mt-5">
-            <p className="text-xl font-bold border-b border-gray-600 pb-2">
-              Research
-            </p>
-            <p className="text-xl font-bold border-b border-gray-600 pb-2">
-              Websites and digital platforms
-            </p>
-            <p className="text-xl font-bold border-b border-gray-600 pb-2">
-              Websites and digital platforms
-            </p>
-            <p className="text-xl font-bold">
-              Content strategy for social media
-            </p>
+            <Accordion textColor="#ffffff" items={items} />
           </div>
         </div>
         <hr />

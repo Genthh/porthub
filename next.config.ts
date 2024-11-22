@@ -14,7 +14,6 @@ const nextConfig = {
       use: ["@svgr/webpack"],
     });
 
-    //fix handlebars warnings
     config.resolve.alias = {
       ...config.resolve.alias,
       handlebars: "handlebars/dist/handlebars.js",
@@ -22,7 +21,9 @@ const nextConfig = {
 
     return config;
   },
-
+  env: {
+    customKey: process.env.API_URL,
+  },
   images: {
     unoptimized: true,
   },
