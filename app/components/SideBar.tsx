@@ -68,7 +68,7 @@ export const SideBar = () => {
             </div>
           </div>
         </div>
-        <button className="text-white border border-white rounded-full hover:bg-white hover:text-primary duration-150  ease-in py-3 flex justify-center items-center gap-x-2">
+        <button className="text-white border border-customColor rounded-full hover:bg-white hover:text-primary duration-150  ease-in py-3 flex justify-center items-center gap-x-2">
           <EnvelopeIcon />
           Work With Us
         </button>
@@ -81,7 +81,7 @@ export const SideBar = () => {
         </div>
       </div>
 
-      <div
+      {/* <div
         ref={sidebarRef}
         className="fixed top-0 left-0 w-full h-full bg-primary z-1000 -translate-x-full"
         style={{
@@ -90,7 +90,7 @@ export const SideBar = () => {
         }}
       >
         <Menu isOpen={isOpen} toggleMenu={toggleMenu} />
-      </div>
+      </div> */}
     </>
   );
 };

@@ -25,7 +25,7 @@ export default function LoadingScreen() {
 
   return (
     <div className="fixed inset-0 z-50 bg-primary flex justify-center items-center screen">
-      <div className="text-4xl text-center font-bold text-white" ref={textRef}>
+      <div className="text-2xl text-center font-bold text-white" ref={textRef}>
         {splitText}
       </div>
     </div>

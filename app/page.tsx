@@ -9,6 +9,7 @@ import CustomCursor from "./components/controlled/CustomCursor";
 import Process from "./components/Process";
 import InformativeSection from "./components/InformativeSection";
 import EmailForm from "./components/EmailForm";
+import Reviews from "./components/Reviews";
 
 const SmoothScrollingWrapper = () => {
   return (
@@ -17,9 +18,9 @@ const SmoothScrollingWrapper = () => {
         <AgencyOverview />
         <Projects />
         <Process />
-        <InformativeSection />
+        <Reviews />
         <EmailForm />
-        <div className="h-[3vh] ml-80 mx-10  w-full"></div>
+        <div className="h-[5vh] ml-80 mx-10  w-full"></div>
       </div>
     </SmoothScroll>
   );

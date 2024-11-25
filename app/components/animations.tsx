@@ -4,7 +4,11 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 type AnimationTarget = gsap.TweenTarget;
-
+type AnimationOptions = {
+  initial?: gsap.TweenVars;
+  animation?: gsap.TweenVars;
+  scrollTrigger?: any;
+};
 export const slideInFromBottom = (
   target: AnimationTarget,
   startY: number = 100
@@ -162,4 +166,33 @@ export const hoverMenuItemAnimation = (
       });
     }
   });
+};
+
+// gsapAnimations.js
+export const animateItems = (
+  selector: string, // Selector for the items to animate
+  containerSelector: string, // Selector for the container to trigger the animation
+  options: AnimationOptions = {} // Optional animation configuration
+): void => {
+  const items = document.querySelectorAll<HTMLElement>(selector);
+  if (items.length > 0) {
+    gsap.fromTo(
+      items,
+      { opacity: 0, y: 20, ...options.initial },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        stagger: 0.4,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: containerSelector,
+          start: "top 80%",
+          toggleActions: "play none none none",
+          ...options.scrollTrigger,
+        },
+        ...options.animation,
+      }
+    );
+  }
 };

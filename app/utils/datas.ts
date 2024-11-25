@@ -1,4 +1,5 @@
 import { v4 as uuidv4 } from "uuid";
+
 export interface Project {
   image: string;
   title: string;
@@ -128,3 +129,41 @@ const generateUUIDs = (): Project[] => {
 };
 
 export const projects: Project[] = generateUUIDs();
+
+export const experience = [
+  {
+    id: 1,
+    image: "/images/baseAgency.jpg",
+    companyName: "Base Agency",
+    position: "Senior Graphic Designer",
+    periodTime: "Feb 2024 - Present • 10 mos",
+  },
+  {
+    id: 2,
+    image: "/images/thinkb.jpg",
+    companyName: "Think B",
+    position: "Senior Graphic Designer",
+    periodTime: "Sep 2023 - Dec 2023 • 4 mos",
+  },
+  {
+    id: 3,
+    image: "/images/comodita.jpg",
+    companyName: "Comodita Home",
+    position: "Senior Graphic Designer",
+    periodTime: "May 2022 - Sep 2023 • 1 yr 5 mos",
+  },
+  {
+    id: 4,
+    image: "/images/brandfluence.jpg",
+    companyName: "Brandfluence",
+    position: "Graphic Designer",
+    periodTime: "Apr 2021 - May 2022 • 1 yr 2 mos",
+  },
+  {
+    id: 5,
+    image: "/images/Dizarium.jpg",
+    companyName: "Comodita Home",
+    position: "Social Media Designer",
+    periodTime: "Jun 2020 - Mar 2021 • 10 mos",
+  },
+];

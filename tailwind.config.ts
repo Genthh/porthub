@@ -11,6 +11,7 @@ export default {
       colors: {
         primary: "#151515",
         customRed: "#E34738",
+        customColor: "rgba(255, 255, 255, 0.3);",
       },
       height: {
         "100": "700px",

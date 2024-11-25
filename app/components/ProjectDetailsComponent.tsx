@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Project } from "../utils/ProjectsData";
+import { Project } from "../utils/datas";
 import { useLoadingStore } from "../store/loadingStore";
 import LoadingScreen from "./controlled/LoadingScreen";
 import gsap from "gsap";
@@ -68,7 +68,7 @@ const FirstSection = () => {
   }, [isLoading]);
 
   return (
-    <div className="absolute top-0 left-0 z-1000 px-3 lg:px-0 w-screen text-white lg:py-20 py-10 bg-primary h-[55vh]">
+    <div className="absolute top-0 left-0 z-1000 px-3 lg:px-0 w-screen text-white lg:py-30 py-10 bg-primary h-[55vh]">
       {isLoading ? (
         <LoadingScreen />
       ) : (
@@ -200,7 +200,12 @@ const ThirdSection = ({ project }: { project: Project }) => {
             </span>
           </p>
           <div className="flex flex-col  lg:w-1/2 gap-y-4 mt-5">
-            <Accordion textColor="#ffffff" items={items} />
+            <Accordion
+              items={items}
+              activeBorderColor="#d0ff71"
+              activeTitleColor="#d0ff71"
+              contentColor="#ffffff"
+            />
           </div>
         </div>
         <hr />

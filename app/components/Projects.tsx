@@ -3,7 +3,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { useRouter } from "next/navigation";
-import { projects } from "../utils/ProjectsData";
+import { projects } from "../utils/datas";
 import { ProjectCard } from "./controlled/ProjectCard";
 gsap.registerPlugin(ScrollTrigger);
 

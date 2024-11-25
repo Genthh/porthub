@@ -2,7 +2,7 @@
 import LoadingScreen from "@/app/components/controlled/LoadingScreen";
 import ProjectDetailsComponent from "@/app/components/ProjectDetailsComponent";
 import SmoothScroll from "@/app/components/controlled/SmoothScroll";
-import { Project, projects } from "@/app/utils/ProjectsData";
+import { Project, projects } from "@/app/utils/datas";
 import { useParams } from "next/navigation";
 import React, { use } from "react";
 

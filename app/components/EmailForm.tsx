@@ -51,9 +51,9 @@ const ContactForm = () => {
     }
   };
   return (
-    <div className="bg-[#333333] text-white lg:ml-80 mx-3 lg:mx-10 rounded-xl flex flex-col lg:px-10 px-5 mb-10 md:py-10  h-fit">
-      <h1 className="text-4xl font-bold mb-4 ">Let's Chat!</h1>
-      <p className=" mb-8">
+    <div className="bg-[#333333] text-white lg:ml-80 mx-3 lg:mx-10 rounded-xl flex flex-col lg:px-10 px-3 mb-10 md:py-10 py-5  h-fit">
+      <h1 className="md:text-3xl text-2xl font-bold mb-4 ">Let's Chat!</h1>
+      <p className="mb-8 text-sm md:text-base">
         We will ask the right questions, discuss possibilities, and make an
         action plan.
       </p>

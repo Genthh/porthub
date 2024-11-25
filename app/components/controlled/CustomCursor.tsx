@@ -26,7 +26,7 @@ const ExpandingCursor: React.FC = () => {
 
       gsap.to(cursor, {
         scale: 3,
-        backgroundColor: "rgba(0, 0, 0, .6)",
+        backgroundColor: "rgba(0, 0, 0, .3)",
         duration: 0.3,
         ease: "power3.out",
       });

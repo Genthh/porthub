@@ -77,24 +77,29 @@ const Process = () => {
 
   return (
     <div className="lg:ml-80 mx-3 lg:mx-10 bg-customRed relative rounded-xl">
-      <div className="rounded-xl p-10 pb-20 bg-white h-fit w-full">
+      <div className="rounded-xl md:px-10 px-3  md:pb-20 py-5 md:py-10 bg-white h-fit w-full">
         <header className="flex flex-wrap justify-between items-center">
-          <h2 className="text-3xl">Process</h2>
+          <h2 className="md:text-3xl text-2xl ">Process</h2>
           <p className="max-w-xl lg:pl-16">
             Business challenges are tough, but we have a proven record of
             elevating our partners to their next and best selves.
           </p>
         </header>
-        <div className="lg:mt-20 flex flex-wrap justify-between">
+        <div className="lg:mt-20 flex flex-wrap justify-between ">
           <Image
             src="https://uithemez.com/i/hubfolio_HTML/creative_agency/assets/imgs/process.svg"
             alt="Process illustration"
             width={300}
             height={200}
             ref={imageRef}
+            className="mb-3 md:mb-0"
           />
           <div className="max-w-xl space-y-2">
-            <Accordion textColor="#000000" items={items} />
+            <Accordion
+              activeBorderColor="#E34738"
+              titleColor="#000000"
+              items={items}
+            />
           </div>
         </div>
       </div>
