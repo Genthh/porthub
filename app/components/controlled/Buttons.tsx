@@ -6,6 +6,7 @@ export const Button = ({
   left,
   right,
   zIndex = "z-10",
+  width = "auto",
 }: {
   label: string;
   color: string;
@@ -14,9 +15,10 @@ export const Button = ({
   left?: string;
   right?: string;
   zIndex?: string;
+  width?: string;
 }) => (
   <button
-    className={`${color} text-base absolute px-4 py-1  w-auto rounded-full shadow-md ${rotation} ${bottom} ${left} ${right} ${zIndex}`}
+    className={`${color} text-base absolute px-2 py-2 rounded-full shadow-md ${rotation} ${bottom} ${left} ${right} ${zIndex} ${width}`}
   >
     {label}
   </button>

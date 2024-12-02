@@ -7,7 +7,6 @@ import Projects from "./components/Projects";
 import { useLoadingStore } from "./store/loadingStore";
 import CustomCursor from "./components/controlled/CustomCursor";
 import Process from "./components/Process";
-import InformativeSection from "./components/InformativeSection";
 import EmailForm from "./components/EmailForm";
 import Reviews from "./components/Reviews";
 
@@ -36,7 +35,7 @@ function App() {
     <div className="max-w-8xl mx-auto">
       <CustomCursor />
       <SideBar />
-      {conditioanlRender}?
+      {conditioanlRender}
     </div>
   );
 }

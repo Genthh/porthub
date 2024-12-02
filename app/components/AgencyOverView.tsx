@@ -14,7 +14,7 @@ const AgencyOverview: React.FC = () => {
 
   const slides = [
     { id: 1, content: "5+", subTitle: "Years of experience" },
-    { id: 2, content: " +20", subTitle: "Projects completed" },
+    { id: 2, content: "30+", subTitle: "Projects completed" },
   ];
 
   const handleNext = () => {
@@ -150,41 +150,47 @@ const AgencyOverview: React.FC = () => {
 };
 
 export const ActionButtons = () => (
-  <div>
+  <div className="flex flex-wrap justify-center sm:flex-col sm:space-y-4">
     <Button
       label="Communication"
-      color="bg-gray-200"
+      color="bg-red-500 text-white"
       rotation="rotate-45"
-      bottom="bottom-10"
+      bottom="bottom-14"
       left="left-[-5%]"
+      zIndex="z-20 "
     />
     <Button
       label="Teamwork"
       color="bg-customRed text-white"
       rotation="-rotate-45"
-      bottom="bottom-14 "
-      left="left-20"
+      bottom="bottom-14"
+      left="md:left-20"
+      width="w-24"
+      zIndex="z-20"
     />
     <Button
       label="Creative Problem Solving"
       color="bg-gray-200 text-black"
-      rotation="rotate-0"
-      bottom="bottom-0"
-      right="right-16"
+      rotation="rotate-2"
+      bottom="bottom-2"
+      right="left-0"
+      width="w-52"
     />
     <Button
       label="Adobe Illustrator"
       color="bg-black text-white"
       rotation="-rotate-12"
-      bottom="bottom-24"
+      bottom="md:bottom-28 bottom-10"
       right="right-0"
+      zIndex="md:z-30"
     />
     <Button
       label="Adobe Photoshop"
       color="bg-black text-white"
       rotation="rotate-12"
-      bottom="bottom-10"
-      right="left-0"
+      bottom="md:bottom-10 bottom-2"
+      right="right-0"
+      zIndex="z-0"
     />
   </div>
 );
