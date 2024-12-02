@@ -18,7 +18,7 @@ export default function LoadingScreen() {
   }, [setLoading]);
 
   const splitText = "Loading".split("").map((char, index) => (
-    <span className="md:mr-10 " key={index}>
+    <span className="md:mr-10" key={index}>
       {char}
     </span>
   ));

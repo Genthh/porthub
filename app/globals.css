@@ -168,3 +168,27 @@ button.hover-effect {
     opacity: 0;
   }
 }
+.marginLeft {
+  display: none;
+}
+
+@media (min-width: 924px) {
+  .marginLeft {
+    display: flex;
+    margin-left: 404px;
+  }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: white;
+}
+hr {
+  border: 0;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 10px; /* Makes the line edges rounded */
+}

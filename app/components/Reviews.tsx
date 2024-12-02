@@ -13,7 +13,7 @@ const Reviews = () => {
   }, []);
 
   return (
-    <div className="lg:ml-80 mx-3 md:py-10 py-5 md:px-10 px-3 lg:mx-10 bg-[#333333] relative rounded-xl my-10 text-white experience-container">
+    <div className="lg:ml-[404px] mx-3  md:py-20 py-5 md:px-10 px-3 lg:mx-10 bg-[#333333] relative rounded-xl my-10 text-white experience-container">
       <div className="flex flex-col border-b border-customColor md:pb-10 pb-5">
         <h1 className="md:text-3xl text-2xl font-bold">Experience</h1>
       </div>

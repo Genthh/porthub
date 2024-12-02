@@ -24,7 +24,7 @@ export const MainLayout: React.FC<MainLayoutProps> = ({
   children,
   style,
 }) => (
-  <div className="flex relative flex-col lg:flex-row mx-3 lg:mx-0 lg:w-[65%] w-full rounded-xl overflow-hidden shadow-lg">
+  <div className="flex relative flex-col lg:flex-row mx-3 lg:mx-0 lg:w-[73%] w-full rounded-xl overflow-hidden shadow-lg">
     <div
       className="relative w-full h-[90vh] backgroundGradient px-10"
       style={style}
@@ -48,7 +48,9 @@ export const SecondaryLayout: React.FC<SecondaryLayoutProps> = ({
   children,
 }) => (
   <div className="flex flex-col md:flex-row rounded-xl lg:h-3/5 py-20 overflow-hidden shadow-lg bg-white px-3 lg:py-2 relative">
-    <p className="lg:text-2xl font-bold lg:max-w-[100%]">{description}</p>
+    <p className="lg:text-base font-semibold pt-2 lg:max-w-[100%]">
+      {description}
+    </p>
     {children}
   </div>
 );

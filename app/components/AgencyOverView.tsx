@@ -13,7 +13,7 @@ const AgencyOverview: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const slides = [
-    { id: 1, content: "+5", subTitle: "Years of experience" },
+    { id: 1, content: "5+", subTitle: "Years of experience" },
     { id: 2, content: " +20", subTitle: "Projects completed" },
   ];
 
@@ -55,7 +55,10 @@ const AgencyOverview: React.FC = () => {
   }, []);
 
   return (
-    <div ref={containerRef} className="py-5  flex flex-wrap gap-x-2 lg:ml-80">
+    <div
+      ref={containerRef}
+      className="pb-5 py-3 flex flex-wrap gap-x-2 lg:ml-[404px]"
+    >
       <MainLayout
         style={{
           backgroundImage: "url(/images/heroImg.jpg)",
@@ -66,8 +69,8 @@ const AgencyOverview: React.FC = () => {
         positionClasses="absolute bottom-0 left-0 w-full h-screen bg-cover bg-center overflow-hidden z-0"
       />
 
-      <div className="flex flex-col gap-y-2 mx-3 lg:mx-0 lg:mt-0 mt-2 lg:w-[31%]">
-        <SecondaryLayout description="Based in Boston, MA. We're an agency focused on crafting experience design & development digital products.">
+      <div className="flex flex-col gap-y-2 mx-3 lg:mx-0 lg:mt-0 mt-2 lg:w-[22%]">
+        <SecondaryLayout description="A Senior Graphic Designer dedicated to crafting and creating innovative brands while developing impactful digital products.">
           <ActionButtons />
         </SecondaryLayout>
         <div className="flex flex-col rounded-xl lg:h-[40%] h-[300px] shadow-lg bg-customRed relative overflow-hidden p-4">
@@ -79,7 +82,7 @@ const AgencyOverview: React.FC = () => {
             {slides.map((slide) => (
               <div
                 key={slide.id}
-                className="w-full flex-shrink-0 flex items-center justify-center text-white  font-bold text-5xl"
+                className="w-full flex-shrink-0 flex items-center justify-center text-white  font-bold text-7xl"
               >
                 {slide.content}
               </div>
@@ -88,7 +91,7 @@ const AgencyOverview: React.FC = () => {
 
           {/* Navigation Controls */}
           <div className="flex justify-between items-center gap-x-5 mt-auto pt-4">
-            <p ref={subTitleRef} className="text-white text-xl max-w-20 ">
+            <p ref={subTitleRef} className="text-white text-base max-w-20 ">
               {slides[currentIndex].subTitle}
             </p>
             <div className="flex gap-x-3">
@@ -149,32 +152,39 @@ const AgencyOverview: React.FC = () => {
 export const ActionButtons = () => (
   <div>
     <Button
-      label="Branding"
+      label="Communication"
       color="bg-gray-200"
       rotation="rotate-45"
-      bottom="bottom-5"
+      bottom="bottom-10"
       left="left-[-5%]"
     />
     <Button
-      label="UI/UX Design"
+      label="Teamwork"
       color="bg-customRed text-white"
       rotation="-rotate-45"
       bottom="bottom-14 "
       left="left-20"
     />
     <Button
-      label="SEO Marketing"
+      label="Creative Problem Solving"
       color="bg-gray-200 text-black"
       rotation="rotate-0"
-      bottom="bottom-[-3%]"
+      bottom="bottom-0"
       right="right-16"
     />
     <Button
-      label="Motion"
+      label="Adobe Illustrator"
       color="bg-black text-white"
       rotation="-rotate-12"
-      bottom="bottom-0"
+      bottom="bottom-24"
       right="right-0"
+    />
+    <Button
+      label="Adobe Photoshop"
+      color="bg-black text-white"
+      rotation="rotate-12"
+      bottom="bottom-10"
+      right="left-0"
     />
   </div>
 );

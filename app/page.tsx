@@ -14,14 +14,12 @@ import Reviews from "./components/Reviews";
 const SmoothScrollingWrapper = () => {
   return (
     <SmoothScroll>
-      <div>
-        <AgencyOverview />
-        <Projects />
-        <Process />
-        <Reviews />
-        <EmailForm />
-        <div className="h-[5vh] ml-80 mx-10  w-full"></div>
-      </div>
+      <AgencyOverview />
+      <Projects />
+      <Process />
+      <Reviews />
+      <EmailForm />
+      <div className="h-[5vh] ml-80 mx-10  w-full"></div>
     </SmoothScroll>
   );
 };

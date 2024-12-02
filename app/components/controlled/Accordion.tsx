@@ -31,12 +31,10 @@ const Accordion: React.FC<AccordionProps> = ({
 }) => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
-  // Initialize GSAP animations
   useGSAP(() => {
     animateItems(".accordion-item", ".accordion-container");
   }, []);
 
-  // Handle accordion toggle
   const toggleAccordion = (index: number) => {
     const isActive = activeIndex === index ? null : index;
     setActiveIndex(isActive);
@@ -68,7 +66,6 @@ const Accordion: React.FC<AccordionProps> = ({
             }}
             onClick={() => toggleAccordion(index)}
           >
-            {/* Title Section */}
             <div
               className="flex justify-between items-center px-4 text-lg py-3"
               style={{

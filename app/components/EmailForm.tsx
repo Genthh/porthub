@@ -10,48 +10,46 @@ export interface FormValues {
   budget: string;
 }
 const API_URL: string | undefined = process.env.customKey;
-const ContactForm = () => {
-  const validationSchema = Yup.object({
-    fullName: Yup.string().required("Full Name is required"),
-    email: Yup.string()
-      .email("Invalid email address")
-      .required("Email Address is required"),
-    subject: Yup.string().required("Subject is required"),
-    message: Yup.string().required("Message is required"),
-    budget: Yup.string(),
-  });
+export const validationSchema = Yup.object({
+  fullName: Yup.string().required("Full Name is required"),
+  email: Yup.string()
+    .email("Invalid email address")
+    .required("Email Address is required"),
+  subject: Yup.string().required("Subject is required"),
+  message: Yup.string().required("Message is required"),
+  budget: Yup.string(),
+});
 
-  const initialValues = {
-    fullName: "",
-    email: "",
-    subject: "",
-    message: "",
-    budget: "",
-  };
+export const initialValues = {
+  fullName: "",
+  email: "",
+  subject: "",
+  message: "",
+  budget: "",
+};
+export const handleSubmit = async (values: FormValues) => {
+  try {
+    const response = await axios.post(`${API_URL}/send-email`, {
+      email: values.email,
+      fullName: values.fullName,
+      subject: values.subject,
+      message: values.message,
+      budget: values.budget,
+    });
 
-  // Submit handler
-  const handleSubmit = async (values: FormValues) => {
-    try {
-      const response = await axios.post(`${API_URL}/send-email`, {
-        recipientEmail: values.email,
-        subject: values.subject,
-        message: values.message,
-      });
-
-      if (response.status === 200) {
-        alert("Email sent successfully!");
-      } else {
-        alert("Failed to send email, please try again.");
-      }
-    } catch (error) {
-      console.error("There was an error sending the email:", error);
-      alert(
-        "An error occurred while sending the email. Please try again later."
-      );
+    if (response.status === 200) {
+      alert("Email sent successfully!");
+    } else {
+      alert("Failed to send email, please try again.");
     }
-  };
+  } catch (error) {
+    console.error("There was an error sending the email:", error);
+    alert("An error occurred while sending the email. Please try again later.");
+  }
+};
+const ContactForm = () => {
   return (
-    <div className="bg-[#333333] text-white lg:ml-80 mx-3 lg:mx-10 rounded-xl flex flex-col lg:px-10 px-3 mb-10 md:py-10 py-5  h-fit">
+    <div className="bg-[#333333] text-white lg:ml-[404px] mx-3 lg:mx-10 rounded-xl flex flex-col lg:px-10 px-3 mb-10 md:py-20 py-5  h-fit">
       <h1 className="md:text-3xl text-2xl font-bold mb-4 ">Let's Chat!</h1>
       <p className="mb-8 text-sm md:text-base">
         We will ask the right questions, discuss possibilities, and make an
@@ -72,7 +70,7 @@ const ContactForm = () => {
               <Field
                 name="fullName"
                 type="text"
-                className="w-full border-b border-gray-400 bg-transparent p-2 focus:outline-none "
+                className="w-full border-b border-customColor bg-transparent p-2 focus:outline-none "
                 placeholder="Your full name"
               />
             </div>
@@ -85,7 +83,7 @@ const ContactForm = () => {
               <Field
                 name="email"
                 type="email"
-                className="w-full border-b border-gray-400 bg-transparent p-2 focus:outline-none "
+                className="w-full border-b border-customColor bg-transparent p-2 focus:outline-none "
                 placeholder="Your email address"
               />
             </div>
@@ -97,7 +95,7 @@ const ContactForm = () => {
               <Field
                 name="subject"
                 type="text"
-                className="w-full border-b border-gray-400 bg-transparent p-2 focus:outline-none "
+                className="w-full border-b border-customColor bg-transparent p-2 focus:outline-none "
                 placeholder="Subject"
               />
             </div>
@@ -109,7 +107,7 @@ const ContactForm = () => {
               <Field
                 name="budget"
                 type="text"
-                className="w-full border-b border-gray-400 bg-transparent p-2 focus:outline-none "
+                className="w-full border-b border-customColor bg-transparent p-2 focus:outline-none "
                 placeholder="A range of budget for project"
               />
             </div>
@@ -122,7 +120,7 @@ const ContactForm = () => {
                 name="message"
                 as="textarea"
                 rows="4"
-                className="w-full border-b border-gray-400 bg-transparent p-2 focus:outline-none "
+                className="w-full border-b border-customColor bg-transparent p-2 focus:outline-none "
                 placeholder="Write your message here..."
               />
             </div>

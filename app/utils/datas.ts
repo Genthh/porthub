@@ -3,88 +3,101 @@ import { v4 as uuidv4 } from "uuid";
 export interface Project {
   image: string;
   title: string;
-  row: number;
-  width: string;
-  height: string;
+  row?: number;
+  width?: string;
+  height?: string;
   uuid: string;
-  position: "start" | "center" | "end";
+  position?: "start" | "center" | "end";
   images?: string[];
+  imgBanner?: string;
+  description?: string;
 }
 
 const isBrowser = typeof window !== "undefined";
 
 const generateUUIDs = (): Project[] => {
   if (isBrowser) {
-    const storedProjects = localStorage.getItem("projects");
+    const storedProjects = sessionStorage.getItem("projects");
     if (storedProjects) {
       return JSON.parse(storedProjects) as Project[];
     }
 
     const newProjects: Project[] = [
       {
-        image: "/img1.jpg",
-        title: "Newz - Magazine Site",
+        image: "/images/PRISTINE-BrandIdentity.jpg",
+        title: "PRISTINE - Brand Identity",
         row: 1,
         width: "75%",
         height: "550px",
         position: "start",
         uuid: uuidv4(),
+        imgBanner: "/img-detaisl.jpg",
         images: [
           "https://uithemez.com/i/hubfolio_HTML/inner_pages/assets/imgs/services/img1.jpg",
           "https://uithemez.com/i/hubfolio_HTML/inner_pages/assets/imgs/services/img2.jpg",
           "https://uithemez.com/i/hubfolio_HTML/inner_pages/assets/imgs/portfolio/project/3.jpg",
         ],
+        description: "branding, ui/ux design",
       },
       {
-        image: "/img-4.jpg",
-        title: "LW Rebrand",
+        image: "/images/VANNIO-BrandIdentity.jpg",
+        title: "VANNIO - Brand Identity",
         row: 2,
         width: "35%",
         height: "350px",
         position: "start",
         uuid: uuidv4(),
+        imgBanner: "/img-detaisl.jpg",
         images: [
           "https://uithemez.com/i/hubfolio_HTML/inner_pages/assets/imgs/services/img1.jpg",
           "https://uithemez.com/i/hubfolio_HTML/inner_pages/assets/imgs/services/img2.jpg",
           "https://uithemez.com/i/hubfolio_HTML/inner_pages/assets/imgs/portfolio/project/3.jpg",
         ],
+        description: "branding, ui/ux design",
       },
       {
-        image: "/img-2.jpg",
-        title: "Dallas Ecolodge",
+        image: "/images/LIKAPharmacy-BrandIdentity.jpg",
+        title: "LIKA Pharmacy - Brand Identity",
         row: 2,
         width: "55%",
         height: "450px",
         position: "end",
         uuid: uuidv4(),
+        imgBanner: "/img-detaisl.jpg",
         images: [
           "https://uithemez.com/i/hubfolio_HTML/inner_pages/assets/imgs/services/img1.jpg",
           "https://uithemez.com/i/hubfolio_HTML/inner_pages/assets/imgs/services/img2.jpg",
           "https://uithemez.com/i/hubfolio_HTML/inner_pages/assets/imgs/portfolio/project/3.jpg",
         ],
+        description: "branding, ui/ux design, motion, seo",
       },
       {
-        image: "/img-5.jpg",
-        title: "LW Rebrand",
+        image: "/images/Q10Oil-BrandIdentity.jpg",
+        title: "Q10 Oil - Brand Identity",
         row: 3,
         width: "40%",
         height: "350px",
         position: "center",
         uuid: uuidv4(),
+        imgBanner: "/img-detaisl.jpg",
         images: [
           "https://uithemez.com/i/hubfolio_HTML/inner_pages/assets/imgs/services/img1.jpg",
           "https://uithemez.com/i/hubfolio_HTML/inner_pages/assets/imgs/services/img2.jpg",
           "https://uithemez.com/i/hubfolio_HTML/inner_pages/assets/imgs/portfolio/project/3.jpg",
         ],
+        description: "ui/ux design, Illustration photography,",
       },
       {
-        image: "/img-6.jpg",
-        title: "Newz - Magazine Site",
+        image: "/images/SALTBistro-BrandIdentity.jpg",
+        title: "Salt Bistro - Brand Identity",
         row: 4,
         width: "70%",
         height: "450px",
         position: "end",
         uuid: uuidv4(),
+        imgBanner: "/img-detaisl.jpg",
+        description: "branding, ui/ux design, motion, seo",
+
         images: [
           "https://uithemez.com/i/hubfolio_HTML/inner_pages/assets/imgs/services/img1.jpg",
           "https://uithemez.com/i/hubfolio_HTML/inner_pages/assets/imgs/services/img2.jpg",
@@ -92,13 +105,16 @@ const generateUUIDs = (): Project[] => {
         ],
       },
       {
-        image: "/img-2.jpg",
-        title: "Dallas Ecolodge",
+        image: "/images/DOBROSHI-BrandIdentity.jpg",
+        title: "DOBROSHI - Brand Identity",
         row: 5,
         width: "55%",
         height: "450px",
         position: "end",
         uuid: uuidv4(),
+        imgBanner: "/img-detaisl.jpg",
+        description: "branding, ui/ux design, motion, seo",
+
         images: [
           "https://uithemez.com/i/hubfolio_HTML/inner_pages/assets/imgs/services/img1.jpg",
           "https://uithemez.com/i/hubfolio_HTML/inner_pages/assets/imgs/services/img2.jpg",
@@ -106,13 +122,16 @@ const generateUUIDs = (): Project[] => {
         ],
       },
       {
-        image: "/img-4.jpg",
-        title: "LW Rebrand",
+        image: "/images/OMEGA-BrandIdentity.jpg",
+        title: "OMEGA - Brand Identity",
         row: 5,
         width: "35%",
         height: "350px",
         position: "center",
         uuid: uuidv4(),
+        imgBanner: "/img-detaisl.jpg",
+        description: "branding, ui/ux design, motion, seo",
+
         images: [
           "https://uithemez.com/i/hubfolio_HTML/inner_pages/assets/imgs/services/img1.jpg",
           "https://uithemez.com/i/hubfolio_HTML/inner_pages/assets/imgs/services/img2.jpg",
@@ -120,7 +139,7 @@ const generateUUIDs = (): Project[] => {
         ],
       },
     ];
-    localStorage.setItem("projects", JSON.stringify(newProjects));
+    sessionStorage.setItem("projects", JSON.stringify(newProjects));
     return newProjects;
   }
 
@@ -162,7 +181,7 @@ export const experience = [
   {
     id: 5,
     image: "/images/Dizarium.jpg",
-    companyName: "Comodita Home",
+    companyName: "Dizarium",
     position: "Social Media Designer",
     periodTime: "Jun 2020 - Mar 2021 • 10 mos",
   },

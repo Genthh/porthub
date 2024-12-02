@@ -12,9 +12,9 @@ import { items } from "./Process";
 
 const ProjectDetails: React.FC<{ project: Project }> = ({ project }) => {
   return (
-    <div className="max-w-screen lg:h-[450vh]   relative">
+    <div className="max-w-screen lg:h-[400vh]   relative">
       <FirstSection />
-      <SecondSection />
+      <SecondSection project={project} />
       <ThirdSection project={project} />
     </div>
   );
@@ -106,9 +106,9 @@ const FirstSection = () => {
   );
 };
 
-const SecondSection = () => {
+const SecondSection = ({ project }: { project: Project }) => {
   const [scrollY, setScrollY] = useState(0);
-
+  console.log(project);
   useEffect(() => {
     const handleScroll = () => {
       requestAnimationFrame(() => {
@@ -126,7 +126,7 @@ const SecondSection = () => {
     <div className="w sticky  left-0 top-0 z-10">
       <div className="px-5 rounded-2xl overflow-hidden">
         <img
-          src="/img-detaisl.jpg"
+          src={project?.imgBanner}
           alt="Project Image"
           className="w-full lg:h-full h-[600px] object-cover rounded-2xl"
           style={{
@@ -209,6 +209,14 @@ const ThirdSection = ({ project }: { project: Project }) => {
           </div>
         </div>
         <hr />
+        <div className="w-fit relative p-10 mx-auto mt-20">
+          <p className="flex flex-col text-center lg:text-8xl text-2xl font-bold ">
+            LET'S MAKE<span>SOMETHING GREAT!</span>
+          </p>
+          <span className="lg:w-44 lg:h-44 w-20 h-20 text-black lg:text-3xl text-sm font-bold p-4 rounded-full bg-[#d0ff71] absolute right-0 lg:top-0 top-3 z-1000 text-center flex justify-center items-center">
+            CONTACT US
+          </span>
+        </div>
         <Footer />
         <hr />
       </div>
@@ -216,42 +224,36 @@ const ThirdSection = ({ project }: { project: Project }) => {
   );
 };
 
-const Footer = () => {
+export const Footer = () => {
   return (
-    <div className="flex flex-col justify-center items-center gap-y-5 my-20 ">
-      <div className="w-fit relative p-10 ">
-        <p className="flex flex-col text-center lg:text-8xl text-2xl font-bold">
-          LET'S MAKE<span>SOMETHING GREAT!</span>
-        </p>
-        <span className="lg:w-44 lg:h-44 w-20 h-20 text-black lg:text-3xl text-sm font-bold p-4 rounded-full bg-[#d0ff71] absolute right-0 lg:top-0 top-3 z-1000 text-center flex justify-center items-center">
-          CONTACT US
-        </span>
-      </div>
-      <div className="flex justify-between mt-10 w-full">
-        <p className="text-3xl font-bold">Hubfolio</p>
-        <div className="flex gap-x-6 ">
-          <p className="flex flex-col text-sm max-w-sm">
+    <div className="flex flex-col justify-center items-center gap-y-5 mb-20 mt-10  text-white">
+      <div className="flex flex-wrap  justify-between mt-10 w-full px-3 lg:px-0">
+        <p className="text-3xl font-bold mb-5 md:mb-0">Lorik Zekaj</p>
+        <div className="flex gap-x-16 lg:mr-10">
+          <p className="flex flex-col text-sm lg:max-w-xs text-customGrayColor">
             LOACATION
-            <span className="text-lg">
-              152 Thatcher Road St, Mahattan, NY 10463, US
+            <span className="text-base mt-2 ">
+              Prishtina, Kosova
+              <br />
+              (Southeast Europe)
             </span>
           </p>
-          <p className="flex flex-col text-sm max-w-sm">
+          <p className="flex flex-col text-sm lg:max-w-xs text-customGrayColor">
             INQUIRY
-            <span className="text-lg">
-              hello@hubfolio.agency <br /> +0685689696
+            <span className="text-base mt-2">
+              lorikzek@gmail.com <br /> +383-49-828-434
             </span>
           </p>
         </div>
       </div>
       <div className="flex gap-x-6 mt-20">
-        <span className="border border-gray-300 rounded-full h-10 w-10 flex justify-center items-center cursor-pointer">
+        <span className="border border-customColor rounded-full h-10 w-10 flex justify-center items-center cursor-pointer">
           <InstagramIcon />
         </span>
-        <span className="border border-white rounded-full h-10 w-10 flex justify-center items-center cursor-pointer">
+        <span className="border border-customColor rounded-full h-10 w-10 flex justify-center items-center cursor-pointer">
           <TwitterIcon />
         </span>
-        <span className="border border-white rounded-full h-10 w-10 flex justify-center items-center cursor-pointer">
+        <span className="border border-customColor rounded-full h-10 w-10 flex justify-center items-center cursor-pointer">
           <InIcon />
         </span>
       </div>

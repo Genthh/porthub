@@ -5,6 +5,7 @@ import { useGSAP } from "@gsap/react";
 import { useRouter } from "next/navigation";
 import { projects } from "../utils/datas";
 import { ProjectCard } from "./controlled/ProjectCard";
+import Link from "next/link";
 gsap.registerPlugin(ScrollTrigger);
 
 const Projects: React.FC = () => {
@@ -52,25 +53,29 @@ const Projects: React.FC = () => {
     return () => context.revert();
   }, []);
 
-  const groupedProjects = projects.reduce((acc, project) => {
-    if (!acc[project.row]) acc[project.row] = [];
-    acc[project.row].push(project);
-    return acc;
-  }, {} as Record<number, typeof projects>);
+  const groupedProjects = projects.reduce<Record<number, typeof projects>>(
+    (acc, project) => {
+      if (project.row !== undefined) {
+        if (!acc[project.row]) acc[project.row] = [];
+        acc[project.row].push(project);
+      }
+      return acc;
+    },
+    {}
+  );
 
   return (
     <div
-      className="bg-white lg:ml-80 mx-3 lg:mx-10 rounded-xl flex flex-col lg:px-10 px-5 mb-10 md:pb-10  h-fit"
+      className="bg-white lg:ml-[404px] mx-3 lg:mx-10 rounded-xl flex flex-col lg:px-10 px-5 md:py-20 my-5 md:pb-10  h-fit "
       ref={sectionRef}
     >
-      <header className="flex flex-wrap justify-between md:my-20 my-5 items-center">
-        <h2 className="text-3xl">Projects</h2>
-        <p className="max-w-md">
+      <header className="flex flex-wrap justify-between  items-center mb-4">
+        <h2 className="text-3xl font-semibold">Projects</h2>
+        <p className="max-w-lg text-base">
           Business challenges are tough, but we have a proven record of
           elevating our partners to their next and best selves.
         </p>
       </header>
-
       {Object.entries(groupedProjects).map(([row, rowProjects]) => (
         <section
           key={row}
@@ -107,9 +112,18 @@ const Projects: React.FC = () => {
               />
               <p className="text-xl font-bold my-2">{title}</p>
             </div>
-          ))}{" "}
+          ))}
         </section>
       ))}
+      <Link
+        href="/projects"
+        className="py-3  lg:mb-0 px-8 bg-customRed self-center text-sm text-white rounded-full 
+        border border-transparent 
+        hover:bg-transparent hover:text-black hover:border-customRed 
+        transition-all duration-500 ease-in-out"
+      >
+        See All Projects →
+      </Link>
     </div>
   );
 };

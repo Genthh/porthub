@@ -16,7 +16,7 @@ export const Button = ({
   zIndex?: string;
 }) => (
   <button
-    className={`${color} absolute px-4 py-1 text-lg rounded-full shadow-md ${rotation} ${bottom} ${left} ${right} ${zIndex}`}
+    className={`${color} text-base absolute px-4 py-1  w-auto rounded-full shadow-md ${rotation} ${bottom} ${left} ${right} ${zIndex}`}
   >
     {label}
   </button>

@@ -12,6 +12,7 @@ export default {
         primary: "#151515",
         customRed: "#E34738",
         customColor: "rgba(255, 255, 255, 0.3);",
+        customGrayColor: "#a4a4a4",
       },
       height: {
         "100": "700px",

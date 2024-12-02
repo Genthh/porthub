@@ -6,15 +6,13 @@ export const ProjectCard: React.FC<{
   onClick?: () => void;
 }> = ({ image, className = "", onHover, isHovered, onClick }) => (
   <div
-    className={`project-card relative bg-gray-200 rounded-xl overflow-hidden hover-effect ${className}`}
+    className={`project-card relative bg-gray-200 rounded-xl overflow-hidden hover-effect ${className} cursor-pointer`}
     style={{
       backgroundImage: `url(${image})`,
       backgroundSize: "cover",
       backgroundPosition: "center",
       backgroundRepeat: "no-repeat",
     }}
-    onMouseEnter={() => onHover(true)}
-    onMouseLeave={() => onHover(false)}
     onClick={onClick}
   >
     <ProjectCategories isHovered={isHovered} />
