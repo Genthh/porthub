@@ -76,8 +76,8 @@ const Process = () => {
   }, []);
 
   return (
-    <div className="lg:ml-[404px] mx-3 lg:mx-10 bg-customRed relative rounded-xl">
-      <div className="rounded-xl md:px-10 px-3  md:pb-20 py-5 md:py-20 my-5 bg-white h-fit w-full">
+    <div className="lg:ml-[320px] mx-3 lg:mx-0 bg-customRed relative rounded-2xl">
+      <div className="rounded-2xl md:px-10 px-3  md:pb-20 py-5 md:py-20 my-5 bg-white h-fit w-full">
         <header className="flex flex-wrap justify-between items-center">
           <h2 className="md:text-3xl text-2xl ">Process</h2>
           <p className="max-w-xl lg:pl-16">
@@ -104,22 +104,25 @@ const Process = () => {
         </div>
       </div>
       <div ref={statsRef} className="p-10 text-start">
-        <div className="flex justify-between items-start my-3 text-white">
-          <p className="lg:text-5xl  text-2xl max-w-56 w-full">95%</p>
-          <p className="lg:text-5xl text-2xl max-w-56 ml-5 w-full">125+</p>
-          <p className="lg:text-5xl text-2xl max-w-56 ml-7 w-full">24</p>
+        <div className="flex justify-between items-start my-4 text-white">
+          <div className="lg:text-5xl text-2xl max-w-56 w-full flex flex-col">
+            95%
+            <span className="text-lg"> Clients satisfied and repeating</span>
+          </div>
+          <div className="lg:text-5xl flex flex-col text-2xl max-w-56 ml-5 w-full">
+            50+
+            <span className="text-lg">projects completed in 4 countries</span>
+          </div>
+          <div className="lg:text-5xl flex flex-col text-2xl max-w-56 ml-7 w-full">
+            5+<span className="text-lg">years of experience</span>
+          </div>
         </div>
-        <div className="flex justify-between gap-x-5 lg:gap-x-0 text-white">
+
+        {/* <div className="flex justify-between gap-x-5 lg:gap-x-0 text-white">
           <p className="lg:text-lg lg:max-w-56">
-            Clients satisfied and repeating
           </p>
-          <p className="lg:text-lg lg:max-w-56">
-            projects completed in 20 countries
-          </p>
-          <p className="lg:text-lg lg:max-w-56">
-            award-winning and honorable recognition
-          </p>
-        </div>
+          <p className="lg:text-lg lg:max-w-56">years of experience</p>
+        </div> */}
       </div>
     </div>
   );

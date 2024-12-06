@@ -57,7 +57,7 @@ const AgencyOverview: React.FC = () => {
   return (
     <div
       ref={containerRef}
-      className="pb-5 py-3 flex flex-wrap gap-x-2 lg:ml-[404px]"
+      className="pt-3 flex flex-wrap gap-x-3  lg:ml-[320px]"
     >
       <MainLayout
         style={{
@@ -69,11 +69,11 @@ const AgencyOverview: React.FC = () => {
         positionClasses="absolute bottom-0 left-0 w-full h-screen bg-cover bg-center overflow-hidden z-0"
       />
 
-      <div className="flex flex-col gap-y-2 mx-3 lg:mx-0 lg:mt-0 mt-2 lg:w-[22%]">
+      <div className="flex flex-col gap-y-2 mx-3 lg:mx-0 lg:mt-0 mt-2 lg:w-[24.5%]">
         <SecondaryLayout description="A Senior Graphic Designer dedicated to crafting and creating innovative brands while developing impactful digital products.">
           <ActionButtons />
         </SecondaryLayout>
-        <div className="flex flex-col rounded-xl lg:h-[40%] h-[300px] shadow-lg bg-customRed relative overflow-hidden p-4">
+        <div className="flex flex-col rounded-2xl lg:h-[37%] h-[300px] shadow-lg bg-customRed relative overflow-hidden p-4">
           {/* Slider */}
           <div
             ref={sliderRef}
@@ -153,7 +153,7 @@ export const ActionButtons = () => (
   <div className="flex flex-wrap justify-center sm:flex-col sm:space-y-4">
     <Button
       label="Communication"
-      color="bg-red-500 text-white"
+      color="bg-customRed text-white"
       rotation="rotate-45"
       bottom="bottom-14"
       left="left-[-5%]"
@@ -189,7 +189,7 @@ export const ActionButtons = () => (
       color="bg-black text-white"
       rotation="rotate-12"
       bottom="md:bottom-10 bottom-2"
-      right="right-0"
+      right="md:right-0 right-20"
       zIndex="z-0"
     />
   </div>

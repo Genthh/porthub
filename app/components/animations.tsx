@@ -114,7 +114,7 @@ export const openMenuAnimation = (
   gsap.fromTo(
     textElements,
     {
-      y: -100,
+      y: 50,
       opacity: 0,
     },
     {
@@ -133,13 +133,7 @@ export const closeMenuAnimation = (
   textElements: HTMLElement[],
   onComplete: () => void
 ) => {
-  gsap.to(textElements, {
-    y: 30, // Move down
-    opacity: 0, // Fade out
-    duration: 0.8, // Animation duration
-    ease: "power2.out", // Smooth easing
-    stagger: 0.2, // Delay between each text element
-  });
+  gsap.to(textElements, {});
 
   gsap.to(menuItems, {
     y: 50, // Move down

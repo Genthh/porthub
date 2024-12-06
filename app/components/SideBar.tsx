@@ -32,7 +32,7 @@ export const SideBar = () => {
 
   return (
     <>
-      <div className="fixed mx-auto h-full w-72 pt-5 pb-10 px-5 ml-24 flex-col justify-between lg:flex hidden z-50">
+      <div className="fixed mx-auto h-full w-72 pt-8 pb-10 px-5  flex-col justify-between lg:flex hidden z-50">
         <div className="flex flex-col gap-y-10">
           <div className="flex items-center justify-between">
             <button className="rounded-full bg-white px-6 font-bold py-1">
@@ -100,11 +100,10 @@ export const SideBar = () => {
         ref={sidebarRef}
         className="fixed top-0 left-0 w-full h-full bg-primary z-1000 -translate-x-full"
         style={{
-          // backgroundImage: "url('/bgimage.jpg')",
           backgroundPosition: "center",
         }}
       >
-        {/* <Menu isOpen={isOpen} toggleMenu={toggleMenu} /> */}
+        <Menu isOpen={isOpen} toggleMenu={toggleMenu} />
       </div>
     </>
   );

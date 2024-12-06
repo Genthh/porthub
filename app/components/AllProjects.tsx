@@ -2,14 +2,16 @@
 import React, { useEffect, useState } from "react";
 import { Project, projects } from "../utils/datas";
 import Link from "next/link";
+import Image from "next/image";
 
 const AllProjects: React.FC = () => {
-  // Set `isClient` to true after component mounts
-
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-8 px-4 md:px-8">
       {projects.map((project, index) => (
-        <div key={index} className="border-t border-customColor shadow-md pb-4">
+        <div
+          key={index}
+          className="border-t  border-customColor shadow-md pb-4"
+        >
           <div className="pt-4 flex justify-between items-center">
             <div className="flex flex-col">
               <h2 className="text-xl pb-3 font-bold text-white">
@@ -21,7 +23,7 @@ const AllProjects: React.FC = () => {
             </div>
             <Link
               href={`/projectDetails/${project.uuid}/`}
-              className="border border-customColor px-4 py-1 rounded-full cursor-pointer hover:bg-[#d0ff71] duration-300 ease-out"
+              className="border border-customColor px-4 py-1 rounded-full cursor-pointer hover:bg-[#d0ff71] duration-300 ease-out hover-effect"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -39,10 +41,12 @@ const AllProjects: React.FC = () => {
               </svg>
             </Link>
           </div>
-          <img
+          <Image
             src={project.image}
             alt={project.title}
-            className="w-full h-72 object-cover my-2 rounded-lg cursor-pointer"
+            height={400}
+            width={400}
+            className="w-full h-72 object-cover my-2 rounded-lg cursor-pointer hover-effect"
           />
         </div>
       ))}

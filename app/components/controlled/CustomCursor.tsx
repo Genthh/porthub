@@ -3,7 +3,7 @@ import gsap from "gsap";
 
 const ExpandingCursor: React.FC = () => {
   const cursorRef = useRef<HTMLDivElement | null>(null);
-  const isHoveringRef = useRef(false); // Track hover state to prevent repeated animations
+  const isHoveringRef = useRef(false);
 
   useEffect(() => {
     const cursor = cursorRef.current;
@@ -15,13 +15,13 @@ const ExpandingCursor: React.FC = () => {
       gsap.to(cursor, {
         x,
         y,
-        duration: 0.1, // Slight delay for a smooth follow effect
+        duration: 0.1,
         ease: "power3.out",
       });
     };
 
     const addHoverEffect = () => {
-      if (isHoveringRef.current) return; // Prevent repeated animations
+      if (isHoveringRef.current) return;
       isHoveringRef.current = true;
 
       gsap.to(cursor, {
@@ -33,7 +33,7 @@ const ExpandingCursor: React.FC = () => {
     };
 
     const removeHoverEffect = () => {
-      if (!isHoveringRef.current) return; // Ensure hover-out is smooth
+      if (!isHoveringRef.current) return;
       isHoveringRef.current = false;
 
       gsap.to(cursor, {
@@ -58,7 +58,6 @@ const ExpandingCursor: React.FC = () => {
       }
     };
 
-    // Attach event listeners
     document.addEventListener("mousemove", moveCursor);
     document.addEventListener("mouseenter", handleMouseEnter, true);
     document.addEventListener("mouseleave", handleMouseLeave, true);

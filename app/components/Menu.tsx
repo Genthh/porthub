@@ -45,36 +45,34 @@ export const Menu: React.FC<{
       >
         <CloseIcon />
       </div>
-      <div className="flex flex-col ml-40 text-white">
-        <ul className="text-5xl space-y-10 font-bold">
-          {["Home", "Pages", "Portfolio", "Blog", "Contact Us"].map(
-            (item, index) => (
-              <li
-                key={index}
-                ref={(el) => {
-                  if (el) menuItemsRef.current[index] = el;
-                }}
-                className="cursor-pointer menu-item flex items-center space-x-3"
-                onMouseEnter={() => handleHover(index, true)}
-                onMouseLeave={() => handleHover(index, false)}
-              >
-                <span>{item}</span>
-                <PlusIcon />
-              </li>
-            )
-          )}
+      <div className="flex flex-col md:ml-40 ml-3 text-white">
+        <ul className="md:text-5xl text-2xl space-y-10 font-bold">
+          {["Home", "Projects", "Contact Us"].map((item, index) => (
+            <li
+              key={index}
+              ref={(el) => {
+                if (el) menuItemsRef.current[index] = el;
+              }}
+              className="cursor-pointer menu-item flex items-center space-x-3"
+              onMouseEnter={() => handleHover(index, true)}
+              onMouseLeave={() => handleHover(index, false)}
+            >
+              <span>{item}</span>
+              <PlusIcon />
+            </li>
+          ))}
         </ul>
       </div>
-      <div className="bg-white flex flex-col justify-center items-center bg-opacity-5 h-full w-5/12 info-section">
+      <div className="bg-white flex flex-col justify-center items-center bg-opacity-5 h-full md:w-5/12 info-section px-2">
         <h1
-          className="text-5xl my-5 font-bold text-white anim-text"
+          className="md:text-5xl text-2xl my-5 font-bold text-white anim-text"
           ref={(el) => {
             if (el) {
               textElementsRef.current.push(el);
             }
           }}
         >
-          Hubfolio
+          Lorik Zekaj
         </h1>
         <div className="flex gap-x-5">
           {[InstagramIcon, TwitterIcon, InIcon].map((Icon, index) => (
@@ -99,7 +97,7 @@ export const Menu: React.FC<{
             }
           }}
         >
-          Email@example.com
+          lorikzek@gmail.com
         </p>
         <p
           className="my-1 text-white anim-text"
@@ -109,7 +107,7 @@ export const Menu: React.FC<{
             }
           }}
         >
-          +383-49-000-000
+          +383-49-828-434
         </p>
         <p
           className="text-white anim-text"
@@ -121,6 +119,7 @@ export const Menu: React.FC<{
         >
           Based in Prishtina, Kosovo
         </p>
+        <p className="text-white">(Southeast Europe)</p>
         <p
           className="my-8 text-gray-400 text-base anim-text"
           ref={(el) => {

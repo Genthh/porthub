@@ -66,12 +66,12 @@ const Projects: React.FC = () => {
 
   return (
     <div
-      className="bg-white lg:ml-[404px] mx-3 lg:mx-10 rounded-xl flex flex-col lg:px-10 px-5 md:py-20 my-5 md:pb-10  h-fit "
+      className="bg-white lg:ml-[320px] mx-3 lg:mx-0 rounded-2xl flex flex-col justify-center lg:px-10 px-5 md:py-16  my-4 py-10 md:pb-10  h-fit "
       ref={sectionRef}
     >
       <header className="flex flex-wrap justify-between  items-center mb-4">
-        <h2 className="text-3xl font-semibold">Projects</h2>
-        <p className="max-w-lg text-base">
+        <h2 className="text-4xl font-semibold">Projects</h2>
+        <p className="max-w-lg text-base text-txtGrayColor">
           Business challenges are tough, but we have a proven record of
           elevating our partners to their next and best selves.
         </p>
@@ -87,7 +87,7 @@ const Projects: React.FC = () => {
           {rowProjects.map(({ image, title, width, height, uuid }, index) => (
             <div
               key={uuid}
-              className={`flex flex-col mx-2 ${
+              className={`flex flex-col md:mx-2 ${
                 rowProjects[0]?.position === "start"
                   ? "self-start"
                   : rowProjects[0]?.position === "center"

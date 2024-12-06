@@ -18,7 +18,7 @@ const SmoothScrollingWrapper = () => {
       <Process />
       <Reviews />
       <EmailForm />
-      <div className="h-[5vh] ml-80 mx-10  w-full"></div>
+      <div className="h-[1vh] ml-80 mx-10  w-full"></div>
     </SmoothScroll>
   );
 };
@@ -32,7 +32,7 @@ function App() {
   );
 
   return (
-    <div className="max-w-8xl mx-auto">
+    <div className="max-w-8xl  mx-auto">
       <CustomCursor />
       <SideBar />
       {conditioanlRender}
