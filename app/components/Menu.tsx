@@ -19,18 +19,18 @@ export const Menu: React.FC<{
   const textElementsRef = useRef<HTMLElement[]>([]);
 
   const handleMenuClose = () => {
-    closeMenuAnimation(
-      menuItemsRef.current,
-      textElementsRef.current,
-      toggleMenu
-    );
+    // closeMenuAnimation(
+    //   menuItemsRef.current,
+    //   textElementsRef.current,
+    // );
+    toggleMenu;
   };
 
-  useGSAP(() => {
-    if (isOpen) {
-      openMenuAnimation(menuItemsRef.current, textElementsRef.current);
-    }
-  }, [isOpen]);
+  // useGSAP(() => {
+  //   if (isOpen) {
+  //     openMenuAnimation(menuItemsRef.current, textElementsRef.current);
+  //   }
+  // }, [isOpen]);
 
   const handleHover = (index: number, isHover: boolean) => {
     hoverMenuItemAnimation(menuItemsRef.current, index, isHover);
@@ -39,21 +39,21 @@ export const Menu: React.FC<{
   return (
     <div className="flex justify-between items-center h-full w-full">
       <div
-        onClick={handleMenuClose}
+        onClick={isOpen ? toggleMenu : undefined}
         // ref={closeIconRef}
         className="absolute cursor-pointer z-50 top-0 right-0 flex justify-end items-center m-5 closeIcon"
       >
         <CloseIcon />
       </div>
       <div className="flex flex-col md:ml-40 ml-3 text-white">
-        <ul className="md:text-5xl text-2xl space-y-10 font-bold">
+        <ul className="md:text-5xl text-xl space-y-10 font-bold max-w-52  ">
           {["Home", "Projects", "Contact Us"].map((item, index) => (
             <li
               key={index}
               ref={(el) => {
                 if (el) menuItemsRef.current[index] = el;
               }}
-              className="cursor-pointer menu-item flex items-center space-x-3"
+              className="cursor-pointer menu-item flex items-center space-x-3  justify-between "
               onMouseEnter={() => handleHover(index, true)}
               onMouseLeave={() => handleHover(index, false)}
             >
@@ -65,7 +65,7 @@ export const Menu: React.FC<{
       </div>
       <div className="bg-white flex flex-col justify-center items-center bg-opacity-5 h-full md:w-5/12 info-section px-2">
         <h1
-          className="md:text-5xl text-2xl my-5 font-bold text-white anim-text"
+          className="md:text-5xl text-xl my-5 font-bold text-white anim-text"
           ref={(el) => {
             if (el) {
               textElementsRef.current.push(el);

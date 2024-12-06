@@ -189,7 +189,7 @@ export const ActionButtons = () => (
       color="bg-black text-white"
       rotation="rotate-12"
       bottom="md:bottom-10 bottom-2"
-      right="md:right-0 right-20"
+      right="md:right-0 right-8"
       zIndex="z-0"
     />
   </div>

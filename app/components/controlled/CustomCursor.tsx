@@ -26,7 +26,7 @@ const ExpandingCursor: React.FC = () => {
 
       gsap.to(cursor, {
         scale: 3,
-        backgroundColor: "rgba(0, 0, 0, .3)",
+        backgroundColor: "rgba(85, 85, 85, 0.4)",
         duration: 0.3,
         ease: "power3.out",
       });
@@ -84,6 +84,7 @@ const ExpandingCursor: React.FC = () => {
         zIndex: 1000,
         transform: "translate(-50%, -50%)",
       }}
+      className="hidden md:block"
     />
   );
 };

@@ -133,14 +133,24 @@ export const closeMenuAnimation = (
   textElements: HTMLElement[],
   onComplete: () => void
 ) => {
-  gsap.to(textElements, {});
+  // Optionally, you can clear any previous animations
+  gsap.killTweensOf(textElements); // Clear any running animation for text elements
+
+  gsap.to(textElements, {
+    opacity: 0, // Fade out
+    y: 50, // Move down
+    duration: 0.8,
+    ease: "power2.out",
+    stagger: 0.2,
+    onComplete, // Callback to close the menu
+  });
 
   gsap.to(menuItems, {
-    y: 50, // Move down
-    opacity: 0, // Fade out
-    duration: 0.8, // Animation duration
-    ease: "power2.out", // Smooth easing
-    stagger: 0.2, // Delay between each item
+    y: 50,
+    opacity: 0,
+    duration: 0.8,
+    ease: "power2.out",
+    stagger: 0.2,
     onComplete, // Callback to close the menu
   });
 };

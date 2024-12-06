@@ -59,7 +59,7 @@ const Accordion: React.FC<AccordionProps> = ({
         return (
           <div
             key={index}
-            className="accordion-item border-t cursor-pointer"
+            className="accordion-item border-t cursor-pointer "
             style={{
               borderTopColor: isActive ? activeBorderColor : undefined,
               borderTopWidth: isActive ? borderTopWidth : undefined,
@@ -72,13 +72,12 @@ const Accordion: React.FC<AccordionProps> = ({
                 color: isActive ? activeTitleColor : titleColor,
               }}
             >
-              <p className="font-medium py-2">
+              <p className="font-medium py-2 hover-effect">
                 {index + 1}. <span className="ml-10">{item.title}</span>
               </p>
-              <span>{isActive ? "—" : "+"}</span>
+              <span className="hover-effect">{isActive ? "—" : "+"}</span>
             </div>
 
-            {/* Content Section */}
             <div
               className="accordion-content overflow-hidden"
               style={{ height: 0 }}

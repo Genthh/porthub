@@ -72,14 +72,15 @@ const Projects: React.FC = () => {
       <header className="flex flex-wrap justify-between  items-center mb-4">
         <h2 className="text-4xl font-semibold">Projects</h2>
         <p className="max-w-lg text-base text-txtGrayColor">
-          Business challenges are tough, but we have a proven record of
-          elevating our partners to their next and best selves.
+          Creative challenges drive innovation, and I’m proud to showcase a
+          portfolio of work that has helped clients elevate their brands to
+          stand out and thrive.
         </p>
       </header>
       {Object.entries(groupedProjects).map(([row, rowProjects]) => (
         <section
           key={row}
-          className={`flex flex-wrap w-full mb-10 justify-between`}
+          className={`flex flex-wrap w-full lg:mb-10 justify-between`}
           ref={(el) => {
             rowsRefs.current[+row] = el as HTMLDivElement | null; // Perform assignment as side effect
           }}
@@ -117,10 +118,10 @@ const Projects: React.FC = () => {
       ))}
       <Link
         href="/projects"
-        className="py-3  lg:mb-0 px-8 bg-customRed self-center text-sm text-white rounded-full 
+        className="py-3 mt-5 lg:mt-0 lg:mb-0 px-8 bg-customRed self-center text-sm text-white rounded-full 
         border border-transparent 
         hover:bg-transparent hover:text-black hover:border-customRed 
-        transition-all duration-500 ease-in-out"
+        transition-all duration-500 ease-in-out hover-effect"
       >
         See All Projects →
       </Link>

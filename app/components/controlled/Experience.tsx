@@ -3,7 +3,7 @@ import Image from "next/image";
 import React from "react";
 
 interface ExperienceProps {
-  id: number;
+  key: number;
   image: string | StaticImport;
   companyName: string;
   position: string;
@@ -12,7 +12,7 @@ interface ExperienceProps {
 }
 
 export const Experience = ({
-  id,
+  key,
   image,
   companyName,
   position,
@@ -20,7 +20,7 @@ export const Experience = ({
   className,
 }: ExperienceProps) => {
   return (
-    <div key={id} className={className}>
+    <div key={key} className={className}>
       <div className="flex gap-x-3">
         <Image
           src={image}

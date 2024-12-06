@@ -19,7 +19,7 @@ const Reviews = () => {
       </div>
       {experience.map((index) => (
         <Experience
-          id={index.id}
+          key={index.id}
           image={index.image}
           companyName={index.companyName}
           position={index.position}

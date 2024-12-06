@@ -10,6 +10,8 @@ import Process from "./components/Process";
 import EmailForm from "./components/EmailForm";
 import Reviews from "./components/Reviews";
 
+import { useEffect, useState } from "react";
+
 const SmoothScrollingWrapper = () => {
   return (
     <SmoothScroll>
@@ -22,17 +24,20 @@ const SmoothScrollingWrapper = () => {
     </SmoothScroll>
   );
 };
+
 function App() {
   const { isLoading } = useLoadingStore();
+  const [isClient, setIsClient] = useState(false);
 
-  const conditioanlRender = isLoading ? (
-    <LoadingScreen />
-  ) : (
-    <SmoothScrollingWrapper />
-  );
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  const conditioanlRender =
+    isLoading && isClient ? <LoadingScreen /> : <SmoothScrollingWrapper />;
 
   return (
-    <div className="max-w-8xl  mx-auto">
+    <div className="max-w-8xl mx-auto">
       <CustomCursor />
       <SideBar />
       {conditioanlRender}

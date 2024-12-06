@@ -44,7 +44,7 @@ export const SideBar = () => {
           </div>
           <div className="flex flex-col justify-center items-center text-white text-lg">
             <Image
-              src="/LorikZekaj.jpeg"
+              src="/images/LorikZekajProfile.png"
               alt="Lorik Zekaj"
               width={240}
               height={240}
@@ -90,7 +90,7 @@ export const SideBar = () => {
       </div>
 
       <div className="flex justify-between items-center px-5 w-full py-5 lg:hidden fixed z-40 top-0">
-        <div className="rounded-full bg-white px-8 py-2">Hubfolio</div>
+        <div className="rounded-full bg-white px-8 py-2"> Lorik Zekaj</div>
         <div onClick={toggleMenu} className="cursor-pointer">
           <BurgerMenu />
         </div>
