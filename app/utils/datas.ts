@@ -11,6 +11,8 @@ export interface Project {
   images?: string[];
   imgBanner?: string;
   description?: string;
+  categoryLabel?: string[]; // Optional label for categories
+  categoryList?: string[];
 }
 
 const isBrowser = typeof window !== "undefined";
@@ -38,6 +40,13 @@ const generateUUIDs = (): Project[] => {
           "https://uithemez.com/i/hubfolio_HTML/inner_pages/assets/imgs/portfolio/project/3.jpg",
         ],
         description: "branding, ui/ux design",
+        categoryLabel: ["Category", "Client", "Date", "Designer"],
+        categoryList: [
+          "Brand Development",
+          "  Pristine  ",
+          "10 Oct 2024",
+          "Lorik Zekaj",
+        ],
       },
       {
         image: "/images/VANNIO-BrandIdentity.jpg",
@@ -54,6 +63,13 @@ const generateUUIDs = (): Project[] => {
           "https://uithemez.com/i/hubfolio_HTML/inner_pages/assets/imgs/portfolio/project/3.jpg",
         ],
         description: "branding, ui/ux design",
+        categoryLabel: ["Category", "Client", "Date", "Designer"],
+        categoryList: [
+          "Brand Development",
+          "  VANNIO Jewelry ",
+          "07 Dec 2023",
+          "Lorik Zekaj",
+        ],
       },
       {
         image: "/images/LIKAPharmacy-BrandIdentity.jpg",
@@ -70,6 +86,13 @@ const generateUUIDs = (): Project[] => {
           "https://uithemez.com/i/hubfolio_HTML/inner_pages/assets/imgs/portfolio/project/3.jpg",
         ],
         description: "branding, ui/ux design, motion, seo",
+        categoryLabel: ["Category", "Client", "Date", "Designer"],
+        categoryList: [
+          "Brand Development",
+          "  LIKA Pharmacy ",
+          "12 Aug 2022",
+          "Lorik Zekaj",
+        ],
       },
       {
         image: "/images/Q10Oil-BrandIdentity.jpg",
@@ -86,6 +109,13 @@ const generateUUIDs = (): Project[] => {
           "https://uithemez.com/i/hubfolio_HTML/inner_pages/assets/imgs/portfolio/project/3.jpg",
         ],
         description: "ui/ux design, Illustration photography,",
+        categoryLabel: ["Category", "Client", "Date", "Designer"],
+        categoryList: [
+          "Brand Development",
+          "  Q10 Oil ",
+          "15 Nov 2019",
+          "Lorik Zekaj",
+        ],
       },
       {
         image: "/images/SALTBistro-BrandIdentity.jpg",
@@ -102,6 +132,13 @@ const generateUUIDs = (): Project[] => {
           "https://uithemez.com/i/hubfolio_HTML/inner_pages/assets/imgs/services/img1.jpg",
           "https://uithemez.com/i/hubfolio_HTML/inner_pages/assets/imgs/services/img2.jpg",
           "https://uithemez.com/i/hubfolio_HTML/inner_pages/assets/imgs/portfolio/project/3.jpg",
+        ],
+        categoryLabel: ["Category", "Client", "Date", "Designer"],
+        categoryList: [
+          "Brand Development",
+          "  Salt Bistro ",
+          "04 Dec 2019",
+          "Lorik Zekaj",
         ],
       },
       {
@@ -120,6 +157,13 @@ const generateUUIDs = (): Project[] => {
           "https://uithemez.com/i/hubfolio_HTML/inner_pages/assets/imgs/services/img2.jpg",
           "https://uithemez.com/i/hubfolio_HTML/inner_pages/assets/imgs/portfolio/project/3.jpg",
         ],
+        categoryLabel: ["Category", "Client", "Date", "Designer"],
+        categoryList: [
+          "Brand Development",
+          "  DOBROSHI Gold Jewels ",
+          "16 Sep 2020",
+          "Lorik Zekaj",
+        ],
       },
       {
         image: "/images/OMEGA-BrandIdentity.jpg",
@@ -136,6 +180,13 @@ const generateUUIDs = (): Project[] => {
           "https://uithemez.com/i/hubfolio_HTML/inner_pages/assets/imgs/services/img1.jpg",
           "https://uithemez.com/i/hubfolio_HTML/inner_pages/assets/imgs/services/img2.jpg",
           "https://uithemez.com/i/hubfolio_HTML/inner_pages/assets/imgs/portfolio/project/3.jpg",
+        ],
+        categoryLabel: ["Category", "Client", "Date", "Designer"],
+        categoryList: [
+          "Brand Development",
+          "  OMEGA Laboratories ",
+          "26 Apr 2022",
+          "Lorik Zekaj",
         ],
       },
     ];

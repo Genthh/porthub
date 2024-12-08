@@ -13,7 +13,7 @@ import { items } from "./Process";
 const ProjectDetails: React.FC<{ project: Project }> = ({ project }) => {
   return (
     <div className="max-w-screen lg:h-[400vh]   relative">
-      <FirstSection />
+      <FirstSection project={project} />
       <SecondSection project={project} />
       <ThirdSection project={project} />
     </div>
@@ -22,7 +22,7 @@ const ProjectDetails: React.FC<{ project: Project }> = ({ project }) => {
 
 export default ProjectDetails;
 
-const FirstSection = () => {
+const FirstSection = ({ project }: { project: Project }) => {
   const { isLoading } = useLoadingStore();
   const textRef = useRef<HTMLParagraphElement>(null);
   const listRef1 = useRef<HTMLUListElement | null>(null);
@@ -66,40 +66,55 @@ const FirstSection = () => {
       }
     }
   }, [isLoading]);
-
+  console.log(project.categoryList, "lida");
   return (
     <div className="absolute top-0 left-0 z-1000 px-3 lg:px-0 w-screen text-white lg:py-30 py-10 bg-primary h-[55vh]">
       {isLoading ? (
         <LoadingScreen />
       ) : (
         <>
-          <p ref={textRef} className="md:text-xl text-center">
-            Brand identity and web developmentBrand identity and web development
-          </p>
           <p
             ref={textRef}
             className="lg:text-7xl text-2xl py-3 flex flex-col font-bold text-center"
           >
             Unique visual identity to<span>bring in digital market</span>
           </p>
-          <ul
+          <div
             ref={listRef1}
-            className="flex justify-around lg:text-2xl lg:pt-20 lg:mx-20 text-gray-400"
+            className="flex flex-col max-w-7xl text-center mx-auto"
           >
-            <li>Category</li>
-            <li>Client</li>
-            <li>Start Date</li>
-            <li>Designer</li>
-          </ul>
-          <ul
-            ref={listRef2}
-            className="flex justify-around lg:text-2xl pt-5 lg:mx-20"
+            <div className="flex justify-around lg:text-lg  lg:pt-20  text-gray-400 ">
+              {project.categoryLabel?.map((label, index) => (
+                <p key={index}>{label}</p>
+              ))}
+            </div>
+            <div
+              className="flex justify-around font-bold lg:text-[22px] lg:pt-20  text-white "
+              ref={listRef2}
+            >
+              {project.categoryList?.map((label, index) => (
+                <p key={index}>{label}</p>
+              ))}
+            </div>
+          </div>
+
+          {/* <ul
+            ref={listRef1}
+            className="flex justify-around lg:text-2xl lg:pt-20  text-gray-400 "
           >
-            <li>Development</li>
-            <li>Envato</li>
-            <li>7 August 2021</li>
-            <li>Ui-ThemeZ</li>
-          </ul>
+            {project.categoryLabel?.map((label, index) => (
+              <li className="bg-red-500" key={index}>
+                {label}
+              </li>
+            ))}
+          </ul> */}
+          {/* <ul ref={listRef2} className="flex justify-around lg:text-2xl pt-5  ">
+            {project.categoryList?.map((list, index) => (
+              <li className="" key={index}>
+                {list}
+              </li>
+            ))}
+          </ul> */}
         </>
       )}
     </div>
@@ -180,13 +195,13 @@ const ThirdSection = ({ project }: { project: Project }) => {
             <img
               className="lg:w-1/2 lg:h-100 h-56 object-cover"
               src={project?.images?.[1]}
-              alt={`Project ${project.title}`}
+              alt={`Project ${project?.title}`}
             />
           </div>
           <img
             className="w-full lg:h-100 h-56 object-cover mt-4"
             src={project?.images?.[2]}
-            alt={`Project ${project.title}`}
+            alt={`Project ${project?.title}`}
           />
         </div>
         <div className="flex lg:flex-row flex-col lg:justify-between  my-20">
