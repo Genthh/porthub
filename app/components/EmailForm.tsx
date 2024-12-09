@@ -50,11 +50,15 @@ export const handleSubmit = async (values: FormValues) => {
 const ContactForm = () => {
   return (
     <div className="bg-[#333333] text-white lg:ml-[320px] mx-3 lg:mx-0 rounded-2xl flex flex-col lg:px-10 px-3 mb-10 md:py-20 py-5  h-fit">
-      <h1 className="md:text-3xl text-2xl font-bold mb-4 ">Let's Chat!</h1>
-      <p className="mb-8 text-sm md:text-base">
-        We will ask the right questions, discuss possibilities, and make an
-        action plan.
-      </p>
+      <header className="flex flex-wrap justify-between  items-center mb-10">
+        <h2 className="md:text-4xl text-2xl font-semibold  uppercase tracking-tighter">
+          Let's Chat!
+        </h2>
+        <p className="text-sm md:text-base w-1/2 pl-4">
+          We will ask the right questions, discuss possibilities, and make an
+          action plan.
+        </p>
+      </header>
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
@@ -62,65 +66,65 @@ const ContactForm = () => {
       >
         {() => (
           <Form className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {/* Full Name */}
             <div>
-              <label className="block  mb-2" htmlFor="fullName">
+              <label className="block  mb-2 text-sm" htmlFor="fullName">
                 Full Name <span className="text-customRed font-bold">*</span>
               </label>
               <Field
                 name="fullName"
                 type="text"
-                className="w-full border-b border-customColor bg-transparent p-2 focus:outline-none "
+                className="w-full border-b border-customColor bg-transparent py-2 focus:outline-none  text-lg"
                 placeholder="Your full name"
               />
             </div>
 
             <div>
-              <label className="block mb-2" htmlFor="email">
+              <label className="block mb-2 text-sm" htmlFor="email">
                 Email Address
                 <span className="text-customRed font-bold">*</span>
               </label>
               <Field
                 name="email"
                 type="email"
-                className="w-full border-b border-customColor bg-transparent p-2 focus:outline-none "
+                className="w-full border-b border-customColor bg-transparent py-2 focus:outline-none text-lg"
                 placeholder="Your email address"
               />
             </div>
 
             <div>
-              <label className="block mb-2" htmlFor="subject">
+              <label className="block mb-2 text-sm" htmlFor="subject">
                 Subject <span className="text-customRed font-bold">*</span>
               </label>
               <Field
                 name="subject"
                 type="text"
-                className="w-full border-b border-customColor bg-transparent p-2 focus:outline-none "
+                className="w-full border-b border-customColor bg-transparent py-2 focus:outline-none text-lg"
                 placeholder="Subject"
               />
             </div>
 
             <div>
-              <label className="block  mb-2" htmlFor="budget">
-                Your Budget <span>(Optional)</span>
+              <label className="block  mb-2 text-sm" htmlFor="budget">
+                Your Budget
+                <span className="text-customGrayColor">(Optional)</span>
               </label>
               <Field
                 name="budget"
                 type="text"
-                className="w-full border-b border-customColor bg-transparent p-2 focus:outline-none "
+                className="w-full border-b border-customColor bg-transparent py-2 focus:outline-none text-lg"
                 placeholder="A range of budget for project"
               />
             </div>
 
             <div className="lg:col-span-2">
-              <label className="block  mb-2" htmlFor="message">
+              <label className="block  mb-2 text-sm" htmlFor="message">
                 Message
               </label>
               <Field
                 name="message"
                 as="textarea"
                 rows="4"
-                className="w-full border-b border-customColor bg-transparent p-2 focus:outline-none "
+                className="w-full border-b border-customColor bg-transparent py-2 focus:outline-none text-lg"
                 placeholder="Write your message here..."
               />
             </div>

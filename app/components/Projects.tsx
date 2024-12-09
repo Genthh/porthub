@@ -70,7 +70,9 @@ const Projects: React.FC = () => {
       ref={sectionRef}
     >
       <header className="flex flex-wrap justify-between  items-center mb-4">
-        <h2 className="text-4xl font-semibold">Projects</h2>
+        <h2 className="text-4xl font-semibold ml-2 uppercase tracking-tighter">
+          Projects
+        </h2>
         <p className="max-w-lg text-base text-txtGrayColor">
           Creative challenges drive innovation, and I’m proud to showcase a
           portfolio of work that has helped clients elevate their brands to

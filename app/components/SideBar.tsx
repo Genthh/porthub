@@ -2,12 +2,14 @@ import React, { useState, useRef } from "react";
 import BurgerMenu from "../_svgs/burgerMenu.svg";
 import Image from "next/image";
 import InIcon from "../_svgs/inIcon.svg";
-import TwitterIcon from "../_svgs/xIcon.svg";
+import TwitterIcon from "../_svgs/Behance.svg";
 import InstagramIcon from "../_svgs/instagramIcon.svg";
+import FacebookIcon from "../_svgs/facebookIcon.svg";
 import { gsap } from "gsap";
 import EnvelopeIcon from "../_svgs/envelope.svg";
 import { Menu } from "./Menu";
 import Link from "next/link";
+import SocialMediaLinks from "./SocialMediaLinks";
 export const SideBar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const sidebarRef = useRef(null);
@@ -57,17 +59,7 @@ export const SideBar = () => {
             <p className="my-8 text-customColor text-sm">
               © 2024, All Rights Reserved
             </p>
-            <div className="flex gap-x-3">
-              <span className="border border-customColor rounded-full h-10 w-10 flex justify-center items-center cursor-pointer">
-                <InstagramIcon />
-              </span>
-              <span className="border border-customColor rounded-full h-10 w-10 flex justify-center items-center cursor-pointer">
-                <TwitterIcon />
-              </span>
-              <span className="border border-customColor rounded-full h-10 w-10 flex justify-center items-center cursor-pointer">
-                <InIcon />
-              </span>
-            </div>
+            <SocialMediaLinks />
           </div>
         </div>
         <Link

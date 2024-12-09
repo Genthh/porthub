@@ -13,6 +13,9 @@ export interface Project {
   description?: string;
   categoryLabel?: string[]; // Optional label for categories
   categoryList?: string[];
+  brandOverviewTextFirst?: string;
+  brandOverviewTextSecond?: string;
+  brandingList?: string[] | undefined;
 }
 
 const isBrowser = typeof window !== "undefined";
@@ -47,6 +50,15 @@ const generateUUIDs = (): Project[] => {
           "10 Oct 2024",
           "Lorik Zekaj",
         ],
+        brandOverviewTextFirst:
+          "This project focused on crafting a unique and memorable brand identity tailored for the digital market. The process combined creative design elements and strategic thinking to deliver a visual identity that captures the essence of the brand while meeting the client’s objectives.",
+        brandOverviewTextSecond:
+          "The final design stands out for its clean and professional look, ensuring a consistent presence across various platforms.",
+        brandingList: [
+          "Branding and identity",
+          "Printing materials",
+          "Content strategy for social media",
+        ],
       },
       {
         image: "/images/VANNIO-BrandIdentity.jpg",
@@ -70,6 +82,10 @@ const generateUUIDs = (): Project[] => {
           "07 Dec 2023",
           "Lorik Zekaj",
         ],
+        brandOverviewTextFirst:
+          "This project focused on crafting a unique and memorable brand identity tailored for the digital market. The process combined creative design elements and strategic thinking to deliver a visual identity that captures the essence of the brand while meeting the client’s objectives.",
+        brandOverviewTextSecond:
+          "The final design stands out for its clean and professional look, ensuring a consistent presence across various platforms.",
       },
       {
         image: "/images/LIKAPharmacy-BrandIdentity.jpg",

@@ -9,10 +9,11 @@ import TwitterIcon from "../_svgs/xIcon.svg";
 import InstagramIcon from "../_svgs/instagramIcon.svg";
 import Accordion from "./controlled/Accordion";
 import { items } from "./Process";
+import SocialMediaLinks from "./SocialMediaLinks";
 
 const ProjectDetails: React.FC<{ project: Project }> = ({ project }) => {
   return (
-    <div className="max-w-screen lg:h-[400vh]   relative">
+    <div className="max-w-screen lg:h-[420vh]   relative">
       <FirstSection project={project} />
       <SecondSection project={project} />
       <ThirdSection project={project} />
@@ -25,8 +26,8 @@ export default ProjectDetails;
 const FirstSection = ({ project }: { project: Project }) => {
   const { isLoading } = useLoadingStore();
   const textRef = useRef<HTMLParagraphElement>(null);
-  const listRef1 = useRef<HTMLUListElement | null>(null);
-  const listRef2 = useRef<HTMLUListElement>(null);
+  const listRef1 = useRef<HTMLDivElement | null>(null);
+  const listRef2 = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
     if (!isLoading) {
@@ -66,7 +67,6 @@ const FirstSection = ({ project }: { project: Project }) => {
       }
     }
   }, [isLoading]);
-  console.log(project.categoryList, "lida");
   return (
     <div className="absolute top-0 left-0 z-1000 px-3 lg:px-0 w-screen text-white lg:py-30 py-10 bg-primary h-[55vh]">
       {isLoading ? (
@@ -83,17 +83,24 @@ const FirstSection = ({ project }: { project: Project }) => {
             ref={listRef1}
             className="flex flex-col max-w-7xl text-center mx-auto"
           >
-            <div className="flex justify-around lg:text-lg  lg:pt-20  text-gray-400 ">
+            <div className="flex flex- justify-between lg:text-lg lg:pt-20 text-gray-400 md:mt-5">
               {project.categoryLabel?.map((label, index) => (
-                <p key={index}>{label}</p>
-              ))}
-            </div>
-            <div
-              className="flex justify-around font-bold lg:text-[22px] lg:pt-20  text-white "
-              ref={listRef2}
-            >
-              {project.categoryList?.map((label, index) => (
-                <p key={index}>{label}</p>
+                <div key={index} className="pb-6">
+                  <p>{label}</p>
+                  <div
+                    className="flex justify-around items-center font-bold lg:text-[22px] lg:pt-3 text-white"
+                    ref={listRef2}
+                  >
+                    {project.categoryList?.map(
+                      (categoryItem, itemIndex) =>
+                        index === itemIndex && (
+                          <p className="text-white" key={itemIndex}>
+                            {categoryItem}
+                          </p>
+                        )
+                    )}
+                  </div>
+                </div>
               ))}
             </div>
           </div>
@@ -156,37 +163,26 @@ const SecondSection = ({ project }: { project: Project }) => {
 
 const ThirdSection = ({ project }: { project: Project }) => {
   return (
-    <div className="red-div  w-screen bg-primary  bottom-0 left-0 z-50 flex flex-col  text-white ">
+    <div className="red-div  w-screen  bottom-0 left-0 z-50 flex flex-col text-white">
       <div className="lg:max-w-7xl w-full mx-auto py-10 px-3 lg:px-0">
         <div className="flex lg:flex-row flex-col justify-between lg:gap-x-40">
           <p className="text-4xl font-bold">Brand overview</p>
           <div className="flex flex-col gap-y-5">
             <p className="text-gray-400 flex flex-col text-lg gap-y-5 max-w-4xl">
-              Duis sed augue condimentum, blandit sapien in, accumsan eros.
-              Curabitur sodales pulvinar libero et venenatis. Nullam eleifend
-              risus a quam dictum auctor. Mauris at leo non dui euismod varius.
-              Cras vel erat at est aliquam laoreet. Donec tincidunt, nunc eu
-              gravida malesuada, tellus leo.
-              <span>
-                Maecenas sed tortor molestie, sagittis nibh sit amet, dapibus
-                felis. Vivamus sed neque iaculis, ultrices nulla eu, venenatis
-                dui. Praesent luctus urna eu dapibus pulvinar. Curabitur sed
-                magna accumsan neque fermentum laoreet. Ut nunc.
-              </span>
+              {project.brandOverviewTextFirst}
+              <span>{project.brandOverviewTextSecond}</span>
             </p>
             <p className="text-xl font-bold border-b border-gray-600 pb-2">
-              Branding and identity
+              {project?.brandingList?.[0]}
             </p>
             <p className="text-xl font-bold border-b border-gray-600 pb-2">
-              Websites and digital platforms
+              {project?.brandingList?.[1]}
             </p>
-            <p className="text-xl font-bold">
-              Content strategy for social media
-            </p>
+            <p className="text-xl font-bold">{project?.brandingList?.[2]}</p>
           </div>
         </div>
-        <div className="flex flex-col mt-20">
-          <div className="flex flex-col lg:flex-row gap-x-4 gap-y-4">
+        <div className="flex flex-col mt-20 max-w-8xl overflow-hidden">
+          <div className="flex flex-col lg:flex-row gap-x-4 mt-20 max-w-8xl">
             <img
               className="lg:w-1/2 lg:h-100 h-56 object-cover"
               src={project?.images?.[0]}
@@ -198,13 +194,18 @@ const ThirdSection = ({ project }: { project: Project }) => {
               alt={`Project ${project?.title}`}
             />
           </div>
+
           <img
             className="w-full lg:h-100 h-56 object-cover mt-4"
             src={project?.images?.[2]}
             alt={`Project ${project?.title}`}
           />
         </div>
-        <div className="flex lg:flex-row flex-col lg:justify-between  my-20">
+        <div className="mt-14">
+          <hr />
+        </div>
+
+        {/* <div className="flex lg:flex-row flex-col lg:justify-between  my-20">
           <p className="text-4xl py-3 flex flex-col font-bold  ">
             Product making for <span>friendly users</span>
             <span className="text-lg max-w-xl text-gray-300 mt-4">
@@ -222,9 +223,9 @@ const ThirdSection = ({ project }: { project: Project }) => {
               contentColor="#ffffff"
             />
           </div>
-        </div>
+        </div> */}
         <hr />
-        <div className="w-fit relative p-10 mx-auto mt-20">
+        <div className="w-fit relative p-10 mx-auto mt-10">
           <p className="flex flex-col text-center lg:text-8xl text-2xl font-bold ">
             LET'S MAKE<span>SOMETHING GREAT!</span>
           </p>
@@ -261,16 +262,8 @@ export const Footer = () => {
           </p>
         </div>
       </div>
-      <div className="flex gap-x-6 mt-20">
-        <span className="border border-customColor rounded-full h-10 w-10 flex justify-center items-center cursor-pointer">
-          <InstagramIcon />
-        </span>
-        <span className="border border-customColor rounded-full h-10 w-10 flex justify-center items-center cursor-pointer">
-          <TwitterIcon />
-        </span>
-        <span className="border border-customColor rounded-full h-10 w-10 flex justify-center items-center cursor-pointer">
-          <InIcon />
-        </span>
+      <div className="mt-14">
+        <SocialMediaLinks />
       </div>
     </div>
   );

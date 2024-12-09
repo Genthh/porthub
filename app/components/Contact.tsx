@@ -84,7 +84,7 @@ const ContactForm = () => {
         </ul>
       </div>
       <div className="text-white flex flex-col px-3 md:px-0 w-full md:w-1/2 mt-10 md:mt-0">
-        <p className="mb-5">Send a message</p>
+        <p className="mb-5 text-lg">Send a message</p>
         <Formik
           initialValues={initialValues}
           validationSchema={validationSchema}
@@ -97,7 +97,7 @@ const ContactForm = () => {
                 <Field
                   name="fullName"
                   type="text"
-                  className="w-full border-b border-customColor bg-transparent p-2 focus:outline-none "
+                  className="w-full border-b border-customColor bg-transparent py-2 focus:outline-none "
                   placeholder="Your full name"
                 />
               </div>
@@ -106,7 +106,7 @@ const ContactForm = () => {
                 <Field
                   name="email"
                   type="email"
-                  className="w-full border-b border-customColor bg-transparent p-2 focus:outline-none "
+                  className="w-full border-b border-customColor bg-transparent py-2 focus:outline-none "
                   placeholder="Your email address"
                 />
               </div>
@@ -115,7 +115,7 @@ const ContactForm = () => {
                 <Field
                   name="subject"
                   type="text"
-                  className="w-full border-b border-customColor bg-transparent p-2 focus:outline-none "
+                  className="w-full border-b border-customColor bg-transparent py-2 focus:outline-none "
                   placeholder="Subject"
                 />
               </div>
@@ -124,7 +124,7 @@ const ContactForm = () => {
                 <Field
                   name="budget"
                   type="text"
-                  className="w-full border-b border-customColor bg-transparent p-2 focus:outline-none "
+                  className="w-full border-b border-customColor bg-transparent py-2 focus:outline-none "
                   placeholder="A range of budget for project"
                 />
               </div>
@@ -134,7 +134,7 @@ const ContactForm = () => {
                   name="message"
                   as="textarea"
                   rows="4"
-                  className="w-full border-b border-customColor bg-transparent p-2 focus:outline-none "
+                  className="w-full border-b border-customColor bg-transparent py-2 focus:outline-none "
                   placeholder="Write your message here..."
                 />
               </div>

@@ -15,7 +15,9 @@ const Reviews = () => {
   return (
     <div className="lg:ml-[320px] mx-3  md:py-20 py-5 md:px-10 px-3 lg:mx-0 bg-[#333333] relative rounded-2xl my-4 text-white experience-container">
       <div className="flex flex-col border-b border-customColor md:pb-10 pb-5">
-        <h1 className="md:text-3xl text-2xl font-bold">Experience</h1>
+        <h2 className="md:text-4xl text-2xl font-semibold ml-2 uppercase tracking-tighter">
+          experience
+        </h2>
       </div>
       {experience.map((index) => (
         <Experience

@@ -36,14 +36,28 @@ const Accordion: React.FC<AccordionProps> = ({
   }, []);
 
   const toggleAccordion = (index: number) => {
+    // Toggle the active state
     const isActive = activeIndex === index ? null : index;
     setActiveIndex(isActive);
 
-    const contentElement =
-      document.querySelectorAll<HTMLElement>(".accordion-content")[index];
+    // Close the currently opened content (if any)
+    const allContentElements =
+      document.querySelectorAll<HTMLElement>(".accordion-content");
+
+    // Animate all accordion items to close (height 0)
+    allContentElements.forEach((contentElement, i) => {
+      if (i !== index) {
+        gsap.to(contentElement, {
+          height: 0,
+          duration: 0.5,
+        });
+      }
+    });
+
+    // Animate the clicked accordion item to open/close
+    const contentElement = allContentElements[index];
     if (contentElement) {
       const fullHeight = contentElement.scrollHeight;
-
       gsap.to(contentElement, {
         height: isActive !== null ? fullHeight : 0,
         duration: 0.5,
@@ -59,7 +73,7 @@ const Accordion: React.FC<AccordionProps> = ({
         return (
           <div
             key={index}
-            className="accordion-item border-t cursor-pointer "
+            className="accordion-item border-t cursor-pointer"
             style={{
               borderTopColor: isActive ? activeBorderColor : undefined,
               borderTopWidth: isActive ? borderTopWidth : undefined,

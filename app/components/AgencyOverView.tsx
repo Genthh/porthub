@@ -14,7 +14,7 @@ const AgencyOverview: React.FC = () => {
 
   const slides = [
     { id: 1, content: "5+", subTitle: "Years of experience" },
-    { id: 2, content: "30+", subTitle: "Projects completed" },
+    { id: 2, content: "50+", subTitle: "Projects completed" },
   ];
 
   const handleNext = () => {
@@ -57,7 +57,7 @@ const AgencyOverview: React.FC = () => {
   return (
     <div
       ref={containerRef}
-      className="pt-3 flex flex-wrap gap-x-3  lg:ml-[320px]"
+      className="pt-3 flex flex-wrap gap-x-4  lg:ml-[320px]"
     >
       <MainLayout
         style={{
@@ -82,7 +82,7 @@ const AgencyOverview: React.FC = () => {
             {slides.map((slide) => (
               <div
                 key={slide.id}
-                className="w-full flex-shrink-0 flex items-center justify-center text-white  font-bold text-7xl"
+                className="w-full flex-shrink-0 flex items-center justify-center text-white  font-bold text-7xl mt-5 "
               >
                 {slide.content}
               </div>
@@ -108,7 +108,7 @@ const AgencyOverview: React.FC = () => {
                   viewBox="0 0 24 24"
                   strokeWidth="2"
                   stroke="currentColor"
-                  className="w-6 h-6"
+                  className="w-5 h-5"
                 >
                   <path
                     strokeLinecap="round"
@@ -132,7 +132,7 @@ const AgencyOverview: React.FC = () => {
                   viewBox="0 0 24 24"
                   strokeWidth="2"
                   stroke="currentColor"
-                  className="w-6 h-6"
+                  className="w-5 h-5"
                 >
                   <path
                     strokeLinecap="round"

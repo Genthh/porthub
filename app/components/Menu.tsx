@@ -10,6 +10,7 @@ import {
   openMenuAnimation,
 } from "./animations";
 import { useGSAP } from "@gsap/react";
+import SocialMediaLinks from "./SocialMediaLinks";
 
 export const Menu: React.FC<{
   toggleMenu: () => void;
@@ -74,7 +75,9 @@ export const Menu: React.FC<{
         >
           Lorik Zekaj
         </h1>
-        <div className="flex gap-x-5">
+        <SocialMediaLinks />
+
+        {/* <div className="flex gap-x-5">
           {[InstagramIcon, TwitterIcon, InIcon].map((Icon, index) => (
             <span
               key={index}
@@ -88,7 +91,7 @@ export const Menu: React.FC<{
               <Icon />
             </span>
           ))}
-        </div>
+        </div> */}
         <p
           className="mt-5 text-white anim-text"
           ref={(el) => {
