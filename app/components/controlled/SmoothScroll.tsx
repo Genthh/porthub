@@ -1,5 +1,3 @@
-"use client";
-
 import React, { ReactNode, useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 
@@ -26,7 +24,8 @@ const SmoothScroll: React.FC<SmoothScrollProps> = ({
     };
 
     const updateScrollPosition = () => {
-      if (scrollingContainer) {
+      if (scrollingContainer && window.innerWidth > 768) {
+        // Check for window width greater than 768px
         gsap.to(scrollingContainer, {
           y: -window.scrollY,
           duration: 1.8,
@@ -51,10 +50,10 @@ const SmoothScroll: React.FC<SmoothScrollProps> = ({
   }, []);
 
   return (
-    <div className="parent ">
+    <div className="parent">
       <div
         ref={scrollingContainerRef}
-        className="scrolling-container fixed inset-0 mx-auto top-0  mb-20"
+        className="scrolling-container fixed inset-0 mx-auto top-0 mb-20"
         style={{ maxWidth }}
       >
         {children}
