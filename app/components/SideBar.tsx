@@ -1,15 +1,11 @@
 import React, { useState, useRef } from "react";
 import BurgerMenu from "../_svgs/burgerMenu.svg";
 import Image from "next/image";
-import InIcon from "../_svgs/inIcon.svg";
-import TwitterIcon from "../_svgs/Behance.svg";
-import InstagramIcon from "../_svgs/instagramIcon.svg";
-import FacebookIcon from "../_svgs/facebookIcon.svg";
 import { gsap } from "gsap";
-import EnvelopeIcon from "../_svgs/envelope.svg";
 import { Menu } from "./Menu";
 import Link from "next/link";
 import SocialMediaLinks from "./SocialMediaLinks";
+
 export const SideBar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const sidebarRef = useRef(null);
@@ -34,7 +30,7 @@ export const SideBar = () => {
 
   return (
     <>
-      <div className="fixed mx-auto h-full w-72 pt-8 pb-10 px-5  flex-col justify-between lg:flex hidden z-50">
+      <div className="fixed ml-7 h-full lg:w-64 pt-8 pb-10 px-5  flex-col justify-between lg:flex hidden z-50">
         <div className="flex flex-col gap-y-10">
           <div className="flex items-center justify-between">
             <button className="rounded-full bg-white px-6 font-bold py-1">
@@ -54,7 +50,7 @@ export const SideBar = () => {
             />
             <p className="mt-5">lorikzek@gmail.com</p>
             <p className="">+383-49-828-434</p>
-            <p>Based in Prishtina, Kosovo</p>
+            <p className="text-center">Based in Prishtina, Kosovo</p>
             <p>(Southeast Europe)</p>
             <p className="my-8 text-customColor text-sm">
               © 2024, All Rights Reserved

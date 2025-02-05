@@ -57,8 +57,8 @@ const AgencyOverview: React.FC = () => {
   return (
     <div
       ref={containerRef}
-      className="pt-3 flex flex-wrap gap-x-4  lg:ml-[320px]"
-    >
+      className="pt-3 flex flex-wrap justify-end gap-x-4  lg:mx-[100px] lg:ml-[138px]"
+      >
       <MainLayout
         style={{
           backgroundImage: "url(/images/heroImg.jpg)",
@@ -69,7 +69,7 @@ const AgencyOverview: React.FC = () => {
         positionClasses="absolute bottom-0 left-0 w-full h-screen bg-cover bg-center overflow-hidden z-0"
       />
 
-      <div className="flex flex-col gap-y-2 mx-3 lg:mx-0 lg:mt-0 mt-2 lg:w-[24.5%]">
+      <div className="flex flex-col gap-y-2 mx-3 lg:mx-0 lg:mt-0 mt-2 lg:w-[19.5%]">
         <SecondaryLayout description="A Senior Graphic Designer dedicated to crafting and creating innovative brands while developing impactful digital products.">
           <ActionButtons />
         </SecondaryLayout>

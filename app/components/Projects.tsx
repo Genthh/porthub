@@ -66,11 +66,11 @@ const Projects: React.FC = () => {
 
   return (
     <div
-      className="bg-white lg:ml-[320px] mx-3 lg:mx-0 rounded-2xl flex flex-col justify-center lg:px-10 px-5 md:py-16  my-4 py-10 md:pb-10  h-fit "
+      className="bg-white lg:ml-[320px] lg:mr-[100px] mx-3 lg:mx-0  rounded-2xl flex flex-col justify-center lg:px-10 px-5 md:py-16  my-4 py-10 md:pb-10  h-fit "
       ref={sectionRef}
     >
       <header className="flex flex-wrap justify-between  items-center mb-4">
-        <h2 className="text-4xl font-semibold ml-2 uppercase tracking-tighter">
+        <h2 className="text-4xl font-semibold lg:ml-2 uppercase tracking-tighter">
           Projects
         </h2>
         <p className="max-w-lg text-base text-txtGrayColor">

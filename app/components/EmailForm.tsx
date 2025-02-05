@@ -49,7 +49,7 @@ export const handleSubmit = async (values: FormValues) => {
 };
 const ContactForm = () => {
   return (
-    <div className="bg-[#333333] text-white lg:ml-[320px] mx-3 lg:mx-0 rounded-2xl flex flex-col lg:px-10 px-3 mb-10 md:py-20 py-5  h-fit">
+    <div className="bg-[#333333] text-white lg:ml-[320px] lg:mr-[100px] mx-3 lg:mx-0 rounded-2xl flex flex-col lg:px-10 px-3 mb-10 md:py-20 py-5  h-fit">
       <header className="flex flex-wrap justify-between  items-center mb-10">
         <h2 className="md:text-4xl text-2xl font-semibold  uppercase tracking-tighter">
           Let's Chat!

@@ -78,10 +78,10 @@ const Process = () => {
   }, []);
 
   return (
-    <div className="lg:ml-[320px] mx-3 lg:mx-0 bg-customRed relative rounded-2xl">
+    <div className="lg:ml-[320px] lg:mr-[100px] mx-3 lg:mx-0 bg-customRed relative rounded-2xl">
       <div className="rounded-2xl md:px-10 px-3  md:pb-20 py-5 md:py-10 my-5 bg-white h-fit w-full">
         <header className="flex flex-wrap justify-between items-center">
-          <h2 className="text-4xl font-semibold ml-1 uppercase tracking-tighter">
+          <h2 className="text-4xl font-semibold lg:ml-1 uppercase tracking-tighter">
             Process
           </h2>
           <p className="max-w-xl lg:pl-16">
