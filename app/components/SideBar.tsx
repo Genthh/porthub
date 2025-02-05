@@ -42,7 +42,7 @@ export const SideBar = () => {
           </div>
           <div className="flex flex-col justify-center items-center text-white text-lg">
             <Image
-              src="/images/LorikZekajProfile.png"
+              src="https://azkbfezpuhdewubmmwew.supabase.co/storage/v1/object/public/image-bucket//LorikZekajProfile.png"
               alt="Lorik Zekaj"
               width={240}
               height={240}

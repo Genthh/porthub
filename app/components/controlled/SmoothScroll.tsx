@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect, useRef } from "react";
+import React, { ReactNode, useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 
 interface SmoothScrollProps {
@@ -16,28 +16,30 @@ const SmoothScroll: React.FC<SmoothScrollProps> = ({
     const scrollingContainer = scrollingContainerRef.current;
     let animationFrameId: number;
 
+    // Set the height of the container to match its scroll height
     const setBodyHeight = () => {
       if (scrollingContainer) {
         document.body.style.height = `${scrollingContainer.scrollHeight}px`;
       }
     };
 
-    const getDuration = () => (window.innerWidth < 768 ? 5 : 1.8); // Faster animation on smaller screens
-
     const updateScrollPosition = () => {
-      gsap.to(scrollingContainer, {
-        y: -window.scrollY,
-        duration: getDuration(),
-        ease: "power2.out",
-      });
+        gsap.to(scrollingContainer, {
+          y: -window.scrollY,
+          duration: 1.8,
+          ease: "power2.out",
+        });
       animationFrameId = requestAnimationFrame(updateScrollPosition);
     };
 
+    // Initialize
     setBodyHeight();
     animationFrameId = requestAnimationFrame(updateScrollPosition);
 
+    // Update height on window resize
     window.addEventListener("resize", setBodyHeight);
 
+    // Cleanup
     return () => {
       cancelAnimationFrame(animationFrameId);
       window.removeEventListener("resize", setBodyHeight);
