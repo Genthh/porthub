@@ -20,6 +20,23 @@ export interface Project {
 
 const isBrowser = typeof window !== "undefined";
 
+function formatPeriodTime(startDate: string, endDate?: string): string {
+  const start = new Date(startDate);
+  const end = endDate ? new Date(endDate) : new Date();
+  
+  const startMonth = start.toLocaleString('en-US', { month: 'short' });
+  const startYear = start.getFullYear();
+  const endMonth = end.toLocaleString('en-US', { month: 'short' });
+  const endYear = end.getFullYear();
+
+  // Calculate total months
+  const totalMonths = (end.getFullYear() - start.getFullYear()) * 12 + (end.getMonth() - start.getMonth());
+
+  return endDate
+    ? `${startMonth} ${startYear} - ${endMonth} ${endYear} • ${totalMonths} mos`
+    : `${startMonth} ${startYear} - Present • ${totalMonths} mos`;
+}
+
 const generateUUIDs = (): Project[] => {
   if (isBrowser) {
     const storedProjects = sessionStorage.getItem("projects");
@@ -222,7 +239,7 @@ export const experience = [
     image: "https://azkbfezpuhdewubmmwew.supabase.co/storage/v1/object/public/image-bucket//baseAgency.jpg",
     companyName: "Base Agency",
     position: "Senior Graphic Designer",
-    periodTime: "Feb 2024 - Present • 10 mos",
+    periodTime: formatPeriodTime("2024-02-01")
   },
   {
     id: 2,

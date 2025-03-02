@@ -10,6 +10,7 @@ import InstagramIcon from "../_svgs/instagramIcon.svg";
 import Accordion from "./controlled/Accordion";
 import { items } from "./Process";
 import SocialMediaLinks from "./SocialMediaLinks";
+// gsap.registerPlugin(ScrollTrigger);
 
 const ProjectDetails: React.FC<{ project: Project }> = ({ project }) => {
   return (
@@ -162,8 +163,58 @@ const SecondSection = ({ project }: { project: Project }) => {
 };
 
 const ThirdSection = ({ project }: { project: Project }) => {
+  const imageRefs = useRef<(HTMLImageElement | null)[]>([]);
+
+  useEffect(() => {
+    imageRefs.current.forEach((img, index) => {
+      if (img) {
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: img,
+            start: "top 85%",
+            end: "top 40%",
+            scrub: 2, // Smooth transition tracking scroll speed
+          },
+        });
+
+        // **Magic Entrance: Fade-in, Scale-up, Blur-to-Clear, Subtle Drift**
+        tl.fromTo(
+          img,
+          { 
+            opacity: 0, 
+            scale: 0.92, 
+            y: 100, 
+            x: index % 2 === 0 ? -50 : 50, // Alternating horizontal drift effect
+            filter: "blur(15px)" 
+          },
+          {
+            opacity: 1,
+            scale: 1,
+            y: 0,
+            x: 0,
+            filter: "blur(0px)",
+            duration: 3, // Extended duration for extra smoothness
+            ease: "power3.out",
+          }
+        );
+
+        // **Parallax Effect: Subtle Floating as User Scrolls**
+        gsap.to(img, {
+          y: -50,
+          ease: "none",
+          scrollTrigger: {
+            trigger: img,
+            start: "top bottom",
+            end: "top top",
+            scrub: 3, // Smooth scroll tracking
+          },
+        });
+      }
+    });
+  }, []);
+
   return (
-    <div className="red-div  w-screen  bottom-0 left-0 z-50 flex flex-col text-white">
+    <div className="red-div w-screen bottom-0 left-0 z-50 flex flex-col text-white">
       <div className="lg:max-w-7xl w-full mx-auto py-10 px-3 lg:px-0">
         <div className="flex lg:flex-row flex-col justify-between lg:gap-x-40">
           <p className="text-4xl font-bold">Brand overview</p>
@@ -181,49 +232,23 @@ const ThirdSection = ({ project }: { project: Project }) => {
             <p className="text-xl font-bold">{project?.brandingList?.[2]}</p>
           </div>
         </div>
-        <div className="flex flex-col mt-20 max-w-8xl overflow-hidden">
-          <div className="flex flex-col lg:flex-row gap-x-4 mt-20 max-w-8xl">
-            <img
-              className="lg:w-1/2 lg:h-100 h-56 object-cover"
-              src={project?.images?.[0]}
-              alt={`Project ${project?.title}`}
-            />
-            <img
-              className="lg:w-1/2 lg:h-100 h-56 object-cover"
-              src={project?.images?.[1]}
-              alt={`Project ${project?.title}`}
-            />
-          </div>
 
-          <img
-            className="w-full lg:h-100 h-56 object-cover mt-4"
-            src={project?.images?.[2]}
-            alt={`Project ${project?.title}`}
-          />
+        {/* IMAGES WITH SCROLL ANIMATION */}
+        <div className="flex flex-col gap-y-4 mt-20 max-w-8xl overflow-hidden">
+          {project?.images?.map((image, index) => (
+            <img
+              key={index}
+              ref={(el) => (imageRefs.current[index] = el)}
+              className="w-full lg:h-100 h-56 object-cover"
+              src={image}
+              alt={`Project ${project?.title}`}
+            />
+          ))}
         </div>
+
         <div className="mt-14">
           <hr />
         </div>
-
-        {/* <div className="flex lg:flex-row flex-col lg:justify-between  my-20">
-          <p className="text-4xl py-3 flex flex-col font-bold  ">
-            Product making for <span>friendly users</span>
-            <span className="text-lg max-w-xl text-gray-300 mt-4">
-              Duis sed augue condimentum, blandit sapien in, accumsan eros.
-              Curabitur sodales pulvinar libero et venenatis. Nullam eleifend
-              risus a quam dictum auctor. Mauris at leo non dui euismod varius.
-              Cras vel erat at est aliquam laoreet.
-            </span>
-          </p>
-          <div className="flex flex-col  lg:w-1/2 gap-y-4 mt-5">
-            <Accordion
-              items={items}
-              activeBorderColor="#d0ff71"
-              activeTitleColor="#d0ff71"
-              contentColor="#ffffff"
-            />
-          </div>
-        </div> */}
         <hr />
         <div className="w-fit relative p-10 mx-auto mt-10">
           <p className="flex flex-col text-center lg:text-8xl text-2xl font-bold ">

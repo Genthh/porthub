@@ -66,14 +66,14 @@ const Projects: React.FC = () => {
 
   return (
     <div
-      className="bg-white lg:ml-[320px] lg:mr-[100px] mx-3 lg:mx-0  rounded-2xl flex flex-col justify-center lg:px-10 px-5 md:py-16  my-4 py-10 md:pb-10  h-fit "
+      className="bg-white lg:ml-[333px] lg:mr-[100px] mx-3 lg:mx-0  rounded-2xl flex flex-col justify-center lg:px-10 px-5 md:py-0  mt-4 py-10 md:pb-0  h-fit "
       ref={sectionRef}
     >
-      <header className="flex flex-wrap justify-between  items-center mb-4">
-        <h2 className="text-4xl font-semibold lg:ml-2 uppercase tracking-tighter">
+      <header className="flex flex-wrap justify-between items-center md:my-14">
+        <h2 className="text-4xl font-semibold lg:ml-2  tracking-tighter">
           Projects
         </h2>
-        <p className="max-w-lg text-base text-txtGrayColor">
+        <p className="max-w-lg text-sm text-txtGrayColor">
           Creative challenges drive innovation, and I’m proud to showcase a
           portfolio of work that has helped clients elevate their brands to
           stand out and thrive.
@@ -82,9 +82,9 @@ const Projects: React.FC = () => {
       {Object.entries(groupedProjects).map(([row, rowProjects]) => (
         <section
           key={row}
-          className={`flex flex-wrap w-full lg:mb-10 justify-between`}
+          className={`flex flex-wrap w-full lg:mb-0 justify-between`}
           ref={(el) => {
-            rowsRefs.current[+row] = el as HTMLDivElement | null; // Perform assignment as side effect
+            rowsRefs.current[+row] = el as HTMLDivElement | null; 
           }}
         >
           {rowProjects.map(({ image, title, width, height, uuid }, index) => (
@@ -106,21 +106,23 @@ const Projects: React.FC = () => {
                 }),
               }}
             >
+              {/* <div className="gap-y-4"> */}
               <ProjectCard
                 onHover={(isHovered) => handleHover(index, isHovered)}
                 isHovered={hoverStates[index]}
                 image={image}
                 onClick={() => handleRedirect(uuid)}
                 className="p-6 my-3 w-full h-full"
-              />
-              <p className="text-xl font-bold my-2">{title}</p>
-            </div>
+                />
+               <p className="text-xl font-bold mt-2 mb-10">{title}</p>
+              </div>
+          
           ))}
         </section>
       ))}
       <Link
         href="/projects"
-        className="py-3 mt-5 lg:mt-0 lg:mb-0 px-8 bg-customRed self-center text-sm text-white rounded-full 
+        className="py-3 px-8 bg-customRed self-center text-sm text-white md:my-14 rounded-full 
         border border-transparent 
         hover:bg-transparent hover:text-black hover:border-customRed 
         transition-all duration-500 ease-in-out hover-effect"

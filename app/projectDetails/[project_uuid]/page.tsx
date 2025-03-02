@@ -5,6 +5,7 @@ import SmoothScroll from "@/app/components/controlled/SmoothScroll";
 import { Project, projects } from "@/app/utils/datas";
 import { useParams } from "next/navigation";
 import React, { use } from "react";
+import { Navbar } from "@/app/components/Navbar";
 
 const Page = () => {
   const { project_uuid } = useParams();
@@ -16,6 +17,7 @@ const Page = () => {
   return (
     <div className="mx-auto flex flex-col items-center justify-center relative">
       <SmoothScroll maxWidth="100vw">
+    <Navbar/>
         <ProjectDetailsComponent project={project} />
       </SmoothScroll>
     </div>

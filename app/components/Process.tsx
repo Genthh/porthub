@@ -69,22 +69,22 @@ const Process = () => {
         ease: "power2.out",
         scrollTrigger: {
           trigger: imageRef.current,
-          start: "top 80%", // Start animation when the section is 80% in view
+          start: "top 80%", 
           end: "top 50%",
-          toggleActions: "play none none none", // Only play animation once
+          toggleActions: "play none none none", 
         },
       }
     );
   }, []);
 
   return (
-    <div className="lg:ml-[320px] lg:mr-[100px] mx-3 lg:mx-0 bg-customRed relative rounded-2xl">
-      <div className="rounded-2xl md:px-10 px-3  md:pb-20 py-5 md:py-10 my-5 bg-white h-fit w-full">
-        <header className="flex flex-wrap justify-between items-center">
-          <h2 className="text-4xl font-semibold lg:ml-1 uppercase tracking-tighter">
+    <div className="lg:ml-[333px] lg:mr-[100px] mx-3 lg:mx-0 bg-customRed relative rounded-2xl">
+      <div className="rounded-2xl md:px-10 px-3  md:pb-20 py-7 md:py-10 my-4 bg-white h-fit w-full">
+        <header className="flex flex-wrap justify-between items-center mt-5">
+          <h2 className="text-4xl font-semibold lg:ml-1  tracking-tighter">
             Process
           </h2>
-          <p className="max-w-xl lg:pl-16">
+          <p className="max-w-xl text-sm lg:pl-16">
             Building impactful brands starts with a clear, creative approach.
             Here’s how I elevate my clients to their next and best selves:
           </p>
@@ -107,22 +107,22 @@ const Process = () => {
           </div>
         </div>
       </div>
-      <div ref={statsRef} className=" py-4 px-3 lg:py-10 lg:px-10 text-start">
-        <div className="flex flex-wrap gap-y-3 justify-between items-start my-4 text-white">
-          <div className="lg:text-5xl text-2xl md:max-w-56 w-full flex flex-col">
+      <div ref={statsRef} className="py-4 px-3 lg:pt-10 lg:pb-14 lg:px-10 text-start">
+        <div className="flex flex-wrap gap-y-10 justify-between items-start my-4 text-white">
+          <div className="lg:text-5xl text-4xl md:max-w-56 w-full flex flex-col">
             95%
-            <span className="md:text-lg text-base">
+            <span className="text-lg ">
               Clients satisfied and repeating
             </span>
           </div>
-          <div className="lg:text-5xl flex flex-col text-2xl max-w-56 lg:ml-5 w-full">
+          <div className="lg:text-5xl flex flex-col text-4xl max-w-56 lg:ml-5 w-full">
             50+
-            <span className="md:text-lg text-base">
+            <span className="text-lg ">
               projects completed in 4 countries
             </span>
           </div>
-          <div className="lg:text-5xl flex flex-col text-2xl max-w-56 lg:ml-7 w-full">
-            5+<span className="md:text-lg text-base">years of experience</span>
+          <div className="lg:text-5xl flex flex-col text-4xl max-w-56 lg:ml-7 w-full">
+            5+<span className="text-lg">years of experience</span>
           </div>
         </div>
 

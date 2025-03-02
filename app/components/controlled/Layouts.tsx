@@ -24,9 +24,9 @@ export const MainLayout: React.FC<MainLayoutProps> = ({
   children,
   style,
 }) => (
-  <div className="flex relative flex-col lg:flex-row mx-3 lg:mx-0 lg:w-[64%] w-full rounded-2xl overflow-hidden shadow-lg">
+  <div className="flex relative flex-col lg:flex-row mx-3 lg:mx-0 lg:w-[63%] w-full rounded-2xl overflow-hidden shadow-lg">
     <div
-      className="relative w-full min-h-[870px] backgroundGradient px-10"
+      className="relative w-full md:min-h-[800px] min-h-[650px] backgroundGradient px-10"
       style={style}
     >
       <h1 className="lg:text-9xl md:text-7xl text-5xl mt-20 font-bold mb-4 md:mt-10 text-white">

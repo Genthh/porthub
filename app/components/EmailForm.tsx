@@ -49,12 +49,12 @@ export const handleSubmit = async (values: FormValues) => {
 };
 const ContactForm = () => {
   return (
-    <div className="bg-[#333333] text-white lg:ml-[320px] lg:mr-[100px] mx-3 lg:mx-0 rounded-2xl flex flex-col lg:px-10 px-3 mb-10 md:py-20 py-5  h-fit">
+    <div className="bg-[#333333] text-white lg:ml-[333px] lg:mr-[100px] md:py-14 py-7 mx-3 lg:mx-0 rounded-2xl flex flex-col lg:px-10 px-3 mb-10  h-fit">
       <header className="flex flex-wrap justify-between  items-center mb-10">
         <h2 className="md:text-4xl text-2xl font-semibold  uppercase tracking-tighter">
           Let's Chat!
         </h2>
-        <p className="text-sm md:text-base w-1/2 pl-4">
+        <p className="text-sm  md:w-1/2 md:pl-4">
           We will ask the right questions, discuss possibilities, and make an
           action plan.
         </p>
@@ -132,7 +132,7 @@ const ContactForm = () => {
             <div className="lg:col-span-2 text-right">
               <button
                 type="submit"
-                className="py-3 px-6 bg-red-600 rounded-lg  font-bold hover:bg-red-500 transition"
+                className="py-3 px-6 bg-customRed rounded-lg  font-bold hover:bg-red-500 transition"
               >
                 Send Your Message →
               </button>

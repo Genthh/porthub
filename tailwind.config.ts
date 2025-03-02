@@ -19,6 +19,7 @@ export default {
         "100": "700px",
       },
       maxWidth: {
+        "7xl":"83rem",
         "8xl": "88rem",
       },
       zIndex: {

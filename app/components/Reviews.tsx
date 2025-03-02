@@ -7,15 +7,15 @@ import { experience } from "../utils/datas";
 const Reviews = () => {
   useGSAP(() => {
     animateItems(
-      ".experience-item", // Selector for the items
-      ".experience-container" // Selector for the container
+      ".experience-item", 
+      ".experience-container" 
     );
   }, []);
 
   return (
-    <div className="lg:ml-[320px] lg:mr-[100px] mx-3 lg:mx-0  md:py-20 py-5 md:px-10 px-3  bg-[#333333] relative rounded-2xl my-4 text-white experience-container">
-      <div className="flex flex-col border-b border-customColor md:pb-10 pb-5">
-        <h2 className="md:text-4xl text-2xl font-semibold ml-2 uppercase tracking-tighter">
+    <div className="lg:ml-[333px] lg:mr-[100px] mx-3 lg:mx-0 pb-14  md:px-10 px-3  bg-[#333333] relative rounded-2xl my-4 text-white experience-container">
+      <div className="flex flex-col border-b border-customColor md:py-14 py-7">
+        <h2 className="md:text-4xl text-2xl font-semibold ml-2  tracking-tighter">
           Experience
         </h2>
       </div>

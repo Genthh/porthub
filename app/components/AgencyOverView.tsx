@@ -1,4 +1,3 @@
-import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { slideInFromBottom } from "./animations";
@@ -11,6 +10,7 @@ const AgencyOverview: React.FC = () => {
   const sliderRef = useRef<HTMLDivElement>(null);
   const subTitleRef = useRef<HTMLDivElement>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [direction, setDirection] = useState(1);
 
   const slides = [
     { id: 1, content: "5+", subTitle: "Years of experience" },
@@ -27,7 +27,25 @@ const AgencyOverview: React.FC = () => {
     if (currentIndex > 0) {
       setCurrentIndex((prev) => prev - 1);
     }
-  };
+  }; 
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => {
+        if (prev === slides.length - 1) {
+          setDirection(-1); // Switch direction to backward
+          return prev - 1;
+        } else if (prev === 0) {
+          setDirection(1); // Switch direction to forward
+          return prev + 1;
+        }
+        return prev + direction; // Continue in the current direction
+      });
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, [direction]);
+
 
   useGSAP(() => {
     if (sliderRef.current) {
@@ -57,7 +75,7 @@ const AgencyOverview: React.FC = () => {
   return (
     <div
       ref={containerRef}
-      className="pt-3 flex flex-wrap justify-end gap-x-4  lg:mx-[100px] lg:ml-[138px]"
+      className="pt-3 flex flex-wrap justify-end gap-x-2  lg:mx-[100px] lg:ml-[138px]"
       >
       <MainLayout
         style={{
@@ -66,10 +84,10 @@ const AgencyOverview: React.FC = () => {
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
         }}
-        positionClasses="absolute bottom-0 left-0 w-full h-screen bg-cover bg-center overflow-hidden z-0"
+        positionClasses="absolute bottom-0 left-0 w-full  bg-cover bg-center overflow-hidden z-0"
       />
 
-      <div className="flex flex-col gap-y-2 mx-3 lg:mx-0 lg:mt-0 mt-2 lg:w-[19.5%]">
+      <div className="flex flex-col gap-y-2 mx-3 lg:mx-0 lg:mt-0 mt-2 lg:w-[20.5%]">
         <SecondaryLayout description="A Senior Graphic Designer dedicated to crafting and creating innovative brands while developing impactful digital products.">
           <ActionButtons />
         </SecondaryLayout>
