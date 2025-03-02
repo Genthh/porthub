@@ -238,7 +238,7 @@ const ThirdSection = ({ project }: { project: Project }) => {
           {project?.images?.map((image, index) => (
             <img
               key={index}
-              ref={(el) => (imageRefs.current[index] = el)}
+              ref={(el) => {(imageRefs.current[index] = el)}}
               className="w-full lg:h-100 h-56 object-cover"
               src={image}
               alt={`Project ${project?.title}`}

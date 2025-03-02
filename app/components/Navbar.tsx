@@ -73,7 +73,7 @@ export const Navbar = () => {
             >
             {text}
             <span
-              ref={(el) => (borderRefs.current[index] = el)}
+              ref={(el) => {(borderRefs.current[index] = el)}}
               className="absolute left-0 bottom-0 w-full h-[2px] bg-white scale-x-0 group-hover:scale-x-100 transition-transform"
               />
           </Link>
