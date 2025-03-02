@@ -53,7 +53,9 @@ const AllProjects: React.FC = () => {
       {projects.map((project, index) => (
         <div
           key={index}
-          ref={(el) => (projectRefs.current[index] = el)}
+          ref={(el) => {
+            projectRefs.current[index] = el;
+          }}
           className="border-t border-customColor shadow-md pb-4"
         >
           <div className="pt-4 flex justify-between items-center">
@@ -67,7 +69,9 @@ const AllProjects: React.FC = () => {
             </div>
             <Link
               href={`/projectDetails/${project.uuid}/`}
-              ref={(el) => (linkRefs.current[index] = el)}
+              ref={(el) => {
+                linkRefs.current[index] = el;
+              }}
               className="border border-customColor px-4 py-1 rounded-full cursor-pointer hover:bg-[#d0ff71] duration-300 ease-out hover-effect"
             >
               <svg
@@ -92,7 +96,9 @@ const AllProjects: React.FC = () => {
           <Image
             src={project.image}
             alt={project.title}
-            ref={(el) => (imageRefs.current[index] = el)}
+            ref={(el) => {
+              imageRefs.current[index] = el;
+            }}
             height={400}
             width={400}
             className="w-full h-72 object-cover my-2 rounded-lg cursor-pointer hover-effect"
