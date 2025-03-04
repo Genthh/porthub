@@ -25,7 +25,7 @@ const SmoothScroll: React.FC<SmoothScrollProps> = ({
 
     const updateScrollPosition = () => {
       // Check window width to adjust the duration
-      const duration = window.innerWidth < 768 ? 0 : 1.8;  // Longer duration for smaller screens
+      const duration = window.innerWidth < 768 ? 1 : 1.8;  // Longer duration for smaller screens
       gsap.to(scrollingContainer, {
         y: -window.scrollY,
         duration: duration,
