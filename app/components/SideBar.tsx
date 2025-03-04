@@ -10,7 +10,7 @@ export const SideBar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const sidebarRef = useRef(null);
 
-  const toggleMenu = () => {
+   const toggleMenu = () => {
     setIsOpen((prev) => !prev);
 
     if (!isOpen) {

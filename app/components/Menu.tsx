@@ -11,8 +11,7 @@ export const Menu: React.FC<{ toggleMenu: () => void; isOpen: boolean }> = ({
   isOpen,
 }) => {
   const menuItemsRef = useRef<HTMLLIElement[]>([]);
-  const textElementsRef = useRef<HTMLElement[]>([]);
-  const router = useRouter(); // Next.js router
+  const router = useRouter(); 
 
   const handleHover = (index: number, isHover: boolean) => {
     hoverMenuItemAnimation(menuItemsRef.current, index, isHover);
@@ -34,7 +33,7 @@ export const Menu: React.FC<{ toggleMenu: () => void; isOpen: boolean }> = ({
         <CloseIcon />
       </div>
 
-      <div className="flex flex-col justify-start h-full w-full md:ml-40 mx-10 py-40 md:py-0 text-white">
+      <div className="flex flex-col justify-start md:justify-center h-full w-full md:ml-40 mx-10 md:mx-0 py-40 md:py-0 text-white">
         <ul className="md:text-5xl text-3xl space-y-10 font-bold max-w-56 justify-between md:max-w-72">
           {[
             { name: "Home", href: "/" },
@@ -72,7 +71,7 @@ export const Menu: React.FC<{ toggleMenu: () => void; isOpen: boolean }> = ({
       </div>
 
       {/* Info Section */}
-      <div className="bg-white hidden md:flex flex-col justify-center items-center bg-opacity-5 h-full md:w-5/12 info-section px-2">
+      <div className="bg- hidden md:flex flex-col justify-center items-center bg-opacity-5 h-full md:w-[600px] bg-white info-section px-2">
         <h1 className="md:text-5xl text-xl my-5 font-bold text-white anim-text">
           Lorik Zekaj
         </h1>

@@ -6,6 +6,9 @@ body {
   background-color: #151515;
   font-family: var(--font-inter, "Inter", sans-serif);
 }
+.bg-light {
+  background-color: rgba(248, 249, 250, 1);
+}
 .screen {
   clip-path: ellipse(100% 100% at 50% 50%);
 }

@@ -14,8 +14,8 @@ const Reviews = () => {
 
   return (
     <div className="lg:ml-[333px] lg:mr-[100px] mx-3 lg:mx-0 pb-14  md:px-10 px-3  bg-[#333333] relative rounded-2xl my-4 text-white experience-container">
-      <div className="flex flex-col border-b border-customColor md:py-14 py-7">
-        <h2 className="md:text-4xl text-2xl font-semibold ml-2  tracking-tighter">
+      <div className="flex flex-col mx-7 md:mx-0 border-b border-customColor md:py-14 py-7">
+        <h2 className="text-4xl my-5  md:my-0  mx-20 md:mx-0  font-semibold ml-2  tracking-tighter">
           Experience
         </h2>
       </div>
@@ -27,7 +27,7 @@ const Reviews = () => {
           companyName={item.companyName}
           position={item.position}
           periodTime={item.periodTime}
-          className="flex md:flex-row flex-col justify-between items-start md:items-center border-b last:border-none border-customColor py-8 experience-item"
+          className="flex md:flex-row mx-7 md:mx-0 flex-col justify-between items-start md:items-center border-b last:border-none border-customColor py-8 experience-item"
         />
       ))}
     </div>

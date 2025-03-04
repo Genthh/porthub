@@ -47,8 +47,8 @@ export const SecondaryLayout: React.FC<SecondaryLayoutProps> = ({
   description,
   children,
 }) => (
-  <div className="flex flex-col md:flex-row rounded-2xl lg:h-[63%] h-96 md:py-20 pb-48 pt-0 md:pb-0 md:pt-0  overflow-hidden shadow-lg bg-white px-3 lg:py-2 relative">
-    <p className="lg:text-[19.5px] text-base font-semibold pt-4 lg:max-w-[100%]">
+  <div className="flex flex-col md:flex-row rounded-2xl lg:h-[63%]  h-[470px] md:py-20 pb-48 pt-0 md:pb-0 md:pt-0  overflow-hidden shadow-lg bg-white px-3 lg:py-2 relative">
+    <p className="text-[19.5px] px-3 font-semibold pt-5 lg:max-w-[100%]">
       {description}
     </p>
     {children}

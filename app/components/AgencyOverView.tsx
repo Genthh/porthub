@@ -91,7 +91,7 @@ const AgencyOverview: React.FC = () => {
         <SecondaryLayout description="A Senior Graphic Designer dedicated to crafting and creating innovative brands while developing impactful digital products.">
           <ActionButtons />
         </SecondaryLayout>
-        <div className="flex flex-col rounded-2xl lg:h-[37%] h-[300px] shadow-lg bg-customRed relative overflow-hidden p-4">
+        <div className="flex flex-col rounded-2xl lg:h-[37%] h-[330px] shadow-lg bg-customRed relative overflow-hidden p-4">
           {/* Slider */}
           <div
             ref={sliderRef}
@@ -108,7 +108,7 @@ const AgencyOverview: React.FC = () => {
           </div>
 
           {/* Navigation Controls */}
-          <div className="flex justify-between items-center gap-x-5 mt-auto pt-4">
+          <div className="flex mx-3 md:mx-0 justify-between items-center gap-x-5 mt-auto pt-4">
             <p ref={subTitleRef} className="text-white text-base max-w-20 ">
               {slides[currentIndex].subTitle}
             </p>

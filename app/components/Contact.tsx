@@ -37,7 +37,7 @@ const ContactHeader = () => {
     <div>
       <h1
         ref={textRef}
-        className="text-white  md:my-20 my-10 text-center md:text-8xl text-4xl font-semibold uppercase"
+        className="text-white  md:my-24 my-10 text-center md:text-8xl text-4xl font-semibold uppercase"
       >
         Get In Touch
       </h1>
@@ -49,7 +49,7 @@ const ContactForm = () => {
   return (
     <div className="flex flex-wrap lg:my-20 my-10">
       <div className="md:w-1/2 gap-x-20 px-3 md:px-0 flex flex-col gap-y-4">
-        <p className="uppercase text-white max-w-lg md:text-5xl font-semibold">
+        <p className="uppercase text-white max-w-lg md:text-5xl text-3xl font-semibold">
           Let's make your brand
           <span className="font-extralight ml-2">brilliant!</span>
         </p>
