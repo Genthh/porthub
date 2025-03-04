@@ -24,11 +24,13 @@ const SmoothScroll: React.FC<SmoothScrollProps> = ({
     };
 
     const updateScrollPosition = () => {
-        gsap.to(scrollingContainer, {
-          y: -window.scrollY,
-          duration: 1.8,
-          ease: "power2.out",
-        });
+      // Check window width to adjust the duration
+      const duration = window.innerWidth < 768 ? 2.5 : 0;  // Longer duration for smaller screens
+      gsap.to(scrollingContainer, {
+        y: -window.scrollY,
+        duration: duration,
+        ease: "power2.out",
+      });
       animationFrameId = requestAnimationFrame(updateScrollPosition);
     };
 
@@ -37,7 +39,10 @@ const SmoothScroll: React.FC<SmoothScrollProps> = ({
     animationFrameId = requestAnimationFrame(updateScrollPosition);
 
     // Update height on window resize
-    window.addEventListener("resize", setBodyHeight);
+    window.addEventListener("resize", () => {
+      setBodyHeight();
+      updateScrollPosition();  // Update scroll position to re-adjust the duration
+    });
 
     // Cleanup
     return () => {
