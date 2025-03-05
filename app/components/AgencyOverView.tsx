@@ -27,7 +27,7 @@ const AgencyOverview: React.FC = () => {
     if (currentIndex > 0) {
       setCurrentIndex((prev) => prev - 1);
     }
-  }; 
+  };
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -45,7 +45,6 @@ const AgencyOverview: React.FC = () => {
 
     return () => clearInterval(interval);
   }, [direction]);
-
 
   useGSAP(() => {
     if (sliderRef.current) {
@@ -76,10 +75,10 @@ const AgencyOverview: React.FC = () => {
     <div
       ref={containerRef}
       className="pt-3 flex flex-wrap justify-end gap-x-2  lg:mx-[100px] lg:ml-[138px]"
-      >
+    >
       <MainLayout
         style={{
-          backgroundImage: "url(https://azkbfezpuhdewubmmwew.supabase.co/storage/v1/object/public/image-bucket//heroImg.jpg)",
+          // backgroundImage: "url(https://azkbfezpuhdewubmmwew.supabase.co/storage/v1/object/public/image-bucket//heroImg.jpg)",
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",

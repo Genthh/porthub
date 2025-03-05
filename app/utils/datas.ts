@@ -23,18 +23,25 @@ const isBrowser = typeof window !== "undefined";
 function formatPeriodTime(startDate: string, endDate?: string): string {
   const start = new Date(startDate);
   const end = endDate ? new Date(endDate) : new Date();
-  
+
   const startMonth = start.toLocaleString('en-US', { month: 'short' });
   const startYear = start.getFullYear();
   const endMonth = end.toLocaleString('en-US', { month: 'short' });
   const endYear = end.getFullYear();
 
-  // Calculate total months
   const totalMonths = (end.getFullYear() - start.getFullYear()) * 12 + (end.getMonth() - start.getMonth());
+  const years = Math.floor(totalMonths / 12);
+  const months = totalMonths % 12;
+
+  let duration = years > 0 
+    ? months > 0 
+      ? `${years} yr ${months} mos` 
+      : `${years} yr`
+    : `${months} mos`;
 
   return endDate
-    ? `${startMonth} ${startYear} - ${endMonth} ${endYear} • ${totalMonths} mos`
-    : `${startMonth} ${startYear} - Present • ${totalMonths} mos`;
+    ? `${startMonth} ${startYear} - ${endMonth} ${endYear} • ${duration}`
+    : `${startMonth} ${startYear} - Present • ${duration}`;
 }
 
 const generateUUIDs = (): Project[] => {
