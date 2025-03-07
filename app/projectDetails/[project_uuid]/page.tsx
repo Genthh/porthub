@@ -16,10 +16,10 @@ const Page = () => {
 
   return (
     <div className="mx-auto flex flex-col items-center justify-center relative">
-      <SmoothScroll maxWidth="100vw">
-    <Navbar/>
-        <ProjectDetailsComponent project={project} />
-      </SmoothScroll>
+      {/* <SmoothScroll maxWidth="100vw"> */}
+      <Navbar />
+      <ProjectDetailsComponent project={project} />
+      {/* </SmoothScroll> */}
     </div>
   );
 };

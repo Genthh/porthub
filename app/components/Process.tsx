@@ -114,19 +114,19 @@ const Process = () => {
         <div className="flex flex-wrap gap-y-14 justify-between items-start my-4 text-white">
           <div className="text-5xl md:max-w-56 w-full flex flex-col ">
             95%
-            <span className="md:text-lg text-base mt-8 uppercase max-w-52">
+            <span className="text-sm mt-8 uppercase max-w-52">
               Clients satisfied and repeating
             </span>
           </div>
           <div className="text-5xl flex flex-col max-w-56 lg:ml-5 w-full">
             50+
-            <span className="md:text-lg text-base mt-8 uppercase">
+            <span className="text-sm mt-8 uppercase">
               projects completed in 4 countries
             </span>
           </div>
           <div className="text-5xl flex flex-col max-w-56 lg:ml-7 w-full">
             5+
-            <span className="md:text-lg text-base mt-8 uppercase">
+            <span className="text-sm mt-8 uppercase">
               years of experience
             </span>
           </div>

@@ -8,6 +8,7 @@ const SmoothScrollingWrapper = () => {
   return (
     <div className="mx-auto  flex flex-col items-center justify-center relative">
       <SmoothScroll>
+
         <Contact  />
       </SmoothScroll>
      </div>
@@ -15,8 +16,9 @@ const SmoothScrollingWrapper = () => {
 };
 const Page = () => {
   return (
-    <div className="mx-auto flex flex-col justify-center relative">
+    <div className="mx-auto max-w-8xl flex flex-col justify-center relative">
       <Navbar/>
+
       <SmoothScrollingWrapper />
     </div>
   );

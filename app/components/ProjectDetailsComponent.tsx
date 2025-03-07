@@ -10,13 +10,14 @@ import InstagramIcon from "../_svgs/instagramIcon.svg";
 import Accordion from "./controlled/Accordion";
 import { items } from "./Process";
 import SocialMediaLinks from "./SocialMediaLinks";
+import Image from "next/image";
 // gsap.registerPlugin(ScrollTrigger);
 
 const ProjectDetails: React.FC<{ project: Project }> = ({ project }) => {
   return (
-    <div className="max-w-screen lg:h-[420vh]   relative">
+    <div className="max-w-screen lg:h-auto   relative">
       <FirstSection project={project} />
-      <SecondSection project={project} />
+      {/* <SecondSection project={project} /> */}
       <ThirdSection project={project} />
     </div>
   );
@@ -69,7 +70,7 @@ const FirstSection = ({ project }: { project: Project }) => {
     }
   }, [isLoading]);
   return (
-    <div className="absolute top-0 left-0 z-1000 px-3 lg:px-0 w-screen text-white lg:py-30 py-10 bg-primary h-[55vh]">
+    <div className=" top-0 md:mt-20 mt-10 left-0 z-1000 px-3 lg:px-0 w-screen text-white lg:py-30 py-10 bg-primary md:h-[55vh]">
       {isLoading ? (
         <LoadingScreen />
       ) : (
@@ -84,10 +85,10 @@ const FirstSection = ({ project }: { project: Project }) => {
             ref={listRef1}
             className="flex flex-col max-w-7xl text-center mx-auto"
           >
-            <div className="flex flex- justify-between lg:text-lg lg:pt-20 text-gray-400 md:mt-5">
-              {project.categoryLabel?.map((label, index) => (
-                <div key={index} className="pb-6">
-                  <p>{label}</p>
+            <div className=" flex md:flex-row flex-col mt-3   md:justify-between lg:text-lg lg:pt-20 text-gray-400 md:mt-5">
+              {project?.categoryLabel?.map((label, index) => (
+                <div key={index} className="pb-6 w-40  mx-auto">
+                  <p className="mt-2">{label}</p>
                   <div
                     className="flex justify-around items-center font-bold lg:text-[22px] lg:pt-3 text-white"
                     ref={listRef2}
@@ -95,7 +96,7 @@ const FirstSection = ({ project }: { project: Project }) => {
                     {project.categoryList?.map(
                       (categoryItem, itemIndex) =>
                         index === itemIndex && (
-                          <p className="text-white" key={itemIndex}>
+                          <p className="text-white mt-2 md:mt-0 w-40 md:w-64" key={itemIndex}>
                             {categoryItem}
                           </p>
                         )
@@ -146,12 +147,12 @@ const SecondSection = ({ project }: { project: Project }) => {
   }, []);
 
   return (
-    <div className="w sticky  left-0 top-0 z-10">
-      <div className="px-5 rounded-2xl overflow-hidden">
+    <div className="sticky  left-0 top-0 z-10">
+      <div className="px-5 mt-72 h-[400px] rounded-2xl overflow-hidden">
         <img
-          src={project?.imgBanner}
+          src="https://azkbfezpuhdewubmmwew.supabase.co/storage/v1/object/public/image-bucket//Headerrrrr.jpg"
           alt="Project Image"
-          className="w-full lg:h-full h-[600px] object-cover rounded-2xl"
+          className="w-full lg:h-full object-cover rounded-2xl"
           style={{
             transform: `translate(0px, ${60 + scrollY * 0.2}px)`,
             transition: "transform 0.2s ease-out",
@@ -163,65 +164,15 @@ const SecondSection = ({ project }: { project: Project }) => {
 };
 
 const ThirdSection = ({ project }: { project: Project }) => {
-  const imageRefs = useRef<(HTMLImageElement | null)[]>([]);
-
-  useEffect(() => {
-    imageRefs.current.forEach((img, index) => {
-      if (img) {
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: img,
-            start: "top 85%",
-            end: "top 40%",
-            scrub: 2, // Smooth transition tracking scroll speed
-          },
-        });
-
-        // **Magic Entrance: Fade-in, Scale-up, Blur-to-Clear, Subtle Drift**
-        tl.fromTo(
-          img,
-          { 
-            opacity: 0, 
-            scale: 0.92, 
-            y: 100, 
-            x: index % 2 === 0 ? -50 : 50, // Alternating horizontal drift effect
-            filter: "blur(15px)" 
-          },
-          {
-            opacity: 1,
-            scale: 1,
-            y: 0,
-            x: 0,
-            filter: "blur(0px)",
-            duration: 3, // Extended duration for extra smoothness
-            ease: "power3.out",
-          }
-        );
-
-        // **Parallax Effect: Subtle Floating as User Scrolls**
-        gsap.to(img, {
-          y: -50,
-          ease: "none",
-          scrollTrigger: {
-            trigger: img,
-            start: "top bottom",
-            end: "top top",
-            scrub: 3, // Smooth scroll tracking
-          },
-        });
-      }
-    });
-  }, []);
-
   return (
-    <div className="red-div w-screen bottom-0 left-0 z-50 flex flex-col text-white">
+    <div className="red-div w-screen  bottom-0 left-0 z-50 flex flex-col text-white">
       <div className="lg:max-w-7xl w-full mx-auto py-10 px-3 lg:px-0">
         <div className="flex lg:flex-row flex-col justify-between lg:gap-x-40">
-          <p className="text-4xl font-bold">Brand overview</p>
+          <p className="md:text-4xl text-2xl font-bold">Brand overview</p>
           <div className="flex flex-col gap-y-5">
             <p className="text-gray-400 flex flex-col text-lg gap-y-5 max-w-4xl">
-              {project.brandOverviewTextFirst}
-              <span>{project.brandOverviewTextSecond}</span>
+              {project?.brandOverviewTextFirst}
+              <span>{project?.brandOverviewTextSecond}</span>
             </p>
             <p className="text-xl font-bold border-b border-gray-600 pb-2">
               {project?.brandingList?.[0]}
@@ -234,12 +185,12 @@ const ThirdSection = ({ project }: { project: Project }) => {
         </div>
 
         {/* IMAGES WITH SCROLL ANIMATION */}
-        <div className="flex flex-col gap-y-4 mt-20 max-w-8xl overflow-hidden">
+        <div className="flex flex-col mt-20 max-w-8xl overflow-hidden">
           {project?.images?.map((image, index) => (
             <img
               key={index}
-              ref={(el) => {(imageRefs.current[index] = el)}}
-              className="w-full lg:h-100 h-56 object-cover"
+              // ref={(el) => {(imageRefs.current[index] = el)}}
+              className="w-full object-cover"
               src={image}
               alt={`Project ${project?.title}`}
             />

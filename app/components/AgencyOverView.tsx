@@ -78,7 +78,8 @@ const AgencyOverview: React.FC = () => {
     >
       <MainLayout
         style={{
-          // backgroundImage: "url(https://azkbfezpuhdewubmmwew.supabase.co/storage/v1/object/public/image-bucket//heroImg.jpg)",
+          backgroundImage:
+            "url(https://azkbfezpuhdewubmmwew.supabase.co/storage/v1/object/public/image-bucket//heroImg.jpg)",
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",

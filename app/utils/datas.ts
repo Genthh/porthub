@@ -94,9 +94,10 @@ const generateUUIDs = (): Project[] => {
         uuid: uuidv4(),
         imgBanner: "/img-detaisl.jpg",
         images: [
-          "https://uithemez.com/i/hubfolio_HTML/inner_pages/assets/imgs/services/img1.jpg",
-          "https://uithemez.com/i/hubfolio_HTML/inner_pages/assets/imgs/services/img2.jpg",
-          "https://uithemez.com/i/hubfolio_HTML/inner_pages/assets/imgs/portfolio/project/3.jpg",
+          "https://azkbfezpuhdewubmmwew.supabase.co/storage/v1/object/public/image-bucket/newimages/VANNIO%20Brand%20Presentation.-01.jpg",
+          "https://azkbfezpuhdewubmmwew.supabase.co/storage/v1/object/public/image-bucket/newimages/VANNIO%20Brand%20Presentation.-02.jpg",
+          "https://azkbfezpuhdewubmmwew.supabase.co/storage/v1/object/public/image-bucket/newimages/VANNIO%20Brand%20Presentation.-03.jpg",
+          "https://azkbfezpuhdewubmmwew.supabase.co/storage/v1/object/public/image-bucket/newimages/VANNIO%20Brand%20Presentation.-04.jpg"
         ],
         description: "branding, ui/ux design",
         categoryLabel: ["Category", "Client", "Date", "Designer"],
@@ -133,6 +134,11 @@ const generateUUIDs = (): Project[] => {
           "12 Aug 2022",
           "Lorik Zekaj",
         ],
+        brandingList: [
+          "Branding and identity",
+          "Printing materials",
+          "Content strategy for social media",
+        ],
       },
       {
         image: "https://azkbfezpuhdewubmmwew.supabase.co/storage/v1/object/public/image-bucket//Q10Oil-BrandIdentity.jpg",
@@ -144,9 +150,10 @@ const generateUUIDs = (): Project[] => {
         uuid: uuidv4(),
         imgBanner: "/img-detaisl.jpg",
         images: [
-          "https://uithemez.com/i/hubfolio_HTML/inner_pages/assets/imgs/services/img1.jpg",
-          "https://uithemez.com/i/hubfolio_HTML/inner_pages/assets/imgs/services/img2.jpg",
-          "https://uithemez.com/i/hubfolio_HTML/inner_pages/assets/imgs/portfolio/project/3.jpg",
+          "https://azkbfezpuhdewubmmwew.supabase.co/storage/v1/object/public/image-bucket/newimages/Q10%20OIL%20BEHANCE%20FINAL-01.jpg",
+          "https://azkbfezpuhdewubmmwew.supabase.co/storage/v1/object/public/image-bucket/newimages/Q10%20OIL%20BEHANCE%20FINAL-02.jpg",
+          "https://azkbfezpuhdewubmmwew.supabase.co/storage/v1/object/public/image-bucket/newimages/Q10%20OIL%20BEHANCE%20FINAL-03.jpg",
+          "https://azkbfezpuhdewubmmwew.supabase.co/storage/v1/object/public/image-bucket/newimages/Q10%20OIL%20BEHANCE%20FINAL-04.jpg"
         ],
         description: "ui/ux design, Illustration photography,",
         categoryLabel: ["Category", "Client", "Date", "Designer"],
@@ -155,6 +162,11 @@ const generateUUIDs = (): Project[] => {
           "  Q10 Oil ",
           "15 Nov 2019",
           "Lorik Zekaj",
+        ],
+        brandingList: [
+          "Branding and identity",
+          "Printing materials",
+          "Content strategy for social media",
         ],
       },
       {
@@ -169,9 +181,10 @@ const generateUUIDs = (): Project[] => {
         description: "branding, ui/ux design, motion, seo",
 
         images: [
-          "https://uithemez.com/i/hubfolio_HTML/inner_pages/assets/imgs/services/img1.jpg",
-          "https://uithemez.com/i/hubfolio_HTML/inner_pages/assets/imgs/services/img2.jpg",
-          "https://uithemez.com/i/hubfolio_HTML/inner_pages/assets/imgs/portfolio/project/3.jpg",
+          "https://azkbfezpuhdewubmmwew.supabase.co/storage/v1/object/public/image-bucket/newimages/SALT%20BISTRO%20Behance-01.jpg",
+          "https://azkbfezpuhdewubmmwew.supabase.co/storage/v1/object/public/image-bucket/newimages/SALT%20BISTRO%20Behance-02.jpg",
+          "https://azkbfezpuhdewubmmwew.supabase.co/storage/v1/object/public/image-bucket/newimages/SALT%20BISTRO%20Behance-03.jpg",
+          "https://azkbfezpuhdewubmmwew.supabase.co/storage/v1/object/public/image-bucket/newimages/SALT%20BISTRO%20Behance-04.jpg"
         ],
         categoryLabel: ["Category", "Client", "Date", "Designer"],
         categoryList: [
@@ -179,6 +192,11 @@ const generateUUIDs = (): Project[] => {
           "  Salt Bistro ",
           "04 Dec 2019",
           "Lorik Zekaj",
+        ],
+        brandingList: [
+          "Branding and identity",
+          "Printing materials",
+          "Content strategy for social media",
         ],
       },
       {
@@ -193,9 +211,10 @@ const generateUUIDs = (): Project[] => {
         description: "branding, ui/ux design, motion, seo",
 
         images: [
-          "https://uithemez.com/i/hubfolio_HTML/inner_pages/assets/imgs/services/img1.jpg",
-          "https://uithemez.com/i/hubfolio_HTML/inner_pages/assets/imgs/services/img2.jpg",
-          "https://uithemez.com/i/hubfolio_HTML/inner_pages/assets/imgs/portfolio/project/3.jpg",
+          "https://azkbfezpuhdewubmmwew.supabase.co/storage/v1/object/public/image-bucket/newimages/Dobroshi%20Gold%20Behance%20presentation-01.jpg",
+          "https://azkbfezpuhdewubmmwew.supabase.co/storage/v1/object/public/image-bucket/newimages/Dobroshi%20Gold%20Behance%20presentation-02.jpg",
+          "https://azkbfezpuhdewubmmwew.supabase.co/storage/v1/object/public/image-bucket/newimages/Dobroshi%20Gold%20Behance%20presentation-03.jpg",
+          "https://azkbfezpuhdewubmmwew.supabase.co/storage/v1/object/public/image-bucket/newimages/Dobroshi%20Gold%20Behance%20presentation-04.jpg"
         ],
         categoryLabel: ["Category", "Client", "Date", "Designer"],
         categoryList: [
@@ -203,6 +222,11 @@ const generateUUIDs = (): Project[] => {
           "  DOBROSHI Gold Jewels ",
           "16 Sep 2020",
           "Lorik Zekaj",
+        ],
+        brandingList: [
+          "Branding and identity",
+          "Printing materials",
+          "Content strategy for social media",
         ],
       },
       {
@@ -227,6 +251,11 @@ const generateUUIDs = (): Project[] => {
           "  OMEGA Laboratories ",
           "26 Apr 2022",
           "Lorik Zekaj",
+        ],
+        brandingList: [
+          "Branding and identity",
+          "Printing materials",
+          "Content strategy for social media",
         ],
       },
     ];

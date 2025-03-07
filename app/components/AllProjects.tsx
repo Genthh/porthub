@@ -16,12 +16,12 @@ const AllProjects: React.FC = () => {
       { opacity: 0 },
       {
         opacity: 1,
-        duration: 1.5, // Slightly longer duration for a smoother fade-in
-        ease: "power2.out", // Softer easing for a natural transition
-        stagger: 0.3, // A bit more delay between items for a cascading effect
+        duration: 1.5,
+        ease: "power2.out",
+        stagger: 0.3,
       }
     );
-  
+
     imageRefs.current.forEach((img) => {
       if (img) {
         gsap.set(img, { scale: 1 });
@@ -33,7 +33,7 @@ const AllProjects: React.FC = () => {
         });
       }
     });
-  
+
     linkRefs.current.forEach((link) => {
       if (link) {
         gsap.set(link, { x: 0 });
@@ -46,7 +46,6 @@ const AllProjects: React.FC = () => {
       }
     });
   }, []);
-  
 
   return (
     <div className="grid grid-cols-1 max-w-7xl mx-auto md:grid-cols-2 xl:grid-cols-3 gap-x-8 px-4 md:px-8">
@@ -68,7 +67,7 @@ const AllProjects: React.FC = () => {
               </p>
             </div>
             <Link
-              href={`/projectDetails/${project.uuid}/`}
+              href={`/projectDetails/${project.uuid}`}
               ref={(el) => {
                 linkRefs.current[index] = el;
               }}
@@ -88,22 +87,22 @@ const AllProjects: React.FC = () => {
                   d="M9 5l7 7-7 7"
                 />
               </svg>
-          </Link>
+            </Link>
           </div>
-          {/* <Link
-              href={`/projectDetails/${project.uuid}/`}
-              > */}
-          <Image
-            src={project.image}
-            alt={project.title}
-            ref={(el) => {
-              imageRefs.current[index] = el;
-            }}
-            height={400}
-            width={400}
-            className="w-full h-72 object-cover my-2 rounded-lg cursor-pointer hover-effect"
+
+          {/* Wrap Image inside Link to make it clickable */}
+          <Link href={`/projectDetails/${project.uuid}`}>
+            <Image
+              src={project.image}
+              alt={project.title}
+              ref={(el) => {
+                imageRefs.current[index] = el;
+              }}
+              height={400}
+              width={400}
+              className="w-full h-72 object-cover my-2 rounded-lg cursor-pointer hover-effect"
             />
-            {/* </Link> */}
+          </Link>
         </div>
       ))}
     </div>

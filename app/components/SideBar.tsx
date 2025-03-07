@@ -58,6 +58,15 @@ export const SideBar = () => {
             <SocialMediaLinks />
           </div>
         </div>
+        <div>
+
+        <button
+          className="bg-light w-full mb-5 text-sm border border-customColor rounded-full hover:bg-primary hover:text-white duration-150 ease-in py-3 flex justify-center items-center"
+        >
+          <a href="/Resume - Lorik Zekaj.pdf" download="Resume - Lorik Zekaj.pdf" className="w-full h-full flex justify-center items-center">
+            Download CV
+          </a>
+        </button>
         <Link
           href="/contact"
           className="text-white text-sm border border-customColor rounded-full hover:bg-white hover:text-primary duration-150 ease-in py-3 flex justify-center items-center gap-x-5 group"
@@ -73,8 +82,10 @@ export const SideBar = () => {
           >
             <path d="m457 61h-402a55.06 55.06 0 0 0 -55 55v280a55.06 55.06 0 0 0 55 55h402a55.06 55.06 0 0 0 55-55v-280a55.06 55.06 0 0 0 -55-55zm25 55v280a24.24 24.24 0 0 1 -.27 3.63l-144.22-143.63 144.22-143.63a24.24 24.24 0 0 1 .27 3.63zm-25-25a26 26 0 0 1 3.44.24l-204.44 203.59-204.44-203.59a26 26 0 0 1 3.44-.24zm-426.73 308.63a24.24 24.24 0 0 1 -.27-3.63v-280a24.24 24.24 0 0 1 .27-3.63l144.22 143.63zm24.73 21.37a26 26 0 0 1 -3.44-.24l144.19-143.59 49.67 49.46a15 15 0 0 0 21.16 0l49.67-49.46 144.19 143.59a26 26 0 0 1 -3.44.24z" />
           </svg>
-          Work With Us
+          Work With Me
         </Link>
+        </div>
+
       </div>
 
       <div className="flex justify-between items-center px-5 w-full py-5 lg:hidden fixed z-40 top-0">

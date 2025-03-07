@@ -76,7 +76,7 @@ export const Navbar = () => {
     <>
       <div
         ref={navbarRef}
-        className={`md:px-6 py-4 w-full max-w-3xl border mt-2 z-1000 rounded-2xl ml-5 border-customColor hidden md:block fixed top-0  transition-all duration-300 ease-in-out ${
+        className={`md:px-6 py-4 w-full max-w-6xl border mt-2 z-1000 rounded-2xl ml-5 border-customColor hidden md:block fixed top-0  transition-all duration-300 ease-in-out ${
           isScrolled ? "py-2 scale-95 bg-opacity-80 backdrop-blur-md" : ""
         }`}
       >
@@ -85,17 +85,20 @@ export const Navbar = () => {
             ref={buttonRef}
             className="rounded-full bg-white px-6 mr-20 font-bold py-1 text-black"
           >
-            Lorik Zekaj
+            Lorik Zekajj
           </button>
           <div className="flex gap-x-8">
-            {["Home", "Projects", "Contact"].map((text, index) => (
+            {[
+              { text: "Home", href: "/" },
+              { text: "Projects", href: "/projects" },
+              { text: "Contact", href: "/contact" },
+            ].map((item, index) => (
               <Link
                 key={index}
-                href="/"
-                // ref={(el) => (linkRefs.current[index] = el)}
+                href={item.href}
                 className="relative text-white font-medium cursor-pointer group transition-all"
               >
-                {text}
+                {item.text}
                 <span
                   ref={(el) => {
                     borderRefs.current[index] = el;
@@ -119,13 +122,17 @@ export const Navbar = () => {
             <CloseIcon/>
             </div>
             <div className="flex flex-col justify-center h-5/6 mb-40 gap-y-10">
-              {["Home", "Projects", "Contact"].map((text, index) => (
+              {[
+                { text: "Home", href: "/" },
+                { text: "Projects", href: "/projects" },
+                { text: "Contact", href: "/contact" },
+              ].map((item, index) => (
                 <Link
                   key={index}
-                  href="/"
-                  className="relative text-white  text-4xl  font-medium cursor-pointer group transition-all"
+                  href={item.href}
+                  className="relative text-white text-4xl font-medium cursor-pointer group transition-all"
                 >
-                  {text}
+                  {item.text}
                   <span
                     ref={(el) => {
                       borderRefs.current[index] = el;
