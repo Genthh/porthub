@@ -5,6 +5,7 @@ import BurgerMenu from "../_svgs/burgerMenu.svg";
 import CloseIcon from "../_svgs/closeIcon.svg";
 import SocialMediaLinks from "./SocialMediaLinks";
 import { useGSAP } from "@gsap/react";
+import { DownloadCvButton } from "./controlled/DownloadCvButton";
 
 export const Navbar = () => {
   const navbarRef = useRef<HTMLDivElement | null>(null);
@@ -76,16 +77,17 @@ export const Navbar = () => {
     <>
       <div
         ref={navbarRef}
-        className={`md:px-6 py-4 w-full max-w-6xl border mt-2 z-1000 rounded-2xl ml-5 border-customColor hidden md:block fixed top-0  transition-all duration-300 ease-in-out ${
+        // className="bg-red-400"
+        className={`py-4 w-full max-w-[88rem] border mt-2 z-1000 rounded-2xl px-6 border-customColor hidden md:block fixed top-0  transition-all duration-300 ease-in-out ${
           isScrolled ? "py-2 scale-95 bg-opacity-80 backdrop-blur-md" : ""
         }`}
       >
-        <div className="flex m justify-between items-center">
+        <div className="flex  justify-between items-center">
           <button
             ref={buttonRef}
-            className="rounded-full bg-white px-6 mr-20 font-bold py-1 text-black"
+            className="rounded-full bg-white px-6  font-bold py-1 text-black"
           >
-            Lorik Zekajj
+            Lorik Zekaj
           </button>
           <div className="flex gap-x-8">
             {[
@@ -113,9 +115,12 @@ export const Navbar = () => {
 
       {/* mobile menu */}
       <div className="flex flex-col lg:hidden fixed z-1000 top-0 right-0 px-8 py-6">
-        <div onClick={toggleMenu} className="cursor-pointer">
-          <BurgerMenu />
-        </div>
+      <div
+        onClick={toggleMenu}
+        className="cursor-pointer bg-white/20 backdrop-blur-lg p-2 rounded-full "
+      >
+        <BurgerMenu />
+      </div>
         {isOpen && (
           <div  className="w-full px-7 z-1000 fixed left-0 top-0 h-full bg-primary">
             <div onClick={toggleMenu} className="absolute cursor-pointer z-50 top-0 right-0 flex justify-end items-center m-5 closeIcon">
@@ -142,6 +147,9 @@ export const Navbar = () => {
                 </Link>
               ))}
         <SocialMediaLinks />
+        <div className="w-4/5">
+        <DownloadCvButton/>
+        </div>
             </div>
 
           </div>

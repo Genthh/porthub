@@ -167,7 +167,7 @@ const ThirdSection = ({ project }: { project: Project }) => {
   return (
     <div className="red-div w-screen  bottom-0 left-0 z-50 flex flex-col text-white">
       <div className="lg:max-w-7xl w-full mx-auto py-10 px-3 lg:px-0">
-        <div className="flex lg:flex-row flex-col justify-between lg:gap-x-40">
+        {/* <div className="flex lg:flex-row flex-col justify-between lg:gap-x-40">
           <p className="md:text-4xl text-2xl font-bold">Brand overview</p>
           <div className="flex flex-col gap-y-5">
             <p className="text-gray-400 flex flex-col text-lg gap-y-5 max-w-4xl">
@@ -182,7 +182,7 @@ const ThirdSection = ({ project }: { project: Project }) => {
             </p>
             <p className="text-xl font-bold">{project?.brandingList?.[2]}</p>
           </div>
-        </div>
+        </div> */}
 
         {/* IMAGES WITH SCROLL ANIMATION */}
         <div className="flex flex-col mt-20 max-w-8xl overflow-hidden">

@@ -5,6 +5,7 @@ import { gsap } from "gsap";
 import { Menu } from "./Menu";
 import Link from "next/link";
 import SocialMediaLinks from "./SocialMediaLinks";
+import { DownloadCvButton } from "./controlled/DownloadCvButton";
 
 export const SideBar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -36,7 +37,7 @@ export const SideBar = () => {
             <button className="rounded-full bg-white px-6 font-bold py-1">
               Lorik Zekaj
             </button>
-            <div onClick={toggleMenu} className="cursor-pointer">
+            <div onClick={toggleMenu} className="cursor-pointer bg-white/20 backdrop-blur-lg p-2 rounded-full">
               <BurgerMenu />
             </div>
           </div>
@@ -59,14 +60,7 @@ export const SideBar = () => {
           </div>
         </div>
         <div>
-
-        <button
-          className="bg-light w-full mb-5 text-sm border border-customColor rounded-full hover:bg-primary hover:text-white duration-150 ease-in py-3 flex justify-center items-center"
-        >
-          <a href="/Resume - Lorik Zekaj.pdf" download="Resume - Lorik Zekaj.pdf" className="w-full h-full flex justify-center items-center">
-            Download CV
-          </a>
-        </button>
+        <DownloadCvButton/>
         <Link
           href="/contact"
           className="text-white text-sm border border-customColor rounded-full hover:bg-white hover:text-primary duration-150 ease-in py-3 flex justify-center items-center gap-x-5 group"
@@ -90,7 +84,7 @@ export const SideBar = () => {
 
       <div className="flex justify-between items-center px-5 w-full py-5 lg:hidden fixed z-40 top-0">
         <div className="rounded-full bg-white px-8 py-2"> Lorik Zekaj</div>
-        <div onClick={toggleMenu} className="cursor-pointer">
+        <div onClick={toggleMenu} className="cursor-pointer bg-black/20 backdrop-blur-lg p-2 rounded-full">
           <BurgerMenu />
         </div>
       </div>

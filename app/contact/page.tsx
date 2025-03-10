@@ -18,7 +18,6 @@ const Page = () => {
   return (
     <div className="mx-auto max-w-8xl flex flex-col justify-center relative">
       <Navbar/>
-
       <SmoothScrollingWrapper />
     </div>
   );

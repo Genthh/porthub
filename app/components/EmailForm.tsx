@@ -51,7 +51,7 @@ const ContactForm = () => {
   return (
     <div className="bg-[#333333] text-white lg:ml-[333px] lg:mr-[100px] md:py-14 py-7 mx-3 lg:mx-0 rounded-2xl flex flex-col lg:px-10 px-3 mb-10  h-fit">
       <header className="flex mx-7 md:mx-0 flex-wrap justify-between  items-center mb-10">
-        <h2 className="text-4xl font-semibold mt-5 md:mt-0 uppercase tracking-tighter">
+        <h2 className="text-4xl font-semibold mt-5 md:mt-0  tracking-tighter">
           Let's Chat!
         </h2>
         <p className="text-sm mt-5 mb-10 md:mt-0 md:mb-0 md:w-1/2 md:pl-4">

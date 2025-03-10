@@ -5,6 +5,7 @@ import CloseIcon from "../_svgs/closeIcon.svg";
 import PlusIcon from "../_svgs/plusIcon.svg";
 import { hoverMenuItemAnimation } from "./animations";
 import SocialMediaLinks from "./SocialMediaLinks";
+import { DownloadCvButton } from "./controlled/DownloadCvButton";
 
 export const Menu: React.FC<{ toggleMenu: () => void; isOpen: boolean }> = ({
   toggleMenu,
@@ -33,7 +34,7 @@ export const Menu: React.FC<{ toggleMenu: () => void; isOpen: boolean }> = ({
         <CloseIcon />
       </div>
 
-      <div className="flex flex-col bg-blue-400 justify-start md:justify-center h-full w-full md:ml- mx-10 md:mx-0 py-40 md:py-0 text-white">
+      <div className="flex flex-col  justify-start md:justify-center h-full w-full md:ml-40 mx-10 md:mx-0 py-40 md:py-0 text-white">
         <ul className="md:text-5xl text-3xl space-y-10 font-bold max-w-56 justify-between md:max-w-72">
           {[
             { name: "Home", href: "/" },
@@ -64,9 +65,10 @@ export const Menu: React.FC<{ toggleMenu: () => void; isOpen: boolean }> = ({
         </ul>
         <div className="block md:hidden mt-10">
         <SocialMediaLinks />
-        <p className="mt-4 text-gray-400 text-base anim-text">
+        <p className="my-4 text-gray-400  text-base anim-text">
           © 2024, All Rights Reserved
         </p>
+        <DownloadCvButton/>
         </div>
       </div>
 
@@ -83,6 +85,10 @@ export const Menu: React.FC<{ toggleMenu: () => void; isOpen: boolean }> = ({
         <p className="my-8 text-gray-400 text-base anim-text">
           © 2024, All Rights Reserved
         </p>
+        <div className="w-full px-10">
+
+        <DownloadCvButton/>
+        </div>
       </div>
     </div>
   );
