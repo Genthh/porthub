@@ -48,7 +48,7 @@ const AllProjects: React.FC = () => {
   }, []);
 
   return (
-    <div className="grid grid-cols-1 max-w-7xl mx-auto md:grid-cols-2 xl:grid-cols-3 gap-x-8 px-4 md:px-8">
+    <div className="grid lg:mt-28 grid-cols-1 max-w-7xl mx-auto md:grid-cols-2 xl:grid-cols-3 gap-x-8 px-4 md:px-8">
       {projects.map((project, index) => (
         <div
           key={index}

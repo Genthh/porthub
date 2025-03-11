@@ -9,7 +9,7 @@ const SmoothScrollingWrapper = () => {
   return (
     <div className="">
       <SmoothScroll>
-        <h1 className="md:text-7xl text-5xl font-bold text-center md:mt-14 mt-10 py-10">Our Projects</h1>
+        {/* <h1 className="md:text-7xl text-5xl font-bold text-center md:mt-14 mt-10 py-10">Our Projects</h1> */}
         <AllProjects />
       </SmoothScroll>
     </div>

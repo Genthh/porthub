@@ -9,16 +9,32 @@ import { DownloadCvButton } from "./controlled/DownloadCvButton";
 
 export const Navbar = () => {
   const navbarRef = useRef<HTMLDivElement | null>(null);
+  const sidebarRef = useRef<HTMLDivElement | null>(null);
   const buttonRef = useRef<HTMLButtonElement | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const linkRefs = useRef<(HTMLAnchorElement | null)[]>([]);
   const borderRefs = useRef<(HTMLSpanElement | null)[]>([]);
-  const sidebarRef = useRef(null);
-  console.log(isOpen);
+
   const toggleMenu = () => {
-    setIsOpen((prev) => !prev);
+    if (!isOpen) {
+      gsap.to(sidebarRef.current, {
+        x: 0,
+        opacity: 1,
+        duration: 0.5,
+        ease: "power3.out",
+      });
+    } else {
+      gsap.to(sidebarRef.current, {
+        x: "100%",
+        opacity: 0,
+        duration: 0.5,
+        ease: "power3.in",
+      });
+    }
+    setIsOpen(!isOpen);
   };
+
   useEffect(() => {
     gsap.fromTo(
       navbarRef.current,
@@ -75,17 +91,17 @@ export const Navbar = () => {
 
   return (
     <>
+      {/* Desktop Navbar */}
       <div
         ref={navbarRef}
-        // className="bg-red-400"
-        className={`py-4 w-full max-w-[88rem] border mt-2 z-1000 rounded-2xl px-6 border-customColor hidden md:block fixed top-0  transition-all duration-300 ease-in-out ${
+        className={`py-4 w-full max-w-7xl border mt-2 z-1000 rounded-2xl px-6 border-customColor hidden md:block fixed top-0 transition-all duration-300 ease-in-out ${
           isScrolled ? "py-2 scale-95 bg-opacity-80 backdrop-blur-md" : ""
         }`}
       >
-        <div className="flex  justify-between items-center">
+        <div className="flex justify-between items-center">
           <button
             ref={buttonRef}
-            className="rounded-full bg-white px-6  font-bold py-1 text-black"
+            className="rounded-full bg-white px-6 font-bold py-1 text-black"
           >
             Lorik Zekaj
           </button>
@@ -113,47 +129,57 @@ export const Navbar = () => {
         </div>
       </div>
 
-      {/* mobile menu */}
-      <div className="flex flex-col lg:hidden fixed z-1000 top-0 right-0 px-8 py-6">
-      <div
-        onClick={toggleMenu}
-        className="cursor-pointer bg-white/20 backdrop-blur-lg p-2 rounded-full "
-      >
-        <BurgerMenu />
-      </div>
-        {isOpen && (
-          <div  className="w-full px-7 z-1000 fixed left-0 top-0 h-full bg-primary">
-            <div onClick={toggleMenu} className="absolute cursor-pointer z-50 top-0 right-0 flex justify-end items-center m-5 closeIcon">
-            <CloseIcon/>
-            </div>
-            <div className="flex flex-col justify-center h-5/6 mb-40 gap-y-10">
-              {[
-                { text: "Home", href: "/" },
-                { text: "Projects", href: "/projects" },
-                { text: "Contact", href: "/contact" },
-              ].map((item, index) => (
-                <Link
-                  key={index}
-                  href={item.href}
-                  className="relative text-white text-4xl font-medium cursor-pointer group transition-all"
-                >
-                  {item.text}
-                  <span
-                    ref={(el) => {
-                      borderRefs.current[index] = el;
-                    }}
-                    className="absolute left-0 bottom-0 w-full h-[2px] bg-white scale-x-0 group-hover:scale-x-100 transition-transform"
-                  />
-                </Link>
-              ))}
-        <SocialMediaLinks />
-        <div className="w-4/5">
-        <DownloadCvButton/>
+      {/* Mobile Menu */}
+      <div className="flex flex-col lg:hidden fixed  z-1000 top-0 right-0 px-8 py-6">
+        {/* Burger Menu Button */}
+        <div
+          onClick={toggleMenu}
+          className="cursor-pointer bg-white/20 backdrop-blur-lg p-2 rounded-full"
+        >
+          <BurgerMenu />
         </div>
-            </div>
 
+        {/* Sidebar Menu */}
+        <div
+          ref={sidebarRef}
+          className="fixed right-0 top-0 h-full w-full bg-primary shadow-lg p-8 flex flex-col items-start justify-center transform translate-x-full opacity-0"
+        >
+          {/* Close Button */}
+          <div
+            onClick={toggleMenu}
+            className="absolute cursor-pointer z-50 top-5 right-5"
+          >
+            <CloseIcon />
           </div>
-        )}
+
+          {/* Menu Links */}
+          <div className="flex flex-col justify-center h-5/6 gap-y-10 mt-16">
+            {[
+              { text: "Home", href: "/" },
+              { text: "Projects", href: "/projects" },
+              { text: "Contact", href: "/contact" },
+            ].map((item, index) => (
+              <Link
+                key={index}
+                href={item.href}
+                className="relative text-white text-4xl font-medium cursor-pointer group transition-all"
+              >
+                {item.text}
+                <span
+                  ref={(el) => {
+                    borderRefs.current[index] = el;
+                  }}
+                  className="absolute left-0 bottom-0 w-full h-[2px] bg-white scale-x-0 group-hover:scale-x-100 transition-transform"
+                />
+              </Link>
+            ))}
+
+            <SocialMediaLinks />
+            <div className="w-4/5">
+              <DownloadCvButton />
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );
