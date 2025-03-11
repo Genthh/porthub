@@ -95,7 +95,7 @@ export const Navbar = () => {
       <div
         ref={navbarRef}
         className={`py-4 w-full max-w-7xl border mt-2 z-1000 rounded-2xl px-6 border-customColor hidden md:block fixed top-0 transition-all duration-300 ease-in-out ${
-          isScrolled ? "py-2 scale-95 bg-opacity-80 backdrop-blur-md" : ""
+          isScrolled ? "py-2 scale-95 bg-black/20 backdrop-blur-md" : ""
         }`}
       >
         <div className="flex justify-between items-center">
@@ -134,7 +134,7 @@ export const Navbar = () => {
         {/* Burger Menu Button */}
         <div
           onClick={toggleMenu}
-          className="cursor-pointer bg-white/20 backdrop-blur-lg p-2 rounded-full"
+          className="cursor-pointer bg-black/20 backdrop-blur-lg p-2 rounded-full"
         >
           <BurgerMenu />
         </div>

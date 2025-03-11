@@ -37,7 +37,7 @@ export const SideBar = () => {
             <button className="rounded-full bg-white px-6 font-bold py-1">
               Lorik Zekaj
             </button>
-            <div onClick={toggleMenu} className="cursor-pointer bg-white/20 backdrop-blur-lg p-2 rounded-full">
+            <div onClick={toggleMenu} className="cursor-pointer bg-black/20 backdrop-blur-lg p-2 rounded-full">
               <BurgerMenu />
             </div>
           </div>
