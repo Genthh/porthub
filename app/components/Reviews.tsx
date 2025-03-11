@@ -15,9 +15,7 @@ const Reviews = () => {
   return (
     <div className="lg:ml-[333px] lg:mr-[100px] mx-3 lg:mx-0 pb-14  md:px-10 px-3  bg-[#333333] relative rounded-2xl my-4 text-white experience-container">
       <div className="flex flex-wrap justify-between items-center mx-7 md:mx-0 border-b border-customColor md:py-14 py-7">
-        {/* <h2 className="text-4xl my-5  md:my-0  mx-20 md:mx-0  font-semibold ml-1  tracking-tighter"> */}
         <h2 className="text-5xl font-semibold lg:ml-2  tracking-tighter">
-          
           Experience
         </h2>
         <p className="text-sm mt-5 mb-10 md:mt-0 md:mb-0  md:w-1/2 ">

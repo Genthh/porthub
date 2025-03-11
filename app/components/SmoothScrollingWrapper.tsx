@@ -7,13 +7,13 @@ import EmailForm from "./EmailForm";
 
 export const SmoothScrollingWrapper = () => {
   return (
-    <SmoothScroll>
+    <>
       <AgencyOverview />
       <Projects />
       <Process />
       <Reviews />
       <EmailForm />
       <div className="h-[1vh] ml-80 mx-10 w-full"></div>
-    </SmoothScroll>
+    </>
   );
 };
