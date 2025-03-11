@@ -19,14 +19,14 @@ export const SmoothScrollingWrapper = () => {
     </SmoothScroll>
     </div>
     <div className="block lg:hidden">
-    <SmoothScroll>
+    <>
       <AgencyOverview />
       <Projects />
       <Process />
       <Reviews />
       <EmailForm />
-      <div className="h-[1vh] ml-80 mx-10 w-full"></div>
-    </SmoothScroll>
+      {/* <div className="h-[1vh] ml-80 mx-10 w-full"></div> */}
+    </>
     </div>
     </>
   );
