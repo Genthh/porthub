@@ -53,15 +53,7 @@ export const SideBar = () => {
             <p className="">+383-49-828-434</p>
             <p className="text-center">Based in Prishtina, Kosovo</p>
             <p>(Southeast Europe)</p>
-            <p className="bg-white">
-              TEST
-              </p>
-              <p className="bg-white">
-              TEST
-              </p>
-              <p className="bg-white">
-              TEST
-              </p>
+          
             <p className="my-8 text-customColor text-sm">
               © 2024, All Rights Reserved
             </p>
