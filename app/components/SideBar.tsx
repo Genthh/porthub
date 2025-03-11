@@ -56,6 +56,12 @@ export const SideBar = () => {
             <p className="bg-white">
               TEST
               </p>
+              <p className="bg-white">
+              TEST
+              </p>
+              <p className="bg-white">
+              TEST
+              </p>
             <p className="my-8 text-customColor text-sm">
               © 2024, All Rights Reserved
             </p>
