@@ -74,7 +74,7 @@ const AgencyOverview: React.FC = () => {
   return (
     <div
       ref={containerRef}
-      className="pt-3 flex flex-wrap justify-end gap-x-2  lg:mx-[100px] lg:ml-[148px]"
+      className="pt-3 flex flex-wrap justify-end gap-x-2  lg:mx-[100px] lg:ml-[138px]"
     >
       <MainLayout
         style={{
