@@ -20,7 +20,7 @@ jobs:
       - name: Deploy to Staging (porthub-alpha.vercel.app)
         if: github.ref == 'refs/heads/development'
         run: |
-          vercel --prod --yes --token=${{ secrets.VERCEL_TOKEN }}
+          vercel --dev --yes --token=${{ secrets.VERCEL_TOKEN }}
 
       - name: Deploy to Production (www.lorikzekaj.info)
         if: github.ref == 'refs/heads/main'
